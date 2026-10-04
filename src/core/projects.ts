@@ -1,5 +1,5 @@
 import { contentHash } from './hash.js';
-import { resolveRules } from './rules.js';
+import { resolveRules, ruleHash } from './rules.js';
 import { assertRuleScopes, ContractError, parseContract, unique, validateDraft } from './validation.js';
 import type { ChangeProposal, PackDraft, PackVersion, ProjectBinding, ValidationReport } from './types.js';
 
@@ -22,11 +22,13 @@ export function proposeChange(base: PackVersion, draft: PackDraft, projects: Pro
   draft = validateDraft(draft);
   if (base.id !== draft.id) throw new ContractError('Cannot change pack identity');
   const changedPaths = (['name', 'rules', 'tokens', 'assets', 'sources', 'baselines'] as const)
-    .filter(key => contentHash(base[key]) !== contentHash(draft[key]));
+    .filter(key => key==='rules'
+      ? contentHash(base.rules.map(ruleHash).sort())!==contentHash(draft.rules.map(ruleHash).sort())
+      : contentHash(base[key]) !== contentHash(draft[key]));
   const changedRules = new Set([...base.rules, ...draft.rules].filter(rule => {
     const before = base.rules.find(item => item.id === rule.id);
     const after = draft.rules.find(item => item.id === rule.id);
-    return !before || !after || contentHash(before) !== contentHash(after);
+    return !before || !after || ruleHash(before) !== ruleHash(after);
   }).map(rule => rule.id));
   const changedTokens = new Set([...base.tokens, ...draft.tokens].filter(token => {
     const before = base.tokens.find(item => item.id === token.id);

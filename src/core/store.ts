@@ -64,6 +64,12 @@ export class PackStore {
     }
     return pack;
   }
+  async latest(packId:string):Promise<PackVersion> {
+    identifier(packId);
+    const version=(await this.versions(packId)).at(-1);
+    if(!version)throw new ContractError('Pack has no published version');
+    return this.read(packId,version);
+  }
   async save(options: {
     draft: unknown; session: unknown; acceptance: unknown; requestId: string; expectedBaseVersion: number;
   }): Promise<PackVersion> {

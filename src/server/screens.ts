@@ -1,12 +1,11 @@
 import { contentHash, ContractError, validateDraft } from '../core/index.js';
 import type { PackDraft, Rule, Token } from '../core/types.js';
 import type { Direction } from './model.js';
+import { tokenKinds } from '../design/library.js';
+import { referenceScreenHtml } from '../design/render.js';
 
-export const rendererVersion = 'blocks-1.0';
-const tokenKinds:Record<string,Token['kind']>={
-  'text.primary':'color','surface.page':'color','surface.card':'color','border.subtle':'color','action.primary':'color','action.text':'color',
-  'font.body':'font','type.display':'dimension','space.section':'dimension','space.card':'dimension','radius.control':'dimension','radius.card':'dimension',
-};
+export const rendererVersion = 'blocks-2.0';
+export type RendererVersion='blocks-1.0'|typeof rendererVersion;
 export interface Screen {
   direction: Direction;
   title: string;
@@ -16,7 +15,7 @@ export interface Screen {
   sections: { id:string; layout:'text'|'cards'|'steps'; title:string; body:string; items:{title:string;body:string}[] }[];
 }
 export interface ScreenSnapshot {
-  revision:number; rendererVersion:typeof rendererVersion; screen:Screen; rules:Rule[]; tokens:Token[]; reason:string; hash:string;
+  revision:number; rendererVersion:RendererVersion; screen:Screen; rules:Rule[]; tokens:Token[]; reason:string; hash:string;
 }
 function fields(value:unknown, keys:string[]): asserts value is Record<string,unknown> {
   if (!value || typeof value!=='object' || Array.isArray(value) || Object.keys(value).sort().join(',')!==keys.sort().join(',')) throw new ContractError('Invalid screen fields');
@@ -39,17 +38,17 @@ export function validateScreen(input:unknown):Screen {
   }
   return structuredClone(input) as unknown as Screen;
 }
-export function snapshot(screen:Screen,draft:PackDraft,revision:number,reason:string):ScreenSnapshot {
+export function snapshot(screen:Screen,draft:PackDraft,revision:number,reason:string,version:RendererVersion=rendererVersion):ScreenSnapshot {
   text(reason,2000);validateScreen(screen);
   for(const token of draft.tokens)if(tokenKinds[token.id] && tokenKinds[token.id]!==token.kind)throw new ContractError(`Screen token kind mismatch: ${token.id}`);
-  const data={revision,rendererVersion:rendererVersion as typeof rendererVersion,screen,rules:draft.rules,tokens:draft.tokens,reason};
+  const data={revision,rendererVersion:version,screen,rules:draft.rules,tokens:draft.tokens,reason};
   return {...structuredClone(data),hash:contentHash(data)};
 }
 export function validateSnapshot(input:unknown,draft:PackDraft):ScreenSnapshot {
   fields(input,['revision','rendererVersion','screen','rules','tokens','reason','hash']);
-  if(!Number.isSafeInteger(input.revision) || (input.revision as number)<1 || input.rendererVersion!==rendererVersion) throw new ContractError('Invalid screen revision');
+  if(!Number.isSafeInteger(input.revision) || (input.revision as number)<1 || !['blocks-1.0',rendererVersion].includes(input.rendererVersion as string)) throw new ContractError('Invalid screen revision');
   const checked=validateDraft({...draft,rules:input.rules,tokens:input.tokens,assets:[],baselines:[]});
-  const result=snapshot(validateScreen(input.screen),checked,input.revision as number,input.reason as string);
+  const result=snapshot(validateScreen(input.screen),checked,input.revision as number,input.reason as string,input.rendererVersion as RendererVersion);
   if(input.hash!==result.hash) throw new ContractError('Screen evidence hash mismatch');
   return result;
 }
@@ -60,6 +59,7 @@ export function latestScreen(history:ScreenSnapshot[],direction:Direction,previo
 const escape=(text:string)=>text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;');
 // No arbitrary HTML, CSS, scripts, URLs or remote assets enter this renderer.
 export function screenHtml(input:ScreenSnapshot):string {
+  if(input.rendererVersion==='blocks-2.0')return referenceScreenHtml(input);
   const screen=input.screen;
   const variables=input.tokens.map(token=>`--${token.id.replaceAll('.','-')}:${token.value};`).join('');
   return `<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(screen.title)}</title><style>

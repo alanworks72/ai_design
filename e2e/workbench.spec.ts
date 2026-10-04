@@ -134,3 +134,35 @@ test('generated content updates in place, compares history and reuses the accept
   await page.getByRole('button',{name:'이 프로젝트 화면 수용'}).click();await expect(page.getByText('✓ 프로젝트 화면 수용 완료')).toBeVisible();
   await page.reload();await expect(page.getByText('✓ 프로젝트 화면 수용 완료')).toBeVisible();
 });
+
+for(const choice of ['project-exception','pack-change','keep'] as const)test(`style conflict choice ${choice} waits for scope and final screen acceptance`,async({page})=>{
+  const service=await WorkbenchService.create(path.resolve('.design-workspace/e2e'));
+  const source=await service.create('스타일 변경 테스트');await service.select(source.session.id,0,'editorial');const saved=await service.save(source.session.id,1);
+  let project=await service.reuse(source.session.id,'작업 소개');
+  const screen:Screen={direction:'editorial',title:'변경 전 화면',eyebrow:'TEST',summary:'변경 전의 소개입니다.',action:'연락 안내',sections:[{id:'work',layout:'text',title:'작업',body:'작업을 소개합니다.',items:[]}]};
+  project=await service.submit({sessionId:project.session.id,expectedRevision:0,feedbackIds:[],selected:'editorial',rules:project.draft.rules,tokens:project.draft.tokens,screens:[screen],reason:'기존 팩을 적용했습니다.'});
+  await service.select(project.session.id,1,'editorial');project=await service.feedback(project.session.id,2,'빠르게 훑는 구성으로 바꾸고 싶어요.');
+  const rule={...directionRule('workspace'),origin:{type:'user-feedback' as const,referenceId:project.session.feedback[0]!.id}};
+  await service.submit({sessionId:project.session.id,expectedRevision:3,feedbackIds:[project.session.feedback[0]!.id],selected:'workspace',rules:[rule],tokens:project.draft.tokens,screens:[{...screen,direction:'workspace',title:'변경 후 화면'}],reason:'읽기 중심의 구성을 정보 요약 구성으로 바꿉니다. 기존 규칙과 달라 범위를 선택해야 합니다.'});
+  await page.goto(`/sessions/${project.session.id}`);await expect(page.getByText('기존 스타일과 다른 요청이 있습니다.',{exact:true})).toBeVisible();
+  await page.setViewportSize({width:360,height:640});
+  expect(await page.locator('#main').evaluate(element=>element.scrollHeight<=element.clientHeight)).toBe(true);
+  await expect(page.getByRole('button',{name:'이 프로젝트 화면 수용'})).toBeDisabled();
+  await page.getByRole('button',{name:'01 화면 비교',exact:true}).click();await expect(page.frameLocator('iframe').getByRole('heading',{name:'변경 전 화면'})).toBeVisible();
+  await page.getByRole('button',{name:/03 규칙 확인/}).click();
+  const label=choice==='project-exception'?'이번 프로젝트만 변경':choice==='pack-change'?'개인 팩 새 버전으로 변경':'기존 규칙 유지';
+  await page.getByRole('button',{name:label,exact:true}).click();
+  if(choice==='keep') {
+    await expect(page.getByText('기존 규칙을 유지했습니다.',{exact:true})).toBeVisible();
+    await page.getByRole('button',{name:'01 화면 비교',exact:true}).click();await expect(page.frameLocator('iframe').getByRole('heading',{name:'변경 전 화면'})).toBeVisible();
+    return;
+  }
+  await expect(page.getByText('적용 범위를 선택했습니다. 화면을 확인해 주세요.',{exact:true})).toBeVisible();
+  await page.getByRole('button',{name:'변경 화면 확인',exact:true}).click();await expect(page.frameLocator('iframe').getByRole('heading',{name:'변경 후 화면'})).toBeVisible();
+  await page.getByRole('button',{name:/03 규칙 확인/}).click();
+  await page.getByRole('button',{name:choice==='project-exception'?'이 프로젝트 화면 수용':'변경 화면을 수용하고 새 버전 저장'}).click();
+  await expect(page.getByText(choice==='project-exception'?'✓ 프로젝트 화면 수용 완료':'✓ 개인 디자인 팩 저장 완료',{exact:true})).toBeVisible();
+  await page.reload();await expect(page.getByText('변경을 수용했습니다.',{exact:true})).toBeVisible();
+  expect((await service.packs.read(saved.saved!.id,1)).rules[0]!.effect.value).toBe('editorial');
+  if(choice==='pack-change')expect((await service.packs.read(saved.saved!.id,2)).rules[0]!.effect.value).toBe('workspace');
+});

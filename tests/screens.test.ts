@@ -58,7 +58,8 @@ test('reuse pins the pack and persists project acceptance without publishing a n
   const project=await service.reuse(work.session.id,'개인 포트폴리오');
   assert.equal(project.generation.binding!.packHash,packBefore.hash);
   const submission={...input(project.session.id,0),rules:project.draft.rules,tokens:project.draft.tokens};
-  await assert.rejects(service.submit({...submission,tokens:[{...submission.tokens[0]!,value:'#ffffff'}]}),/고정된 팩/);
+  const {screens,reason,...ruleOnly}=submission;
+  await assert.rejects(service.submit({...ruleOnly,tokens:[{...submission.tokens[0]!,value:'#ffffff'}]}),/피드백 목록/);
   await service.submit(submission);await service.select(project.session.id,1,'editorial');
   const accepted=await service.save(project.session.id,2);
   assert.equal(accepted.generation.accepted,true);assert.equal(accepted.saved,null);
@@ -69,7 +70,7 @@ test('reuse pins the pack and persists project acceptance without publishing a n
 test('legacy sessions remain readable with empty generation state',async()=>{
   const service=await setup();const work=await service.create('기존 협의');
   const {generation,...legacy}=work;
-  assert.deepEqual(validateWork(legacy).generation,{history:[],binding:null,accepted:false});
+  assert.deepEqual(validateWork(legacy).generation,{history:[],binding:null,accepted:false,change:null});
 });
 
 test('screen submission preserves the rule chosen in a conflict instead of silently replacing it',async()=>{

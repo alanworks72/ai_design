@@ -3,9 +3,10 @@ import type { IncomingMessage, Server, ServerResponse } from 'node:http';
 import { randomBytes, timingSafeEqual } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readFile } from 'node:fs/promises';
 import { ContractError, WorkspaceBusyError } from '../core/index.js';
 import { WorkbenchService } from './service.js';
-import { candidateHtml } from './preview.js';
+import { candidateHtml, legacyCandidateHtml } from './preview.js';
 import { latestScreen, screenHtml } from './screens.js';
 
 const base = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../workbench');
@@ -44,15 +45,20 @@ export async function startWorkbench(options: { root:string; port?:number; previ
     try {
       if (req.headers.host !== new URL(previewOrigin).host || req.method !== 'GET') { res.writeHead(403); res.end(); return; }
       const url = new URL(req.url!,previewOrigin);
+      if(url.pathname==='/fonts/PretendardVariable.woff2') {
+        const font=await readFile(path.join(base,'public/fonts/PretendardVariable.woff2'));
+        res.writeHead(200,{'Content-Type':'font/woff2','Cache-Control':'public, max-age=86400','Access-Control-Allow-Origin':'*','X-Content-Type-Options':'nosniff'});res.end(font);return;
+      }
       const match = /^\/preview\/(session-[a-z0-9-]+)\/(editorial|workspace)$/.exec(url.pathname);
       if (!match || url.searchParams.get('token') !== capability) { res.writeHead(403); res.end(); return; }
       const work = await service.sessions.read(match[1]!);
       res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff',
-        'Content-Security-Policy':`default-src 'none'; style-src 'unsafe-inline'; frame-ancestors ${uiOrigin}; form-action 'none'; base-uri 'none'`,
+        'Content-Security-Policy':`default-src 'none'; style-src 'unsafe-inline'; font-src http://127.0.0.1:${previewPort}; frame-ancestors ${uiOrigin}; form-action 'none'; base-uri 'none'`,
         'Referrer-Policy':'no-referrer'});
       const direction=match[2] as 'editorial'|'workspace';
-      const generated=latestScreen(work.generation.history,direction,url.searchParams.get('previous')==='1');
-      res.end(generated?screenHtml(generated):candidateHtml(direction,work.session.brief.purpose));
+      const generated=url.searchParams.get('reference')==='1'?undefined:latestScreen(work.generation.history,direction,url.searchParams.get('previous')==='1');
+      const previousLegacy=url.searchParams.get('previous')==='1' && latestScreen(work.generation.history,direction)?.rendererVersion==='blocks-1.0';
+      res.end(generated?screenHtml(generated):previousLegacy?legacyCandidateHtml(direction,work.session.brief.purpose):candidateHtml(direction,work.session.brief.purpose));
     } catch { res.writeHead(404); res.end('미리보기를 불러올 수 없습니다.'); }
   });
   const previewPort = await listen(preview,options.previewPort ?? 4311); previewOrigin = `http://127.0.0.1:${previewPort}`;
@@ -88,7 +94,7 @@ export async function startWorkbench(options: { root:string; port?:number; previ
       if (url.pathname === '/api/import' && req.method === 'POST') {
         json(res,201,service.view(await service.import(await body(req))));return;
       }
-      const match=/^\/api\/sessions\/(session-[a-z0-9-]+)(?:\/(select|feedback|conflict|save|export|pack|handoff|reuse))?$/.exec(url.pathname);
+      const match=/^\/api\/sessions\/(session-[a-z0-9-]+)(?:\/(select|feedback|conflict|save|export|pack|handoff|reuse|change|cancel-change|revise))?$/.exec(url.pathname);
       if (!match) { json(res,404,{error:'경로를 찾을 수 없습니다.'});return; }
       const id=match[1]!,action=match[2];
       if(req.method==='GET') {
@@ -109,6 +115,9 @@ export async function startWorkbench(options: { root:string; port?:number; previ
         if(typeof input.conflictId!=='string'||typeof input.selectedRuleId!=='string') throw new ContractError('Invalid conflict');
         result=await service.conflict(id,rev,input.conflictId,input.selectedRuleId);}
       else if(action==='save') {fields(input,['revision']);result=await service.save(id,rev);}
+      else if(action==='change') {fields(input,['revision','proposalId','choice']);if(typeof input.proposalId!=='string')throw new ContractError('Invalid proposal');result=await service.decideChange(id,rev,input.proposalId,input.choice);}
+      else if(action==='cancel-change') {fields(input,['revision']);result=await service.cancelChange(id,rev);}
+      else if(action==='revise') {fields(input,['revision']);const work=await service.sessions.read(id);if(work.session.revision!==rev)throw new ContractError('최신 프로젝트를 확인해 주세요.');result=await service.revise(id);}
       else if(action==='reuse') {fields(input,['revision','purpose']);
         const source=await service.sessions.read(id);if(source.session.revision!==rev)throw new ContractError('최신 협의를 확인해 주세요.');
         if(typeof input.purpose!=='string')throw new ContractError('새 프로젝트의 목적을 입력해 주세요.');
