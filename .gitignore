@@ -1,6 +1,7 @@
 node_modules/
 dist/
 .design-workspace/
+.ai-local/
 coverage/
 *.tsbuildinfo
 .env
