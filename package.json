@@ -1,0 +1,16 @@
+{
+  "name": "personal-ai-design",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json",
+    "test": "tsx --test tests/*.test.ts",
+    "demo": "tsx examples/core-demo.ts",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": { "ajv": "8.20.0" },
+  "devDependencies": { "@types/node": "24.19.1", "tsx": "4.23.15", "typescript": "7.0.2" }
+}
