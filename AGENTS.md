@@ -27,12 +27,16 @@ Node.js 24 이상과 npm을 사용한다. 의존성은 package-lock.json으로 �
 ```sh
 npm ci
 npm run check
+npm run test:e2e
 npm run demo
 ```
 
 PowerShell에서 실행 정책으로 npm 실행이 제한되면 npm.cmd를 사용한다.
 
-- check: 타입 검사, 계약·저장 테스트, Core 빌드.
+- check: 타입 검사, 계약·저장·HTTP 테스트, Core와 UI 빌드.
+- dev: 로컬 비교 UI·API·별도 후보 미리보기 실행.
+- test:e2e: 별도 포트와 데이터 공간의 Chromium 브라우저 흐름 검증. 최초 실행 전 `npm exec playwright install chromium`이 필요하다.
+- agent-submit: 기존 에이전트가 작성한 규칙 제안 JSON의 검증과 세션 반영. 모델 실행이나 사용자 수용이 아니다.
 - demo: 가상의 수용 이벤트를 사용하는 Core 예제. 실제 AI 호출·화면 생성·사용자 수용을 수행하지 않는다.
 - 테스트는 중요한 동작과 실패 경계를 검증한다. 자동 검사 통과를 전체 접근성이나 시각적 품질 보장으로 표현하지 않는다.
 

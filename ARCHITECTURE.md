@@ -1,8 +1,8 @@
 # 개인 AI 디자인 프레임워크 — 구조와 계약
 
-구현 상태: Core 계약 v1.0 제공, 서비스·UI·어댑터 개발 예정.
+구현 상태: Core 계약 v1.0, 로컬 세션 서비스·비교 UI·규칙 제안 제출 CLI 제공.
 
-제품 목적은 [PRODUCT.md](PRODUCT.md), 단계와 검증은 [PLAN.md](PLAN.md)에 정의한다. Core와 팩 저장은 구현했다. 서비스·UI·어댑터 및 아래의 개념 예시는 후속 설계다. 실제 필드 계약은 `src/core/types.ts`와 `src/schemas/contracts.ts`를 기준으로 한다.
+제품 목적은 [PRODUCT.md](PRODUCT.md), 단계와 검증은 [PLAN.md](PLAN.md)에 정의한다. Core·팩/세션 저장과 비교 UI를 구현했다. 실제 AI 후보 생성·도구별 실행 어댑터 및 아래의 일부 개념 예시는 후속 설계다. 실제 필드 계약은 `src/core/types.ts`, `src/schemas/contracts.ts`, `src/server/model.ts`를 기준으로 한다.
 
 ## 현재 Core 구현 범위와 한계
 
@@ -14,7 +14,16 @@
 - tokens.css는 6자리 hex 색상, px/rem/em 간격, ms/s 시간, 제한된 폰트 이름만 지원한다. 전체 디자인 토큰 표준 지원은 후속이다.
 - 프로젝트 바인딩은 팩 ID·버전·해시를 고정한다. 프로젝트 예외가 개인 팩을 수정하지 않는다. 변경 제안은 전후 값·이유·관련 자산과 프로젝트를 기록하며 적용은 별도 수용 단계다.
 - 검수 보고는 실제 화면을 확인하지 않은 항목을 `not-run` 또는 `needs-review`로 표시한다. 시각적 품질을 통과 처리하지 않는다.
-- 현재 assets/references는 메타데이터 계약이다. 실제 컴포넌트 파일·기준 스크린샷 복사·shadcn registry 내보내기·세션 저장·로컬 HTTP API는 미구현이다.
+- 현재 assets/references는 메타데이터 계약이다. 실제 컴포넌트 파일·기준 스크린샷 복사·shadcn registry 내보내기는 미구현이다.
+
+로컬 Workbench 구현:
+
+- `src/server/`는 세션 revision 저장, 규칙 제안 제출, 브라우저 수용, 팩 저장 재시도와 내보내기/가져오기를 담당한다. 가져온 수용 이벤트는 확정 권한으로 사용하지 않는다.
+- `src/workbench/`는 React UI이며 Node 서버에 Vite를 middleware로 연결한다. HMR/WebSocket 서버는 비활성화하고 시작한 두 HTTP 서버만 루프백에 바인딩한다. 개발 전용 서버다.
+- 브라우저 API는 정확한 Host, HttpOnly·SameSite 쿠키를 확인하고 쓰기에는 Origin·전용 헤더·JSON 형식을 추가 확인한다. 쿠키는 실행 때마다 새로 생성하며 재시작 후 페이지를 다시 열어 발급받는다. 로컬 단일 사용자 실행 경계이며 계정 기반 인증은 아니다.
+- 후보는 별도 origin의 빈 sandbox iframe과 제한된 CSP로 표시한다. 현재 HTML은 직접 작성한 템플릿만 사용한다. 에이전트 제출은 규칙·토큰·허용된 방향에 한정하며 HTML·스크립트·사용자 수용은 받지 않는다.
+- 세션 파일은 `sessions/<id>/r<revision>.json`, 파생 전달 파일은 `handoffs/<id>.json`이다. 세션 잠금과 팩 게시 의도를 기록해 수용 후 저장 실패를 중복 수용 없이 재시도한다. 강제 종료로 남은 잠금·임시 파일의 자동 복구는 제공하지 않는다.
+- 브라우저 임시 입력은 localStorage에도 보존한다. 세션·팩과 브라우저 저장소의 민감한 콘텐츠는 암호화하지 않는다. 공유 컴퓨터 사용을 위한 별도 데이터 관리 기능은 후속이다.
 
 ## 1. 구성과 선택 이유
 
@@ -60,7 +69,7 @@ flowchart LR
 
 첫 구현부터 자체 자산 카탈로그에 shadcn registry 형식의 내보내기를 설계한다. 로컬 Core는 이를 해석해 사용할 자산을 결정하고, 원격 Registry/MCP 연결은 후속으로 둔다. 따라서 코드 공급 계층의 참고 설계와 실제 외부 서비스 연동을 구분한다.
 
-개발 요구사항은 Node.js 24 이상과 npm이다. Core 의존성은 package-lock.json으로 고정한다. React·Vite·Playwright는 후속 UI 개발의 기술 선택이며 현재 의존성에 포함되지 않는다.
+개발 요구사항은 Node.js 24 이상과 npm이다. Core·React·Vite·Playwright 의존성은 package-lock.json으로 고정한다.
 
 공식 참고: [React](https://react.dev/learn), [Vite](https://vite.dev/guide/), [JSON Schema](https://json-schema.org/overview/what-is-jsonschema), [Playwright assertions](https://playwright.dev/docs/test-assertions). 선택 이유는 이 프로젝트의 설계 판단이며 공식 문서의 추천으로 표현하지 않는다.
 
@@ -85,7 +94,7 @@ tests/               # 의미 있는 계약·동작 테스트
   projects/<project-id>/
 ```
 
-개인 팩은 `.design-workspace` 안의 자료와 외부에 내보낼 자료를 분리한다. 현재 구현 경로는 `src/core/`, `src/schemas/`, `tests/`, `examples/fixtures.ts`, `examples/core-demo.ts`다. UI·서비스·어댑터·화면 예제는 예정 사항이다. `.design-workspace/`는 Git에서 제외한다.
+개인 팩은 `.design-workspace` 안의 자료와 외부에 내보낼 자료를 분리한다. 현재 구현 경로는 `src/core/`, `src/schemas/`, `src/server/`, `src/workbench/`, `tests/`, `e2e/`, Core 예제다. 도구별 어댑터·실제 AI 생성 화면 예제는 예정 사항이다. `.design-workspace/`는 Git에서 제외한다.
 
 ## 4. 개인 팩과 프로젝트 데이터
 
@@ -265,7 +274,7 @@ Codex는 ChatGPT 로그인과 API 키 인증을 지원하며 Claude Code도 계�
 
 ## 9. 로컬 서비스와 미리보기 경계
 
-이 절은 후속 로컬 서비스와 미리보기 구현의 요구사항이다. 현재 제공하는 PackStore는 신뢰된 로컬 호출자를 위한 Core API이며, HTTP 요청 인증·origin 검사·미리보기 실행 분리는 아직 구현하지 않았다.
+이 절은 로컬 서비스와 미리보기의 구현 요구사항이다. 기본 요청 검사와 직접 작성한 후보의 실행 분리는 현재 제공한다. 임의 생성 코드 실행·계정 인증은 제공하지 않는다. PackStore 자체는 여전히 신뢰된 로컬 호출자를 위한 Core API다.
 
 서비스는 로컬 주소에만 바인딩하고 전용 작업 공간에만 쓴다. 요청 origin과 세션 토큰을 검증하고, 사용자 파일 식별자를 임의의 절대 경로로 해석하지 않는다. 경로 정규화 후 작업 공간 밖을 가리키면 거부한다. 파일 크기·형식과 참조 자산 존재도 검사한다.
 

@@ -3,6 +3,8 @@ dist/
 .design-workspace/
 .ai-local/
 coverage/
+playwright-report/
+test-results/
 *.tsbuildinfo
 .env
 .env.*
