@@ -2,7 +2,7 @@
 
 구현 상태: Core와 로컬 비교 UI 프로토타입 제공.
 
-이 문서는 제품의 목적과 목표 사용자 경험을 정의한다. 현재 Core와 직접 작성한 후보를 사용하는 로컬 비교 UI를 제공한다. 규칙 제안 제출은 가능하지만 실제 AI 후보 생성과 도구별 실행 어댑터는 개발 예정 기능이다. 구조는 [ARCHITECTURE.md](ARCHITECTURE.md), 개발 순서는 [PLAN.md](PLAN.md), 개발 가이드는 [AGENTS.md](AGENTS.md)를 따른다.
+이 문서는 제품의 목적과 목표 사용자 경험을 정의한다. Core와 로컬 비교 UI, 기존 에이전트의 규칙·토큰·블록 화면 제출, 저장 팩의 새 프로젝트 재사용을 제공한다. 브라우저에서 AI를 자동 실행하지 않는다. Codex 파일 제출 흐름은 확인했으며 Claude Code 실행 검증과 자유 코드 생성은 후속이다. 구조는 [ARCHITECTURE.md](ARCHITECTURE.md), 개발 순서는 [PLAN.md](PLAN.md), 개발 가이드는 [AGENTS.md](AGENTS.md)를 따른다.
 
 ## 1. 해결할 문제
 

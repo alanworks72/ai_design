@@ -1,6 +1,8 @@
 import { randomUUID } from 'node:crypto';
 import { ContractError, parseContract, ruleHash, validateDraft, validateSession } from '../core/index.js';
-import type { DesignSession, PackAcceptance, PackDraft, Rule } from '../core/types.js';
+import type { DesignSession, PackAcceptance, PackDraft, Rule, ProjectBinding } from '../core/types.js';
+import { validateSnapshot } from './screens.js';
+import type { ScreenSnapshot } from './screens.js';
 
 export type Direction = 'editorial' | 'workspace';
 export interface WorkSession {
@@ -12,6 +14,7 @@ export interface WorkSession {
   lastSubmission: string | null;
   publication: { acceptance: PackAcceptance; requestId: string } | null;
   saved: { id: string; version: number; hash: string } | null;
+  generation: { history:ScreenSnapshot[]; binding:ProjectBinding|null; accepted:boolean };
 }
 export const uid = (prefix: string) => `${prefix}-${randomUUID()}`;
 export function directionRule(direction: Direction): Rule {
@@ -30,7 +33,8 @@ export function createSession(purpose: string): WorkSession {
       content: ['서비스 소개', '제공 내용', '진행 방식', '문의 안내'], environment: ['모바일 웹', '데스크톱 웹'], constraints: ['문의는 전송되지 않는 예시'] },
     feedback: [], sources: [], rules: [], answers: [], acceptances: [] }, selected: null,
     draft: { schemaVersion: '1.0', id: `pack-${id.slice(8)}`, name: '나의 디자인 팩', rules: [],
-      tokens: [], assets: [], sources: [], baselines: [] }, processedFeedbackIds: [], lastSubmission: null, publication: null, saved: null };
+      tokens: [], assets: [], sources: [], baselines: [] }, processedFeedbackIds: [], lastSubmission: null, publication: null, saved: null,
+    generation:{history:[],binding:null,accepted:false} };
 }
 export function validateWork(input: unknown): WorkSession {
   try { return validateWorkRecord(input); }
@@ -39,9 +43,21 @@ export function validateWork(input: unknown): WorkSession {
 function validateWorkRecord(input: unknown): WorkSession {
   if (!input || typeof input !== 'object') throw new ContractError('Invalid work session');
   const value = structuredClone(input) as WorkSession;
-  const keys = ['schemaVersion','session','selected','draft','processedFeedbackIds','lastSubmission','publication','saved'];
+  // Old revision files remain readable without rewriting their history.
+  if(!('generation' in value)) (value as WorkSession).generation={history:[],binding:null,accepted:false};
+  const keys = ['schemaVersion','session','selected','draft','processedFeedbackIds','lastSubmission','publication','saved','generation'];
   if (Object.keys(value).length !== keys.length || keys.some(key => !(key in value)) || value.schemaVersion !== '1.0') throw new ContractError('Invalid work session fields');
   value.session = validateSession(value.session); value.draft = validateDraft(value.draft);
+  const generation=value.generation;
+  if(!generation || Object.keys(generation).sort().join(',')!=='accepted,binding,history' || typeof generation.accepted!=='boolean'
+    || !Array.isArray(generation.history) || generation.history.length>40) throw new ContractError('Invalid generation state');
+  generation.history=generation.history.map(item=>validateSnapshot(item,value.draft));
+  if(generation.history.some(item=>item.revision>value.session.revision)) throw new ContractError('Future screen revision');
+  if(generation.binding!==null) {
+    generation.binding=parseContract('project',generation.binding);
+    if(generation.binding.id!==value.session.brief.id || generation.binding.brief.purpose!==value.session.brief.purpose
+      || generation.binding.overrides.length || generation.binding.answers.length || value.saved || value.publication) throw new ContractError('Invalid reused project');
+  } else if(generation.accepted) throw new ContractError('Project acceptance requires a binding');
   if (value.draft.rules.some(rule=>!value.session.rules.some(item=>item.id===rule.id && ruleHash(item)===ruleHash(rule)))) throw new ContractError('Draft rule differs from session');
   if (![null,'editorial','workspace'].includes(value.selected)) throw new ContractError('Invalid candidate');
   if (!Array.isArray(value.processedFeedbackIds) || new Set(value.processedFeedbackIds).size !== value.processedFeedbackIds.length

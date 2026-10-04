@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { ContractError, WorkspaceBusyError } from '../core/index.js';
 import { WorkbenchService } from './service.js';
 import { candidateHtml } from './preview.js';
+import { latestScreen, screenHtml } from './screens.js';
 
 const base = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../workbench');
 const cookieName = 'design_workbench';
@@ -49,7 +50,9 @@ export async function startWorkbench(options: { root:string; port?:number; previ
       res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff',
         'Content-Security-Policy':`default-src 'none'; style-src 'unsafe-inline'; frame-ancestors ${uiOrigin}; form-action 'none'; base-uri 'none'`,
         'Referrer-Policy':'no-referrer'});
-      res.end(candidateHtml(match[2] as 'editorial'|'workspace',work.session.brief.purpose));
+      const direction=match[2] as 'editorial'|'workspace';
+      const generated=latestScreen(work.generation.history,direction,url.searchParams.get('previous')==='1');
+      res.end(generated?screenHtml(generated):candidateHtml(direction,work.session.brief.purpose));
     } catch { res.writeHead(404); res.end('미리보기를 불러올 수 없습니다.'); }
   });
   const previewPort = await listen(preview,options.previewPort ?? 4311); previewOrigin = `http://127.0.0.1:${previewPort}`;
@@ -85,7 +88,7 @@ export async function startWorkbench(options: { root:string; port?:number; previ
       if (url.pathname === '/api/import' && req.method === 'POST') {
         json(res,201,service.view(await service.import(await body(req))));return;
       }
-      const match=/^\/api\/sessions\/(session-[a-z0-9-]+)(?:\/(select|feedback|conflict|save|export|pack|handoff))?$/.exec(url.pathname);
+      const match=/^\/api\/sessions\/(session-[a-z0-9-]+)(?:\/(select|feedback|conflict|save|export|pack|handoff|reuse))?$/.exec(url.pathname);
       if (!match) { json(res,404,{error:'경로를 찾을 수 없습니다.'});return; }
       const id=match[1]!,action=match[2];
       if(req.method==='GET') {
@@ -106,6 +109,10 @@ export async function startWorkbench(options: { root:string; port?:number; previ
         if(typeof input.conflictId!=='string'||typeof input.selectedRuleId!=='string') throw new ContractError('Invalid conflict');
         result=await service.conflict(id,rev,input.conflictId,input.selectedRuleId);}
       else if(action==='save') {fields(input,['revision']);result=await service.save(id,rev);}
+      else if(action==='reuse') {fields(input,['revision','purpose']);
+        const source=await service.sessions.read(id);if(source.session.revision!==rev)throw new ContractError('최신 협의를 확인해 주세요.');
+        if(typeof input.purpose!=='string')throw new ContractError('새 프로젝트의 목적을 입력해 주세요.');
+        result=await service.reuse(id,input.purpose);}
       else {json(res,404,{error:'경로를 찾을 수 없습니다.'});return;}
       json(res,200,service.view(result));
     } catch(error) {

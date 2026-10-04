@@ -26,6 +26,8 @@ function App() {
   const [busy,setBusy]=useState(false);const [width,setWidth]=useState<'desktop'|'mobile'>('desktop');
   const [step,setStep]=useState<'compare'|'feedback'|'rules'>('compare');
   const [candidateIndex,setCandidateIndex]=useState(0);
+  const [previous,setPrevious]=useState(false);
+  const [reusePurpose,setReusePurpose]=useState('대표 작업과 경험을 소개하고 연락할 수 있는 개인 포트폴리오를 만들고 싶어요.');
   const working=useRef(false);
   const currentId=useRef(id);currentId.current=id;
   async function refreshList(){setSessions(await api<Summary[]>('/api/sessions'));}
@@ -37,7 +39,7 @@ function App() {
   useEffect(()=>{
     setView(null);setError('');setNotice('');setFeedback(id?cached(`design-feedback-${id}`):'');
     const restored=id?cached(`design-step-${id}`):'compare';
-    setStep(restored==='feedback'||restored==='rules'?restored:'compare');setCandidateIndex(0);
+    setStep(restored==='feedback'||restored==='rules'?restored:'compare');setCandidateIndex(0);setPrevious(false);
     const onPop=()=>setId(/^\/sessions\/(session-[a-z0-9-]+)$/.exec(location.pathname)?.[1]??null);
     window.addEventListener('popstate',onPop);
     if(!id)return()=>window.removeEventListener('popstate',onPop);
@@ -56,8 +58,16 @@ function App() {
     await api(`/api/sessions/${view.session.id}/${action}`,{revision:view.session.revision,...data});
     await refresh(view.session.id);await refreshList();
   }
-  const locked=!!view?.saved||!!view?.publication;
+  const locked=!!view?.saved||!!view?.publication||!!view?.generation.accepted;
   const pending=!!view?.pendingFeedbackIds.length;
+  const screenHistory=view?.generation.history.filter(item=>item.screen.direction===directions[candidateIndex]!.id)??[];
+  const shownScreen=screenHistory.at(previous?-2:-1);
+  const agreementHistory=view?.generation.history.filter(item=>item.screen.direction===view.selected)??[];
+  const currentScreen=agreementHistory.at(-1),oldScreen=agreementHistory.at(-2);
+  const ruleChanges=currentScreen&&oldScreen?currentScreen.rules.filter(rule=>JSON.stringify(rule)!==JSON.stringify(oldScreen.rules.find(old=>old.id===rule.id))):[];
+  const tokenChanges=currentScreen&&oldScreen?currentScreen.tokens.filter(token=>token.value!==oldScreen.tokens.find(old=>old.id===token.id)?.value):[];
+  const removedRules=currentScreen&&oldScreen?oldScreen.rules.filter(rule=>!currentScreen.rules.some(next=>next.id===rule.id)):[];
+  const removedTokens=currentScreen&&oldScreen?oldScreen.tokens.filter(token=>!currentScreen.tokens.some(next=>next.id===token.id)):[];
   return <div className="shell">
     <aside className="rail"><a className="brand" href="/" onClick={e=>{e.preventDefault();open(null);}}><span className="brand-symbol">∴</span> personal design<span className="version">LOCAL / 0.2</span></a>
       <div className="rail-body"><p className="overline">DESIGN WORKSPACE</p><h1>나의 기준으로,<br/>다음 화면도.</h1><p className="rail-copy">화면을 비교하고 선택한 이유를<br/>다시 쓸 수 있는 규칙으로 남깁니다.</p>
@@ -65,7 +75,7 @@ function App() {
       <div className="session-heading">저장된 협의 <span>{sessions.length}</span></div>
       <nav aria-label="협의 목록">{sessions.length===0?<p className="empty">첫 협의를 시작해 보세요.</p>:sessions.map(item=><button className={`session-link ${id===item.id?'active':''}`} key={item.id} onClick={()=>open(item.id)}><span>{item.purpose}</span><small>{item.saved?'팩 저장 완료':item.selected?'협의 중':'후보 선택 전'}</small></button>)}</nav>
       </div><div className="rail-bottom"><span className="status-dot"/> 로컬 저장 · 모델 API 호출 없음</div></aside>
-    <main id="main"><header className="topbar"><span>개인 디자인 워크벤치</span><span className="pill">직접 작성한 후보로 시작</span></header>
+    <main id="main"><header className="topbar"><span>개인 디자인 워크벤치</span><span className="pill">{view?.generation.binding?`팩 v${view.generation.binding.packVersion} 재사용`:view?.generation.history.length?'에이전트 생성 화면':'직접 작성한 후보로 시작'}</span></header>
     <div className="content">
     {error&&<div role="alert" className="alert"><span>{error}</span><button onClick={()=>void perform(async()=>{if(id)await refresh(id);await refreshList();})}>다시 연결</button></div>}
     {notice&&<p className="notice" role="status">{notice}</p>}
@@ -76,27 +86,28 @@ function App() {
       </form><div className="intro-note"><strong>먼저 비교하고, 그다음 규칙으로.</strong><p>같은 콘텐츠의 두 예시를 살펴보세요. 선택만으로 취향이 확정되지는 않습니다.</p></div>
       <label className="import-control">이전에 내보낸 협의 가져오기<input type="file" accept=".json,application/json" disabled={busy} onChange={e=>{const file=e.target.files?.[0];if(!file)return;void perform(async()=>{if(file.size>2_000_000)throw Error('파일은 2MB 이하여야 합니다.');const work=await api<WorkSession>('/api/import',JSON.parse(await file.text()));await refreshList();open(work.session.id);setNotice('가져온 규칙은 제안으로 복원했습니다. 다시 확인하고 수용해 주세요.');});e.target.value='';}}/></label>
     </section>:!view?<p role="status">협의 내용을 불러오는 중입니다.</p>:<>
-      <section className="brief"><h2 title={view.session.brief.purpose}>{view.session.brief.purpose}</h2><div className="brief-meta"><span>방문자 · {view.session.brief.audience}</span><span>핵심 행동 · 소개 확인 → 문의 시작</span></div></section>
+      <section className="brief"><h2 title={view.session.brief.purpose}>{view.session.brief.purpose}</h2><div className="brief-meta"><span>방문자 · {view.session.brief.audience}</span><span>핵심 행동 · {view.session.brief.tasks.join(' → ')}</span></div></section>
       <nav className="workflow-nav" aria-label="협의 단계"><button aria-pressed={step==='compare'} disabled={busy} onClick={()=>changeStep('compare')}>01 화면 비교</button><button aria-pressed={step==='feedback'} disabled={busy||!view.selected} onClick={()=>changeStep('feedback')}>02 피드백{pending?' · 반영 대기':''}</button><button aria-pressed={step==='rules'} disabled={busy||!view.selected} onClick={()=>changeStep('rules')}>03 규칙 확인{view.conflicts.length?` · 충돌 ${view.conflicts.length}`:view.saved?' · 저장됨':''}</button></nav>
       <section className="comparison" hidden={step!=='compare'} aria-labelledby="compare-title"><div className="section-head"><div><h2 id="compare-title">어느 쪽이 더 나다운가요?</h2></div><div className="segmented" aria-label="미리보기 화면 크기"><button aria-pressed={width==='desktop'} onClick={()=>setWidth('desktop')}>넓은 화면</button><button aria-pressed={width==='mobile'} onClick={()=>setWidth('mobile')}>모바일</button></div></div>
-        <p className="section-copy">콘텐츠와 기능은 같습니다. 정보의 배치와 읽는 리듬을 비교해 보세요.</p>
+        <div className="section-copy generation-tools"><span title={shownScreen?.reason}>{shownScreen?shownScreen.reason:previous?'초기 직접 작성한 예시 화면':'정보의 배치와 읽는 리듬을 비교해 보세요.'}</span>{screenHistory.length>0&&<button aria-pressed={previous} onClick={()=>setPrevious(value=>!value)}>{previous?'현재 화면 보기':'이전 화면 보기'}</button>}<button disabled={busy} onClick={()=>void perform(async()=>{const result=await api<{path:string}>(`/api/sessions/${id}/handoff`);setNotice(`에이전트에 ${result.path}를 읽고 화면을 생성해 달라고 요청하세요.`);})}>AI 작업 전달</button></div>
         <div className="carousel" role="region" aria-roledescription="캐러셀" aria-label="디자인 후보" tabIndex={0} onKeyDown={e=>{if(e.target!==e.currentTarget)return;if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();moveCandidate(e.key==='ArrowLeft'?-1:1);}}}><div className="carousel-nav"><button aria-label="이전 후보" onClick={()=>moveCandidate(-1)}>←</button><div className="candidate-tabs">{directions.map((item,index)=><button key={item.id} aria-label={`${item.label} 후보 보기`} aria-pressed={index===candidateIndex} onClick={()=>setCandidateIndex(index)}>{item.label}</button>)}</div><span className="carousel-count" aria-live="polite">{candidateIndex+1} / {directions.length}</span><button aria-label="다음 후보" onClick={()=>moveCandidate(1)}>→</button></div>
         <div className="candidates">{directions.map((candidate,index)=>index===candidateIndex&&<article className={`candidate ${view.selected===candidate.id?'selected':''}`} key={candidate.id} aria-label={`${candidate.label} 후보`}>
           <div className="candidate-head"><span className="candidate-number">0{index+1}</span><div><h3>{candidate.label}</h3><p>{candidate.tag}</p></div>{view.selected===candidate.id&&<span className="selected-label">선택됨</span>}</div>
-          <div className={`preview ${width}`}><iframe title={`${candidate.label} 후보 미리보기`} sandbox="" referrerPolicy="no-referrer" src={`${view.previewOrigin}/preview/${view.session.id}/${candidate.id}?token=${view.previewToken}`}/></div>
-          <div className="candidate-foot"><p>{candidate.description}</p><button disabled={busy||locked||view.session.feedback.length>0} aria-pressed={view.selected===candidate.id} onClick={()=>void perform(async()=>{await mutation('select',{direction:candidate.id});changeStep('feedback');})}>{view.selected===candidate.id?'이 방향을 선택했어요':'이 방향으로 시작'} <span>↗</span></button></div>
+          <div className={`preview ${width}`}><iframe title={`${candidate.label} 후보 미리보기`} sandbox="" referrerPolicy="no-referrer" src={`${view.previewOrigin}/preview/${view.session.id}/${candidate.id}?token=${view.previewToken}&revision=${view.session.revision}${previous?'&previous=1':''}`}/></div>
+          <div className="candidate-foot"><p>{shownScreen?`AI 화면 · r${shownScreen.revision} · 구조 검사 통과 · 시각 검토 필요`:candidate.description}</p><button disabled={busy||locked||previous||view.session.feedback.length>0||(!!view.generation.binding&&!shownScreen)} aria-pressed={view.selected===candidate.id} onClick={()=>void perform(async()=>{await mutation('select',{direction:candidate.id});changeStep('feedback');})}>{view.selected===candidate.id?'이 방향을 선택했어요':'이 방향으로 시작'} <span>↗</span></button></div>
         </article>)}</div></div>
       </section>
       {view.selected&&<section className="decision-grid" hidden={step==='compare'}><div className="feedback-panel step-panel" hidden={step!=='feedback'}><p className="overline">02 / CONVERSATION</p><h2>마음에 드는 점과 바꾸고 싶은 점.</h2><p>“제목은 좋지만 간격은 조금 줄여줘”처럼 편하게 남겨주세요.</p>
         {view.session.feedback.length>0&&<ul className="feedback-history">{view.session.feedback.map(item=><li key={item.id}><p>{item.text}</p><small>{view.processedFeedbackIds.includes(item.id)?'규칙 제안에 반영됨':'저장됨 · 에이전트 반영 대기'}</small></li>)}</ul>}
         {!locked&&<form onSubmit={e=>{e.preventDefault();void perform(async()=>{await mutation('feedback',{text:feedback});setFeedback('');keep(`design-feedback-${id}`,'');setNotice('피드백을 저장했습니다. 기존 에이전트 대화에서 반영을 요청해 주세요.');});}}><label htmlFor="feedback">디자인 피드백</label><textarea id="feedback" rows={4} maxLength={4000} value={feedback} onChange={e=>{setFeedback(e.target.value);keep(`design-feedback-${id}`,e.target.value);}}/><button className="secondary" disabled={busy||!feedback.trim()}>피드백 저장</button></form>}
         {pending&&<div className="handoff"><strong>피드백 저장됨 · AI 반영 대기</strong><p>기존 Codex·Claude Code 대화에서 “저장한 피드백을 반영해줘”라고 요청하세요. 브라우저 제출만으로 AI가 실행되지는 않습니다.</p><button onClick={()=>void perform(async()=>{const result=await api<{path:string}>(`/api/sessions/${id}/handoff`);setNotice(`에이전트 전달 파일: ${result.path}`);})}>전달 파일 확인</button></div>}
-        {view.lastSubmission&&!pending&&<p className="notice">에이전트 규칙 제안 반영 완료. 후보 화면은 직접 작성한 예시이며 제안에 따라 자동 재생성되지 않습니다.</p>}
+        {view.lastSubmission&&!pending&&<p className="notice">{view.generation.history.length?'화면·규칙 제안 반영 완료. 화면 비교에서 변경 결과를 확인해 주세요.':'규칙 제안 반영 완료. 화면 제출은 아직 없습니다.'}</p>}
         <button className="secondary" onClick={()=>changeStep('rules')}>규칙 확인으로 이동 →</button>
-      </div><div className="rules-panel step-panel" hidden={step!=='rules'}><p className="overline">03 / AGREEMENT</p><h2>다음에도 지킬 기준.</h2><p>규칙과 토큰을 개인 팩에 저장합니다. 실제 화면 품질은 아직 검수 전입니다.</p>
+      </div><div className="rules-panel step-panel" hidden={step!=='rules'}><p className="overline">03 / AGREEMENT</p><h2>다음에도 지킬 기준.</h2><p>{view.generation.binding?'고정된 팩으로 만든 프로젝트 화면을 확인합니다.':'규칙과 토큰을 개인 팩에 저장합니다.'} 실제 화면 품질은 별도 검토가 필요합니다.</p>
+        {currentScreen&&<div className="handoff"><strong>이번 화면 제안의 이유</strong><p>{currentScreen.reason}</p>{oldScreen&&<details><summary>이전 생성 결과와 달라진 규칙·토큰</summary>{!ruleChanges.length&&!tokenChanges.length&&!removedRules.length&&!removedTokens.length?<p>규칙과 토큰은 유지하고 화면 콘텐츠·구성만 변경했습니다.</p>:<ul>{ruleChanges.map(rule=><li key={rule.id}>{oldScreen.rules.find(old=>old.id===rule.id)?.statement??'새 규칙'} → {rule.statement}</li>)}{removedRules.map(rule=><li key={rule.id}>규칙 제거: {rule.statement}</li>)}{removedTokens.map(token=><li key={token.id}>토큰 제거: {token.id} ({token.value})</li>)}{tokenChanges.map(token=><li key={token.id}>{token.id}: {oldScreen.tokens.find(old=>old.id===token.id)?.value??'없음'} → {token.value}</li>)}</ul>}</details>}<small>구조·참조 검증 완료 · 시각적 위계·대비·접근성은 별도 검토가 필요합니다.</small></div>}
         {view.conflicts.map(conflict=><div className="conflict" key={conflict.id}><strong>선택이 필요한 규칙</strong><p>{conflict.question}</p><p className="muted">{conflict.recommendedReason}</p><span>이번 선택은 개인 팩에 적용할 규칙을 정합니다.</span>{conflict.options.map(option=><button key={option.ruleId} disabled={busy||locked} onClick={()=>void perform(()=>mutation('conflict',{conflictId:conflict.id,selectedRuleId:option.ruleId}))}>{option.statement}{option.ruleId===conflict.recommendedId?' · 추천':''}</button>)}</div>)}
         <ul className="rules">{view.session.rules.filter(rule=>!view.session.answers.some(answer=>answer.selectedRuleId!==rule.id&&view.session.rules.find(other=>other.id===answer.selectedRuleId)?.effect.key===rule.effect.key)).map(rule=><li key={rule.id}><span className="rule-mark">↳</span><div><strong>{rule.statement}</strong><p>{rule.intent}</p><small>{rule.status==='accepted'?'수용됨':view.lastSubmission?'에이전트 제안':'직접 작성한 후보의 예시 규칙'}</small><details><summary>적용 조건과 확인 방법</summary><p>{rule.appliesWhen.join(' · ')}</p><p>{rule.verification.description}</p></details></div></li>)}</ul>
-        {view.saved?<div className="saved" role="status"><strong>✓ 개인 디자인 팩 저장 완료</strong><p>{view.draft.name} · 버전 {view.saved.version}</p><a href={`/api/sessions/${id}/pack`}>팩 JSON 내보내기 ↓</a></div>:<><button className="primary save" disabled={busy||pending||view.conflicts.length>0} onClick={()=>void perform(()=>mutation('save'))}>{view.publication?'수용한 팩 저장 재시도':'이 규칙을 수용하고 팩 저장'} <span>↗</span></button>{pending&&<p className="muted">피드백이 반영된 규칙을 확인한 후 저장할 수 있습니다.</p>}</>}
+        {view.saved?<div className="saved" role="status"><strong>✓ 개인 디자인 팩 저장 완료</strong><p>{view.draft.name} · 버전 {view.saved.version}</p><a href={`/api/sessions/${id}/pack`}>팩 JSON 내보내기 ↓</a><form onSubmit={e=>{e.preventDefault();void perform(async()=>{const result=await api<WorkSession>(`/api/sessions/${id}/reuse`,{revision:view.session.revision,purpose:reusePurpose});await refreshList();open(result.session.id);});}}><label htmlFor="reuse-purpose">이 스타일을 사용할 새 프로젝트</label><textarea id="reuse-purpose" rows={2} maxLength={1000} required value={reusePurpose} onChange={e=>setReusePurpose(e.target.value)}/><button className="secondary" disabled={busy||!reusePurpose.trim()}>같은 팩으로 새 프로젝트</button></form></div>:view.generation.accepted?<div className="saved" role="status"><strong>✓ 프로젝트 화면 수용 완료</strong><p>기존 팩 버전과 원본 규칙을 유지합니다.</p></div>:<><button className="primary save" disabled={busy||pending||view.conflicts.length>0} onClick={()=>void perform(()=>mutation('save'))}>{view.generation.binding?'이 프로젝트 화면 수용':view.publication?'수용한 팩 저장 재시도':'이 규칙을 수용하고 팩 저장'} <span>↗</span></button>{pending&&<p className="muted">피드백이 반영된 규칙을 확인한 후 저장할 수 있습니다.</p>}</>}
       </div></section>}
       <footer className="session-footer"><span>협의 기록은 이 컴퓨터에 저장됩니다.</span><a href={`/api/sessions/${id}/export`}>협의 내보내기 ↓</a></footer>
     </>}
