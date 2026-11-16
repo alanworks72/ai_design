@@ -19,13 +19,13 @@ Tokens encode repeated **functional choices**, not decoration. Defaults are fixe
 | Domain | Default | Status |
 |---|---|---|
 | Background | `#FFFFFF` | **Agreed** |
-| Primary foreground/action | `#171717` | **Proposed default** |
-| Neutral supporting text | `#737373` | **Proposed default** |
-| Neutral border/surface | `#E5E5E5` / `#F5F5F5` | **Proposed default** |
+| Primary foreground/action | `#171717` | **Approved default** |
+| Neutral supporting text | `#737373` on white; use `#525252` on surface | **Approved default; contrast checked** |
+| Neutral border/surface | `#E5E5E5` / `#F5F5F5` | **Approved default** |
 | Functional colors | Green `#22C55E`, amber `#F59E0B`, red `#EF4444` | **Proposed values; direction agreed** |
-| Body typography | Product UI 14/20; Website 16/24 | **Proposed, based on reviewed public systems** |
-| Font weight | 400 / 500 / 600 | **Proposed** |
-| Spacing | 4, 8, 12, 16, 24, 32, 48, 64, 80, 96px | **Proposed** |
+| Body typography | Product UI 14/20; Website 16/24 | **Approved default** |
+| Font weight | 400 / 500 / 600 | **Approved default** |
+| Spacing | 4, 8, 12, 16, 24, 32, 48, 64, 80, 96px | **Approved default** |
 | Radius | **No shared radius scale yet** | **Agreed** |
 | Card layout | Not a default layout tool | **Agreed** |
 
@@ -52,8 +52,8 @@ These tokens alone are **not** a complete shadcn/ui theme: required component to
 
 ## 4. Project initialization policy
 
-1. Check whether the existing project has an established design system. If yes, preserve it and ask before replacing its colors.
-2. On a **new project**, ask one concise question: **“기본 컬러 시스템(흰색 배경 + Neutral)을 사용할까요, 아니면 브랜드 색상으로 변경할까요?”**
+1. Check whether the existing project has an established design system. If yes, preserve it; never silently replace colors.
+2. When starting a **new project** and no preference has already been stated, present two choices once: **“기본 템플릿(흰색 + Neutral) / 사용자 정의 컬러 팔레트 중 무엇을 사용할까요?”**. Do not ask again when the user has already made the choice.
 3. If default: use the approved neutral palette. If custom: obtain the brand color(s), requested scope (accent only or whole theme), and background preference.
 4. Keep `#FFFFFF` background unless the user specifically requests another color or a dark theme.
 5. Generate semantic tokens and verify readable foreground/background, border, hover, focus, disabled, and feedback states.

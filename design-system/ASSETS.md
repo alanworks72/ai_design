@@ -28,7 +28,7 @@ An actual product screenshot is more informative than an invented dashboard mock
 - Do not mix unrelated illustration or icon styles on one page.
 - Preserve intrinsic image proportions and provide appropriate alt text; purely decorative images (when explicitly requested) should not clutter assistive narration.
 - Do not add unnecessary borders, background cards or captions around every asset.
-- Use authentic product material or clearly disclosed placeholders; never invent visual evidence or customer logos.
+- Use authentic product material or clearly fictional preview examples. Record the fictional source in design/review notes **outside rendered UI**; do not insert decorative on-page 'sample' or 'replace later' disclosures. Never invent visual evidence, certification, performance claims or customer logos. Production assets must be verified.
 
 ## 4. Licensing checklist
 

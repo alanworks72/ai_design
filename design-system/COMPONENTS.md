@@ -46,7 +46,7 @@ For a **preview page**, use concise, realistic but obviously fictional values wh
 - [ ] Colors and spacing follow approved tokens.
 - [ ] Component states, responsive behavior and keyboard usability reviewed.
 - [ ] Actual implementation tests run or **Not tested** accurately recorded.
-- [ ] Review complete per `../governance/REVIEW_CHECKLIST.md` before release.
+- [ ] Separate static checks, browser tests and human-in-the-loop review per `../governance/REVIEW_CHECKLIST.md`; never report unrun checks as Passed.
 
 ## 6. Reference implementation boundary
 

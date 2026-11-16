@@ -22,10 +22,12 @@ Reusable frontend components and website design packs with a shared **Anti-Slop 
 1. Start with the user's task, necessary content, and primary action.
 2. Use familiar interface patterns and at most **two standard UI font families** (functional code/terminal font exception).
 3. **Do not add nonfunctional decoration or novel design patterns unless the user explicitly requests them.**
-4. Use minimal, visibly labeled placeholders when content is missing. Ask only if missing information changes the structure or behavior materially.
+4. For mockups, use clearly fictional example values and keep the sample disclosure in review notes, not decorative page copy. Production content must be verified. Ask only when missing information materially changes the structure or behavior.
 5. Build meaningful, accessible interactions, then review and report actual test results.
 
 Visual effects, decorative UI copy, and originality are **opt-in**, not agent defaults. Functional borders, feedback, icons, and product imagery remain acceptable when required for the task.
+
+For new projects, first offer a choice between the default neutral color template and a custom color palette. Skip the question if the user already chose or the existing project has a theme.
 
 ## Working with coding agents
 

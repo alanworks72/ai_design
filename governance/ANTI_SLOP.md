@@ -26,6 +26,7 @@ Do not create decorative material to occupy whitespace or conceal missing conten
 ### Missing content decision rule
 
 - **Mockup/sample page with enough structure:** fill necessary fields with concise, natural, **clearly fictional example values** rather than visible `[Placeholder]` text or notes about replacing information. Examples: `가온유통`, `Tel. 02-000-0000`, `서울특별시 OO구 OO로 123, 3층`, `contact@example.com`. Document their fictional nature **outside the rendered page**, in project/review notes.
+- **Prototype:** use realistic fictional example data and distinguish actual working controls from mocked behavior. If the interface simulates rather than performs an action, name that action honestly.
 - **Behavioral examples:** use small, realistic sample data and avoid implying that an example belongs to a real customer. Do not add gratuitous on-page disclaimers such as “design review sample,” “replace with real company information,” or “not connected to a server” to fill UI space. If a limitation materially affects user action (such as a send button that does not send), the UI must communicate it or the control must be redesigned to honestly perform its labeled action.
 - **Production/real organization:** do not publish fictional contact, company, product, or legal details as genuine; obtain and verify actual information before release.
 - **Content would materially change the page structure, features, or primary action:** ask the user a concise, targeted question before making the consequential choice.
@@ -63,7 +64,7 @@ Real workflow step numbering, meaningful filters/categories, required technical 
 
 Without an explicit user request, do not add:
 - Gradients, glow, decorative blur, textures, geometric background shapes, visual noise, ornate shadows.
-- Decorative 3D, animations, illustrations, unrelated photos, decorative icons or badges.
+- Decorative 3D, animations, illustrations, unrelated photos, decorative icons or badges. Brief, purposeful hover/focus/state-feedback transitions are allowed; the 120–180ms default is a candidate, not a hard duration limit.
 - Separators, cards, ornamental borders, or empty panels solely to make the page look designed.
 - Fabricated visual labels to balance a layout.
 - Decorative status dots (e.g., a green dot next to '내 작업 목록'), colored circles, or online/active indicators that do not reflect real, changing application state. Do not use them to imply connectivity, availability, progress, or activity. When genuine status must be conveyed, use a clear text label by default; a dot or equivalent visual marker may be added only if explicitly requested by the user and backed by real state.
@@ -109,7 +110,7 @@ The goal is not to clone other creators' distinctive designs. Familiar UX patter
 
 **Gate C — Implementation:** semantic tokens, working controls, states, responsive layout, and accessibility considered.
 
-**Gate D — Review:** evaluate at desktop/mobile widths, check copy deletion test and placeholder labels, inspect for unauthorized ornamentation and novelty, execute [REVIEW_CHECKLIST.md](REVIEW_CHECKLIST.md).
+**Gate D — Review:** evaluate at desktop/mobile widths, verify mockup data is documented outside the page, check the copy deletion test, inspect for unauthorized ornamentation and novelty, and execute [REVIEW_CHECKLIST.md](REVIEW_CHECKLIST.md). Review consists of static checks, browser checks and HITL review; none is interchangeable with the others.
 
 For applicable hard-gate failures, remove or correct the issue before release. Untested requirements remain **Not tested**, not Pass.
 

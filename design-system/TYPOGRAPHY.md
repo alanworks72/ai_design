@@ -1,16 +1,16 @@
 # Design System — Typography
 
 - Version: **1.0**
-- Status: type scale proposal; exact font family **not yet selected**.
+- Status: type scale approved; **Wanted Sans selected as default** (webfont packaging and rendering need technical verification).
 
 ## 1. Font policy
 
 - Start with **one sans-serif family** for normal UI; maximum **two** (heading and body) only if a real need emerges.
 - Actual code editor, code block or terminal content may use a monospace family as a **functional exception**, never for pseudo-technical decoration.
-- Font selection candidates: **Pretendard**, **Noto Sans KR**, or a **system font stack**. These are **candidates**, not approved vendor assets. Compare Korean/English metrics, available weights, loading, and licensing before packaging for sale.
+- Default family: **Wanted Sans** for Korean/English UI. The official family is licensed under SIL OFL 1.1; preserve license and copyright notices when redistributing font files. Prefer an appropriately tested WOFF2/subset webfont and a system sans-serif fallback. **Asta Sans (42dot)** remains an optional alternative on explicit request. Verify actual font package, glyph coverage, network load, and redistribution bundle before selling.
 - Keep readable Korean fallback glyphs; do not introduce extra font families section-by-section.
 
-## 2. Proposed type tokens
+## 2. Approved type tokens
 
 | Token | Size | Line height | Weight | Intended role |
 |---|---:|---:|---:|---|
@@ -22,7 +22,7 @@
 | `body-sm` | 14px | 20px | 400 | Dense product UI and supporting text |
 | `label` | 14px | 20px | 500 | Field label, navigation, button |
 
-The common weights are **400, 500, 600**. Do not add 700+ by default. The type tokens above are **selected proposals**, not a measured average of award-winning sites.
+The approved default weights are **400, 500, 600**. Do not add 700+ by default. These are our design decisions, not a measured average of award-winning sites.
 
 ## 3. Contextual usage
 
@@ -45,4 +45,4 @@ At implementation: capture computed font family, font size, weight and line heig
 
 ## 6. Reference basis
 
-Proposed scale is informed by publicly documented typography roles in **Vercel Geist**, **GitHub Primer**, and **IBM Carbon**. Award-winning sites such as Dropbox Brand and Exat were assessed for **purpose and typography usage**, but their browser computed style values were **not directly measured**.
+Approved scale is informed by publicly documented typography roles in **Vercel Geist**, **GitHub Primer**, and **IBM Carbon**. Award-winning sites such as Dropbox Brand and Exat were assessed for **purpose and typography usage**, but their browser computed style values were **not directly measured**.
