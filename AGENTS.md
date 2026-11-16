@@ -5,7 +5,7 @@ This repository produces reusable, production-oriented frontend assets. Function
 ## Mandatory workflow
 
 1. Read [Anti-Slop Governance](governance/ANTI_SLOP.md) before planning, creating, or modifying any UI.
-2. Define the user, task, necessary content, primary action, and relevant states. Ask a focused question only when missing information materially changes the structure or behavior; otherwise use clearly marked placeholders.
+2. Define the user, task, necessary content, primary action, and relevant states. Ask a focused question only when missing information materially changes the structure or behavior; otherwise use realistic, visibly fictional example values in UI previews.
 3. Start from established, usable interface patterns. Build the smallest practical interface. Do not introduce creative/novel layout treatments unless explicitly requested.
 4. Add only visual elements needed for interaction, communication, navigation, grouping, state, or accessibility. Decorative elements require explicit user authorization, including a user-provided brand guide that specifies them.
 5. Follow [Review Checklist](governance/REVIEW_CHECKLIST.md), fix violations, and report tests honestly before claiming completion.
@@ -19,7 +19,7 @@ This repository produces reusable, production-oriented frontend assets. Function
 - Functional borders, focus outlines, status colors, meaningful icons, and accessible interaction feedback are allowed when needed; they are not automatically decorative.
 - Do not infer permission for decoration or novelty from vague adjectives such as “modern,” “premium,” “clean,” or “professional.”
 - Start with familiar navigation, forms, controls, and information hierarchy. Do not change proven behavior merely to look different.
-- Use only genuine, user-provided information as factual product content. If data is missing, use a minimal **visibly identified placeholder** such as `[Product name]`; never fabricate metrics, testimonials, logos, claims, or technical capabilities. For demos, identify synthetic examples as examples.
+- For **mockups and sample pages**, fill necessary content with natural but clearly fictional example values (e.g., `Tel. 02-000-0000`, `서울특별시 OO구 OO로 123`, `contact@example.com`) instead of conspicuous bracket placeholders or on-page notes such as “replace with actual data” or “design preview.” Keep these facts identified as samples in development documentation, not decorative UI copy. Never invent performance metrics, certifications, testimonials, partner logos, or product capabilities. For a **real production site**, use verified information only.
 - Use a small semantic token system and reuse suitable components. No filler content or purposeless variants.
 - Make primary interactions work; never present dummy controls, fake AI outputs, or simulated functionality as real.
 - Ensure responsive behavior, keyboard access, visible focus, semantic HTML, usable contrast, and meaningful states.
@@ -34,7 +34,7 @@ When a requirement is unclear but does not materially change the result, choose 
 
 For each new page or substantial revision, report briefly:
 - **Purpose** — user, task, primary action.
-- **Content assumptions** — real content vs labeled placeholders, any open question.
+- **Content assumptions** — verified production data vs fictional preview content (record outside the rendered UI), any open question.
 - **Exceptions** — specifically requested stylistic elements, or none.
 - **Validation** — checklist result, tests actually performed, remaining limitations.
 

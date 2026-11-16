@@ -6,8 +6,9 @@ Aligned with [Governance v1.1](ANTI_SLOP.md). Review every new page, component, 
 
 - [ ] Intended user, primary task, and main action are clear.
 - [ ] Every visible element helps the task, navigation, comprehension, or interaction.
-- [ ] Missing content uses minimal, visibly labeled placeholders.
-- [ ] Demo data is clearly identified as sample; no invented claims or testimonials appear factual.
+- [ ] Preview-only content uses natural, visibly fictional example values rather than bracket placeholders or explanatory filler; sample status is recorded in review notes outside the rendered UI.
+- [ ] Production-facing content is verified. No fictitious performance metrics, certifications, customer proof, testimonials, or technical claims appear factual.
+- [ ] No unnecessary on-page notices such as “실제 자료로 교체 예정”, “디자인 검토용 예제”, or “서버에 저장되지 않습니다”; meaningful limitations of interactive controls are disclosed when needed.
 - [ ] If missing information materially changes the structure/behavior, the user has been asked rather than the agent guessing.
 - [ ] Visible copy passes the deletion test; no invented section numbers, arbitrary eyebrows/kickers/metadata, or internal component jargon.
 
@@ -50,7 +51,7 @@ Aligned with [Governance v1.1](ANTI_SLOP.md). Review every new page, component, 
 ```md
 # Review: <page or component>
 User / task / primary action:
-Content source and placeholders:
+Content source, fictional preview values, and production verification:
 Any question needed for structure/behavior:
 UI font families:
 Decoration or novelty requested by user (source + scope):

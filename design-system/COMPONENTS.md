@@ -7,7 +7,7 @@
 
 For each component define:
 1. User and real task.
-2. Necessary input/data and clearly labeled placeholders.
+2. Necessary input/data and realistic fictional examples for mockups; verified data for production.
 3. Primary action and feedback.
 4. Empty, error, loading, success, disabled states as applicable.
 5. Keyboard/focus/label requirements.
@@ -35,14 +35,14 @@ Do not create a component merely to increase pack inventory or appear visually s
 
 ## 4. Copy and empty content
 
-When content is unknown, use minimal explicit placeholders (`[Product name]`, `[Description]`) and do not invent customer proof, pricing, reviews or technical specifications. If information changes the whole flow, ask a focused question before making the design decision.
+For a **preview page**, use concise, realistic but obviously fictional values where a finished UI needs content: `가온유통`, `02-000-0000`, `서울특별시 OO구 OO로 123, 3층`, `contact@example.com`. Do **not** insert on-page messages like “replace with actual data,” “design preview,” or “local-only data”; record preview assumptions in development notes instead. Do not fabricate performance figures, customer proof, certifications, testimonials, or technical capabilities. For **production**, use verified information rather than fictional values. If missing information materially changes the flow, ask a focused question.
 
 ## 5. Implementation checklist
 
 - [ ] Purpose/user action documented.
 - [ ] Familiar UX pattern chosen; no unsolicited novelty.
 - [ ] UI fonts within limit; typography tokens used.
-- [ ] No unauthorized decorative text, assets, gradients, glows, animation, card repetition.
+- [ ] No unauthorized decorative text, preview disclaimers, assets, gradients, glows, animation, card repetition.
 - [ ] Colors and spacing follow approved tokens.
 - [ ] Component states, responsive behavior and keyboard usability reviewed.
 - [ ] Actual implementation tests run or **Not tested** accurately recorded.

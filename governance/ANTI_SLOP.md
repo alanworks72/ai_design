@@ -25,12 +25,13 @@ Do not create decorative material to occupy whitespace or conceal missing conten
 
 ### Missing content decision rule
 
-- **Enough information to design the structure:** proceed with minimal, **explicitly labeled placeholders** (`[Product name]`, `[Description]`, `[Price]`) only where needed.
-- **Examples needed to demonstrate behavior:** use small, realistic data clearly labeled **example / sample**, not implied to be a real customer's content.
+- **Mockup/sample page with enough structure:** fill necessary fields with concise, natural, **clearly fictional example values** rather than visible `[Placeholder]` text or notes about replacing information. Examples: `가온유통`, `Tel. 02-000-0000`, `서울특별시 OO구 OO로 123, 3층`, `contact@example.com`. Document their fictional nature **outside the rendered page**, in project/review notes.
+- **Behavioral examples:** use small, realistic sample data and avoid implying that an example belongs to a real customer. Do not add gratuitous on-page disclaimers such as “design review sample,” “replace with real company information,” or “not connected to a server” to fill UI space. If a limitation materially affects user action (such as a send button that does not send), the UI must communicate it or the control must be redesigned to honestly perform its labeled action.
+- **Production/real organization:** do not publish fictional contact, company, product, or legal details as genuine; obtain and verify actual information before release.
 - **Content would materially change the page structure, features, or primary action:** ask the user a concise, targeted question before making the consequential choice.
 - Never manufacture real-sounding testimonials, statistics, customers, reviews, prices, product capabilities, or endorsements as if verified. Do not use marketing fluff to fill space.
 
-Do not ask for every missing detail when a usable neutral placeholder is sufficient.
+Do not ask for every missing detail when clearly fictional sample content is sufficient for a mockup. Never treat mockup content as verified production information.
 
 ## 3. Typography
 
@@ -50,6 +51,7 @@ Every visible string must help a user understand, decide, navigate, provide inpu
 - Performative metadata: `LIVE COMPONENT · NO BACKEND REQUIRED`, `USE CASE: DEVELOPER TOOLS` where not required for a decision.
 - Development/template terminology: `REUSABLE INTERACTIVE DEMO BLOCK`, `COMPONENT SHOWCASE` as customer-facing content.
 - Unsupported claims, artificial counters, generic slogans, invented proof points.
+- Development-only or preview disclaimers in rendered UI that do not help a real visitor, including “실제 정보로 교체 예정”, “디자인 검토용 예제”, “이 미리보기에서만 유지됩니다”. Keep such notices in delivery notes unless they are genuinely required to prevent misleading user actions.
 
 Real workflow step numbering, meaningful filters/categories, required technical compatibility notes, form labels, status/error feedback, and accessibility text are functional and allowed.
 
@@ -129,7 +131,7 @@ Functional necessities listed in section 5 do **not** require exception records.
 Not ready for release when:
 - Unrequested decoration or invented metadata is present.
 - More than two ordinary UI font families are used without a documented functional exception.
-- Unverified content appears as fact instead of being labeled as placeholder/sample.
+- Fictional preview content is presented as actual production information, or development-only disclaimers clutter the rendered UI.
 - A novel layout was introduced without being requested.
 - A primary action is broken or presented misleadingly as working.
 - Responsive and accessibility checks are missing or falsely reported as passed.
