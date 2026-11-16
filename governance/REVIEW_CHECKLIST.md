@@ -20,6 +20,7 @@ Aligned with [Governance v1.1](ANTI_SLOP.md). Review every new page, component, 
 - [ ] Any decoration exception cites a specific user instruction or supplied brand specification and is limited to that scope.
 - [ ] Functional grouping, borders, icons, status colors, and feedback remain understandable; minimalism has not removed necessary cues.
 - [ ] Whitespace contains no gratuitous filler.
+- [ ] No decorative status dots, colored circles, or fake online/active indicators; any expressly requested status indicator is tied to real data and accompanied by understandable status text.
 
 ## C. Familiar interaction patterns — hard gate
 

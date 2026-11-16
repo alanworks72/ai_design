@@ -64,6 +64,7 @@ Without an explicit user request, do not add:
 - Decorative 3D, animations, illustrations, unrelated photos, decorative icons or badges.
 - Separators, cards, ornamental borders, or empty panels solely to make the page look designed.
 - Fabricated visual labels to balance a layout.
+- Decorative status dots (e.g., a green dot next to '내 작업 목록'), colored circles, or online/active indicators that do not reflect real, changing application state. Do not use them to imply connectivity, availability, progress, or activity. When genuine status must be conveyed, use a clear text label by default; a dot or equivalent visual marker may be added only if explicitly requested by the user and backed by real state.
 
 **Allowed by default when functionally necessary:** clear grouping, input boundaries, meaningful dividers, hover/focus/disabled/error/success indicators, useful icons, product images needed to understand the product, and motion needed to communicate an interaction or state change.
 

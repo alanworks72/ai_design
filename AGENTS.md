@@ -14,6 +14,7 @@ This repository produces reusable, production-oriented frontend assets. Function
 
 - Use at most **two font families** across normal UI: one for headings and one for body; one is preferred if sufficient. A monospace face is a functional exception **only inside actual code, editor, or terminal content**.
 - No invented section numbering, editorial kickers/eyebrows/overlines, decorative metadata, labels, or template-maker jargon in customer UI.
+- **Never add ornamental status dots/colored indicators** next to headings, navigation items, or labels to imply activity, connectivity, or progress without a real corresponding state. Prefer plain text. Even when status exists, use an explicit status label; only add a graphical indicator if the user specifically requests it.
 - Do not add gradients, glow, blur, decorative shadow, patterns, textures, irrelevant imagery, 3D, motion, ornamental icons/badges/cards, or background shapes without an explicit user request.
 - Functional borders, focus outlines, status colors, meaningful icons, and accessible interaction feedback are allowed when needed; they are not automatically decorative.
 - Do not infer permission for decoration or novelty from vague adjectives such as “modern,” “premium,” “clean,” or “professional.”

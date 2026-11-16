@@ -20,6 +20,7 @@ Do not create a component merely to increase pack inventory or appear visually s
 - Start with shadcn/ui primitives for buttons, input fields, labels, menus, dialogs and tables as appropriate. Use versions documented by the installed project.
 - Use a **Card only if the content has a real conceptual/interaction boundary**; don't build a page by wrapping every section in a Card.
 - Do not add badges, icons, separators, tabs, fake navigation, dummy CTAs or ornamental borders solely to fill an interface.
+- Never use decorative status dots beside text/navigation (such as a green dot next to a page label). For genuine system status, show a clear textual state. Add a dot only when specifically requested and it reflects real application data; color alone must not convey meaning.
 - Use meaningful text labels. Avoid fabricated editorial metadata, section numbers and internal developer terms in customer-facing UI.
 - Styling references semantic color, type and spacing tokens, not arbitrary values.
 - Radius is left to component necessity/library defaults until a shared policy is approved.
