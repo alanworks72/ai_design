@@ -6,6 +6,20 @@
 
 A critic who sees the actual screenshots and brief **without the creator's art-direction justifications** may recognize whole-page Slop, duplicated information and disproportionate emphasis that the original agent's self-review missed. Then a separate implementer can test whether a focused revision improves visual quality.
 
+## Prerequisite: actual run artifacts on this device
+
+Do **not** assume `~/project/design_test/governed-v2-methodology` exists. The original output was created on a different PC and is not contained in `ai_design/main`.
+
+Before running the critic, use [Multi-device workflow](../MULTI_DEVICE_WORKFLOW.md) to restore the **actual original** source and 390/768/1440 screenshots from the prior PC or a synchronized experiment repository. If neither exists, generate a new **clearly labeled independent** v2.0 run and archive it first. A regenerated result must not be represented as the historical original.
+
+All commands below assume the original project has actually been restored to the stated directory. Check it first:
+
+```bash
+test -f ~/project/design_test/governed-v2-methodology/package.json &&
+  test -d ~/project/design_test/governed-v2-methodology/evidence/final &&
+  echo "Run available" || echo "Original artifacts missing: restore or regenerate"
+```
+
 ## Execution (working directory: ~/project/design_test)
 
 1. Preserve original `governed-v2-methodology` as read-only reference.
