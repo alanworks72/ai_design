@@ -1,6 +1,6 @@
 # Visual Communication & Editorial Quality
 
-Status: **Mandatory design review** under Anti-Slop Governance v1.2. This guide adds positive quality criteria without relaxing any ban on purposeless decoration.
+Status: **Mandatory design review** under Anti-Slop Governance v1.3. This guide adds positive quality criteria without relaxing any ban on purposeless decoration.
 
 ## 1. Principle
 
@@ -13,7 +13,7 @@ An asset is **informative content** when it improves recognition, comparison, ve
 Record briefly in development/review notes (not in rendered customer UI):
 
 1. **First-screen recognition:** What should a first-time visitor recognize before scrolling? State the actual offering, audience and primary action in plain language.
-2. **Evidence and assets:** Would a photo, actual product/UI screenshot, diagram or example materially improve understanding? For each proposed asset, state the information it carries. If no asset helps, explicitly choose text-only.
+2. **Evidence and assets:** Compare (A) a text-only treatment with (B) at least one realistically obtainable informative visual treatment when the domain has a visible product, environment, process, or UI. Name the specific information each version conveys and what a visitor would understand less well without the visual. If visuals do not improve comprehension, explicitly choose text-only with that comparison recorded. This is a comparison requirement, **not** an image quota.
 3. **Content priority:** Rank the page's primary action and the two or three most important information groups. Use type scale, alignment, proportion, contrast and whitespace to distinguish them.
 4. **Editorial plan:** Write a concrete headline, supporting explanation, section titles and action labels. Identify any missing business facts rather than inventing differentiators.
 5. **Rights and accuracy:** Identify actual organization-owned content versus illustrative preview content. Check asset licensing and redistribution rights for commercial packs.
@@ -32,10 +32,19 @@ These decisions are lightweight notes, not new obligatory on-page labels or meta
 
 Do not turn examples into mandatory page templates. Avoid claiming a stock image is a photo of the company's facilities or staff. Illustrative images must remain honestly contextualized. If assets are unavailable or redistribution rights are unknown, use truthful diagrams, text, or appropriately licensed alternatives instead of false evidence.
 
+### Illustrative imagery vs evidence (mockups)
+
+- **Illustrative category or context image:** A relevant licensed photo can communicate a *type* of product, work setting or workflow in a fictional design sample. A generic warehouse aisle can communicate the logistics domain, but must not be described as the fictional company's own warehouse; category imagery must not assert a specific stocked SKU or brand.
+- **Evidence of an actual organization:** Photos presented as an actual site, staff, inventory, certification or case study require verified provenance. Generic stock media must never stand in for that evidence.
+- **Decision method:** Compare whether text labels alone provide the same immediate recognition as an accurate visual example. Prefer the informative treatment when it improves recognition without introducing factual claims or licensing risk. If equivalent, text-only is fine. If a safe usable visual cannot be obtained, do not fabricate one.
+- **Preview vs release:** A preview can use accurately framed and properly licensed illustrative assets. A production customer website must obtain verified organization-specific claims and assets. For a **resold source pack**, verify commercial use **and redistribution/bundling rights**; commercial-use permission alone does not establish redistribution rights. Document the source and usage context outside the rendered mockup, but do not hide a material representation risk behind off-page notes.
+
 ## 4. Editorial quality
 
 - Prefer a **clear customer-facing proposition**, not a description such as “B2B distribution company website.”
 - Write concise, idiomatic Korean where the audience is Korean. Read main headings, explanatory sentences and CTAs aloud for unnatural particles, repetition or unnecessary jargon.
+- **Perform an actual before/after edit**, not just a statement that copy was reviewed: check the hero, company description, category descriptions and primary CTA for repetitive nouns/verbs, overly literal site descriptions and vague statements. Record the original and revised wording of at least the main headline and one supporting sentence in review notes. If no change is needed, explain the concrete reason.
+- **Avoid repeated calls to inquire:** Distinguish a value proposition (what the organization offers), a product/category explanation (what the user can examine), and a CTA (what the control does). Do not end every section with the same imperative.
 - Write actions as the action the interface genuinely performs: “문의 내용 복사” if the app only copies a draft; do not label it “문의 전송” without sending.
 - Remove claims not supported by the brief, including speed, nationwide distribution, cost savings, certifications, number of clients or guaranteed supply.
 - Do not fix weak copy by adding decorative English eyebrows, slogans or invented statistics.
@@ -56,7 +65,7 @@ Before delivery, record **Pass / Fail / PENDING** and evidence for:
 1. Can a first-time visitor identify the business or product without reading the entire page?
 2. Does each major visual convey useful information? Would removing it harm understanding? If nothing visual is used, is that justified?
 3. Is the primary action obvious and accurately labeled?
-4. Are Korean copy and section headings specific, natural and free from unsupported claims?
+4. Were the headline and supporting copy actually reviewed **against alternatives**, removing repetition, awkward phrasing and unsupported claims? Is the final wording natural and specific?
 5. Does the page have meaningful hierarchy without invented labels, arbitrary cards, gradients or status dots?
 
 **Do not self-certify visual excellence from source inspection, automated tests or this checklist.** Human review is required. Refer to [REVIEW_CHECKLIST.md](REVIEW_CHECKLIST.md).

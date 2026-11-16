@@ -1,13 +1,21 @@
 # Design System — Assets
 
 - Version: **1.0**
-- Applies under Governance v1.2: decoration is **explicit opt-in**.
+- Applies under Governance v1.3: decoration is **explicit opt-in**.
 
 ## 1. Selection rule
 
 Before adding an image, icon, illustration, chart, video or animation, write one sentence answering: **What will the user understand or do better because of this asset?** If there is no concrete answer, omit it. Empty space is acceptable.
 
 **Do not interpret this as an image-minimization target.** First identify whether a first-time visitor needs to *see* the product, environment, process, or interface to understand the offering. If yes, choose the smallest informative set of appropriate visuals; avoiding all imagery can itself be a design failure.
+
+### Stock photo classification
+
+- **Informative stock photography** (conditional default): Depicts a generic product category, workplace setting or common process to help identify the offering; use only when it adds meaning, matches the stated scope and has appropriate rights. Example: a generic warehouse aisle as logistics context on a fictional B2B distributor mockup, **not** a claim that the company owns that facility.
+- **Decorative stock hero** (explicit opt-in): Mood-only imagery with no meaningful connection to the visitor's decision, or any photograph used solely to occupy a hero slot. A stock photo is not automatically decorative because it is in the hero, nor informative merely because it depicts the industry.
+- **Actual-organization evidence** (requires verification): Real facilities, employees, inventory, branded products, delivery fleet, client work or other claims of fact. Do not replace missing evidence with stock assets.
+
+Compare the informative-asset and text-only alternatives before choosing a text-only layout for a domain where visual examples may aid recognition. Record the user benefit and representation/licensing constraints, not merely “no real photos provided.”
 
 ## 2. Allowed use cases
 
@@ -20,7 +28,7 @@ Before adding an image, icon, illustration, chart, video or animation, write one
 | Illustration | Explains an idea that text/UI cannot explain efficiently | Case-by-case; no decorative filler |
 | Chart | Shows measured data or comparisons | Only with real or explicitly labeled example data |
 | Video/animation | Demonstrates behavior or gives meaningful feedback | Only when required; respect reduced motion |
-| Abstract art, stock hero, 3D background | Decorative identity | **Off by default**, user opt-in |
+| Abstract art, mood-only stock hero, 3D background | Decorative identity without information value | **Off by default**, user opt-in |
 
 An actual product screenshot is more informative than an invented dashboard mockup. Do not claim a static preview represents working functionality.
 

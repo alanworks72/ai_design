@@ -1,6 +1,6 @@
 # Anti-Slop Design Governance
 
-Version: **1.2**  
+Version: **1.3**  
 Scope: Websites, components, templates, interactive demos, screenshots, and AI-assisted frontend design in this repository.  
 Status: **Mandatory default**. Explicit user requirements may authorize scoped exceptions.
 
@@ -23,7 +23,7 @@ Identify the intended user, what they need to accomplish, required information, 
 
 Do not create decorative material to occupy whitespace or conceal missing content. Choose an established interface pattern that supports the task.
 
-Before layout implementation, follow [Visual Communication & Editorial Quality](VISUAL_COMMUNICATION.md): identify what a first-time visitor should recognize within the first screen; which verified or clearly fictional visuals materially help; the primary information hierarchy; and whether every visible sentence is natural, specific and supported. Include visuals where they carry necessary information, and omit visuals that merely fill space.
+Before layout implementation, follow [Visual Communication & Editorial Quality](VISUAL_COMMUNICATION.md): identify what a first-time visitor should recognize within the first screen; which verified or clearly fictional visuals materially help; the primary information hierarchy; and whether every visible sentence is natural, specific and supported. Include visuals where they carry necessary information, and omit visuals that merely fill space. For a mockup, distinguish **illustrative category/context imagery** from **claimed photographic evidence of the actual organization**. Assess both an informative-asset treatment and a text-only treatment before deciding; record what users gain or lose. A missing company asset does not by itself prohibit accurately contextualized, properly licensed example imagery.
 
 ### Missing content decision rule
 

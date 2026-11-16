@@ -7,6 +7,8 @@ Record **Pass / Fail / N/A / Not tested** with evidence. A test not run is never
 
 - [ ] The page/component purpose, task, primary action and required content are recorded.
 - [ ] A visual-communication plan identifies the first-screen message, informative assets or a justified text-only choice, important content order, and primary CTA.
+- [ ] For domains that can benefit from photos/screenshots/diagrams, compare an informative-visual option against a text-only option; record what the visual adds and whether claims, asset rights or accuracy prevent using it. Lack of organization-owned photos alone is not a complete comparison.
+- [ ] Editorial notes contain a concrete original-versus-revised hero headline and supporting sentence (or a specific explanation for retaining them), not merely a claim that copy was read aloud.
 - [ ] CSS uses approved semantic tokens; unexplained hard-coded values are flagged for review.
 - [ ] Normal UI uses <= 2 font families; true code/terminal text is an explicit functional exception.
 - [ ] The required Typography/Spacing default values are respected where applicable.
@@ -28,9 +30,9 @@ Record **Pass / Fail / N/A / Not tested** with evidence. A test not run is never
 ## C. HITL review (human approval required)
 
 - [ ] A first-time visitor can recognize what the organization/product does from the opening screen without needing to read every paragraph.
-- [ ] Images, screenshots and diagrams communicate the actual domain, offering or task; if text-only, confirm visuals would add no meaningful understanding. Generic stock images are not presented as evidence of the real organization.
+- [ ] Images, screenshots and diagrams communicate the actual domain, offering or task; if text-only, inspect the recorded text-only vs informative-visual comparison and independently confirm that avoiding visuals does not materially weaken first-screen comprehension. Generic stock images are not presented as evidence of the real organization.
 - [ ] Important content and the primary CTA are distinguishable; not every section is given identical visual weight without reason.
-- [ ] Customer-facing copy is natural, specific, grammatically sound and free of repetitive/template-like claims or invented capabilities.
+- [ ] Customer-facing copy is natural, specific, grammatically sound and free of repetitive/template-like claims or invented capabilities; verify actual rendered headline, supporting copy, category explanations and CTA for repetitive calls to action and awkward literal phrases.
 - [ ] User and main task are clear without extraneous marketing filler.
 - [ ] Typography, alignment, section spacing, content hierarchy and visual polish look production-appropriate.
 - [ ] No purposeless cards, dots, labels, imagery, glows, gradients or animation; each doubtful element has a specific user/task reason.
