@@ -6,7 +6,7 @@ Status: **Mandatory design review** under Anti-Slop Governance v2.0. This guide 
 
 Minimalism is a method, not the objective. Create interfaces that communicate the offering and guide decisions **without looking like either a generic AI landing page or an empty wireframe**.
 
-An asset is **informative content** when it improves recognition, comparison, verification, task completion or comprehension. It does not require decorative opt-in. An asset is **ornament** when it merely fills space, adds a fashionable mood or mimics a template; section 5 of [ANTI_SLOP.md](ANTI_SLOP.md) still applies.
+An asset is **informative content** when it improves recognition, comparison, verification, task completion or comprehension. It does not require decorative opt-in. An asset is **ornament** when it merely fills space, adds a fashionable mood or mimics a template; the purposeful-expression and integrity requirements of [ANTI_SLOP.md](ANTI_SLOP.md) still apply.
 
 ## 2. Required pre-design decisions
 

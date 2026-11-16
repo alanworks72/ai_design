@@ -13,6 +13,8 @@ Build **coherent, expressive, professional UI without generic AI embellishments 
 
 A gradient, shadow, rounded corner, illustration, photo or asymmetrical composition is not inherently Slop. Judge **purpose, coherence, prominence and repetition**. Identical-looking, under-designed white pages can also fail professional quality.
 
+**Local usefulness does not prove global quality.** Each element can have a plausible purpose while their combined arrangement still creates an AI-template look. Evaluate page-wide duplication, disproportionate emphasis, generic illustration aesthetics, visual clichés and evidence density. A green palette, category drawings, a dark brand band and a card may each be defensible yet still form an unconvincing landing-page composition together.
+
 ## 2. Work order
 Define user, task, necessary/verified facts, primary action and real states. Follow [Art Direction](../design/ART_DIRECTION.md) before UI code and [Visual Communication](VISUAL_COMMUNICATION.md) for image/copy meaning. Choose design based on audience, material and task, not minimum element count.
 
@@ -39,7 +41,7 @@ Use semantic tokens and internally consistent typography, colors, spacing and co
 - **Brief:** truth, task, actions and audience understood.
 - **Direction:** purposeful visual concept; appropriate hierarchy, images and user image decision (if triggered).
 - **Implementation:** real interactions, semantics, responsive behavior and contrast verified.
-- **Visual QA:** inspect actual desktop/mobile screenshots for both over-design and under-design; revise substantive defects per [VISUAL_QA.md](../validation/VISUAL_QA.md).
+- **Visual QA:** inspect actual desktop/mobile screenshots for both over-design and under-design; conduct a skeptical *direction-level* review of whole-page composition, including whether the original strategy should be rejected, and revise substantive defects per [VISUAL_QA.md](../validation/VISUAL_QA.md).
 - **HITL:** independent human aesthetic/editorial approval separate from static/browser PASS.
 
 Hard failure: misleading content/functionality, fake status, unlicensed asset distribution, known broken/inaccessible primary action, demonstrably purposeless recurring UI garnish. Quality failure: generic, visually underdeveloped composition, incoherent hierarchy or awkward copy. **Novel layout alone is not a failure.**

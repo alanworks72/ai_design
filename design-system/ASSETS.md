@@ -24,6 +24,14 @@ The agent may recommend one approach. **Do not ask reflexively** for screens whe
 
 A photo is not automatically decorative merely because it is in the Hero, nor informative merely because it shows the same industry. If the user declines imagery, deliver a complete, well-composed text-led design.
 
+## Suitability of image medium and repetition
+
+- Choose **photography** when physical appearance, context, material or credibility matters; choose **illustration** when a simplified explanation is more valuable than literal appearance; choose **UI screenshot** to explain an actual digital product; choose **diagram** for real relationships/flows. This is guidance, not a rigid medium-to-industry rule.
+- A generated illustration can accurately label three categories yet still be stylistically generic or childish for the target audience. Review medium, tone, fidelity and surrounding typography together; do not approve it only because category recognition improved.
+- Evaluate **page-wide information gain**. When Hero imagery already identifies the categories, the next category section should add distinct examples, distinctions, specifications or next actions—not simply repeat the same three headings and pictures.
+- Check whether a context image would imply an unsupported business asset; use contextual language and verified rights rather than pretending a generic warehouse is the company's own.
+- User approval to use images covers the agreed sourcing route, **not** an automatic endorsement of illustration vs photo, every visual style, or unsupported business claims. An agent must still make and test responsible editorial choices.
+
 ## Usage
 Preserve crops and proportions, appropriate alt text, reasonable file sizes/responsive images, consistent visual language and meaningful focal points. Avoid identical asset framing where content roles differ. Don't add fake company proof, arbitrary icons, repetitive cards or unnecessary captions.
 
