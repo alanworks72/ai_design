@@ -37,6 +37,8 @@ The approved default weights are **400, 500, 600**. Do not add 700+ by default. 
 - No decorative eyebrows, kickers, metadata, invented section numbering or gratuitous uppercase labels.
 - Prefer a useful heading and a concise explanatory sentence over a decorative heading stack.
 - Use weight, spacing and actual content priority before introducing accent colors.
+- Do not give every section identical prominence by default. Establish a clear primary headline, supporting explanation, section headings and CTA emphasis according to user decisions; maintain the approved token scale unless actual content justifies an exception.
+- Edit headline and CTA copy for natural Korean, specificity and usefulness. Avoid phrases that merely explain the page type or use generic B2B marketing language.
 - Check Korean/English long words, numbers, mixed scripts, and truncation.
 
 ## 5. Verification

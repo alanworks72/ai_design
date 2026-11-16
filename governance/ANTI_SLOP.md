@@ -1,6 +1,6 @@
 # Anti-Slop Design Governance
 
-Version: **1.1**  
+Version: **1.2**  
 Scope: Websites, components, templates, interactive demos, screenshots, and AI-assisted frontend design in this repository.  
 Status: **Mandatory default**. Explicit user requirements may authorize scoped exceptions.
 
@@ -15,13 +15,15 @@ Priorities, in order:
 4. Consistency in typography, spacing, color, and components.
 5. Novelty or stylistic expression **only when the user explicitly requests it**.
 
-Anti-Slop is not a mandate to make every website identical or unfinished. Quality comes from content hierarchy, alignment, proportion, usable controls, and meticulous execution—not extra decorations.
+Anti-Slop is not a mandate to make every website identical or unfinished. Quality comes from content hierarchy, alignment, proportion, usable controls, and meticulous execution—not extra decorations. **Do not equate fewer images, weaker emphasis, or more white space with higher design quality.** A useful image is content, not an ornamental exception.
 
 ## 2. Define the task before designing
 
 Identify the intended user, what they need to accomplish, required information, the primary action, and relevant states (empty, loading, error, success, mobile, etc.).
 
 Do not create decorative material to occupy whitespace or conceal missing content. Choose an established interface pattern that supports the task.
+
+Before layout implementation, follow [Visual Communication & Editorial Quality](VISUAL_COMMUNICATION.md): identify what a first-time visitor should recognize within the first screen; which verified or clearly fictional visuals materially help; the primary information hierarchy; and whether every visible sentence is natural, specific and supported. Include visuals where they carry necessary information, and omit visuals that merely fill space.
 
 ### Missing content decision rule
 
@@ -58,6 +60,8 @@ Real workflow step numbering, meaningful filters/categories, required technical 
 
 **Deletion test:** If removing the text causes no meaningful loss of understanding, navigation, or decision quality, remove it unless the user explicitly requested that copy.
 
+**Editorial test:** Prefer a natural, direct headline and supporting sentence over template-like claims such as “your trusted partner,” “innovative solutions,” or a literal description of the site category. Name the actual offering and intended reader's task; do not invent competitive advantages, scope, results, logistics capabilities or guarantees. A short sentence is not necessarily a good sentence. Review important Korean copy aloud for awkwardness or repetition.
+
 ## 5. Decoration: explicit opt-in
 
 **Default rule: Do not add nonfunctional decoration.** Brand identity alone, a desire for uniqueness, or adjectives such as “premium” do not grant the agent permission to add ornaments.
@@ -69,7 +73,7 @@ Without an explicit user request, do not add:
 - Fabricated visual labels to balance a layout.
 - Decorative status dots (e.g., a green dot next to '내 작업 목록'), colored circles, or online/active indicators that do not reflect real, changing application state. Do not use them to imply connectivity, availability, progress, or activity. When genuine status must be conveyed, use a clear text label by default; a dot or equivalent visual marker may be added only if explicitly requested by the user and backed by real state.
 
-**Allowed by default when functionally necessary:** clear grouping, input boundaries, meaningful dividers, hover/focus/disabled/error/success indicators, useful icons, product images needed to understand the product, and motion needed to communicate an interaction or state change.
+**Allowed by default when functionally necessary:** clear grouping, input boundaries, meaningful dividers, hover/focus/disabled/error/success indicators, useful icons, product images needed to understand the product, **domain-relevant workplace/process photography that clarifies what the business actually does**, actual UI screenshots, explanatory diagrams, and motion needed to communicate an interaction or state change. These are content choices, not opt-in decoration. Do not claim a generic stock photo depicts the real organization.
 
 **Explicit authorization:** A direct user instruction or provided brand/design specification can authorize a decorative element within its stated scope. A broad request for a "beautiful" or "professional" page does not automatically authorize gradients, animation, or decorative labels.
 
@@ -106,7 +110,7 @@ The goal is not to clone other creators' distinctive designs. Familiar UX patter
 
 **Gate A — Purpose:** user, primary task, action, content, and unresolved structure-changing questions recorded.
 
-**Gate B — Design:** familiar pattern selected; typography <= 2 families (functional code exception); no unauthorized decoration, fabricated content, editorial filler, or novelty.
+**Gate B — Design:** familiar pattern selected; typography <= 2 families (functional code exception); no unauthorized decoration, fabricated content, editorial filler, or novelty; first-screen comprehension, informative visual assets, natural copy and differentiated content emphasis checked.
 
 **Gate C — Implementation:** semantic tokens, working controls, states, responsive layout, and accessibility considered.
 

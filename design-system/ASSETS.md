@@ -1,11 +1,13 @@
 # Design System — Assets
 
 - Version: **1.0**
-- Applies under Governance v1.1: decoration is **explicit opt-in**.
+- Applies under Governance v1.2: decoration is **explicit opt-in**.
 
 ## 1. Selection rule
 
 Before adding an image, icon, illustration, chart, video or animation, write one sentence answering: **What will the user understand or do better because of this asset?** If there is no concrete answer, omit it. Empty space is acceptable.
+
+**Do not interpret this as an image-minimization target.** First identify whether a first-time visitor needs to *see* the product, environment, process, or interface to understand the offering. If yes, choose the smallest informative set of appropriate visuals; avoiding all imagery can itself be a design failure.
 
 ## 2. Allowed use cases
 
@@ -13,7 +15,7 @@ Before adding an image, icon, illustration, chart, video or animation, write one
 |---|---|---|
 | Product screenshot | Shows actual interface and workflow | Use when necessary; otherwise omit |
 | Product photo | Shows physical product or relevant usage | Use when necessary |
-| Photography | Demonstrates a real environment or use case | Only when content supports it |
+| Photography | Demonstrates a real environment or use case | Use when it meaningfully clarifies the business; distinguish illustrative stock from actual company evidence |
 | Icon | Distinguishes actions/status, supports scanning | Use sparingly and consistently |
 | Illustration | Explains an idea that text/UI cannot explain efficiently | Case-by-case; no decorative filler |
 | Chart | Shows measured data or comparisons | Only with real or explicitly labeled example data |
