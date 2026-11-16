@@ -83,7 +83,7 @@ The goal is not to clone other creators' distinctive designs. Familiar UX patter
 
 ## 7. Design tokens and component standards
 
-- Define semantic colors and consistent spacing, radius, and type scales; avoid arbitrary style values.
+- Define semantic colors and consistent spacing and type scales; avoid arbitrary style values. Radius is optional and must not be introduced as a global scale unless needed for component consistency.
 - Choose composition based on actual content rather than defaulting to hero + three cards + fake dashboard.
 - Reuse functioning components; no nominal variants made only to inflate a marketplace catalog.
 - Components must have a user task, input/content contract, and realistic empty/error/success states where applicable.

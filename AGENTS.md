@@ -38,3 +38,5 @@ For each new page or substantial revision, report briefly:
 - **Validation** — checklist result, tests actually performed, remaining limitations.
 
 Source of truth: [governance/ANTI_SLOP.md](governance/ANTI_SLOP.md).
+
+Use the corresponding references in [design-system/TOKENS.md](design-system/TOKENS.md), [TYPOGRAPHY.md](design-system/TYPOGRAPHY.md), [LAYOUT.md](design-system/LAYOUT.md), [COLORS.md](design-system/COLORS.md), [ASSETS.md](design-system/ASSETS.md), and [COMPONENTS.md](design-system/COMPONENTS.md) for concrete UI choices. The Governance rules take precedence if documents conflict.
