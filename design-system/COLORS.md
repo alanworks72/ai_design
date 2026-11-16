@@ -1,6 +1,6 @@
 # Design System — Colors
 
-- Version: **1.0**
+- Version: **2.0**
 - Source of truth for approved default palette values and explicitly identified experimental candidates. Use with `TOKENS.md`.
 
 ## 1. Default neutral palette
@@ -48,7 +48,7 @@ These are **computed contrast-screened candidates**, not completed browser or WC
 
 ## 4. Color selection workflow
 
-For a new project with no prior color decision, first offer **Default Template (white + neutral)** or **Custom Color Palette**. Ask once, not on every edit. Default background = `#FFFFFF`; change it only by explicit request. If customized, ask whether only accent/actions or the whole theme should change. Check text, controls, focus, status and disability states before accepting final color combinations.
+For a new project with no prior color decision, first offer **Default Template (white + neutral)** or **Custom Color Palette**. Ask once, not on every edit. Default background = `#FFFFFF` for the neutral starter; a user-specified brand or delegated Art Direction can select a coherent alternative background and accent while maintaining contrast. If customized, ask whether only accent/actions or the whole theme should change. Check text, controls, focus, status and disability states before accepting final color combinations.
 
 Semantic roles remain stable when values change. Never hardcode one-off hex values inside repeated components if a token exists. Preserve existing themes when working on established projects.
 
@@ -58,7 +58,7 @@ Target WCAG AA: normal text contrast ≥ 4.5:1; large text ≥ 3:1; essential no
 
 ## 6. No implied decoration
 
-A user requesting a brand color is **not** automatically requesting gradients, glows, illustrations, multicolor surfaces, backgrounds, or animations. Those remain explicitly opt-in under Governance v1.1.
+A user requesting a brand color is **not** automatically requesting gradients, glows, illustrations, multicolor surfaces, backgrounds, or animations. Under Governance v2.0, purposeless effects remain prohibited; coherent, restrained aesthetic expression can be used when justified by Art Direction.
 
 ## 7. Evidence
 

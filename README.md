@@ -1,38 +1,32 @@
 # AI Design
 
-Reusable frontend components and website design packs with a shared **Anti-Slop Governance v1.1**.
+**Anti-Slop AI Design Methodology — Governance v2.0**
 
-## Governance
+Purpose: produce polished, purposeful, distinctive, usable frontends without generic AI decoration, fabricated content or misleading interactions. **Anti-Slop does not mean removing visual design.**
 
-- [AGENTS.md](AGENTS.md) — entrypoint and instructions for AI coding agents.
-- [ANTI_SLOP.md](governance/ANTI_SLOP.md) — normative design, content, interaction, typography, decoration and originality rules.
-- [REVIEW_CHECKLIST.md](governance/REVIEW_CHECKLIST.md) — implementation/release review and evidence record.
+## Core documents
 
-## Design System
+- [AGENTS.md](AGENTS.md): agent workflow and conditional user consultation about images.
+- [Anti-Slop Governance](governance/ANTI_SLOP.md): the boundary between purposeful design and Slop.
+- [Art Direction](design/ART_DIRECTION.md): visual identity, information priority, composition and image roles.
+- [Visual Communication & Editorial Quality](governance/VISUAL_COMMUNICATION.md): useful assets and natural, accurate copy.
+- [Review Checklist](governance/REVIEW_CHECKLIST.md): release gates.
+- [Visual QA](validation/VISUAL_QA.md): screenshot critique for both over-styling and under-design.
 
-- [Tokens](design-system/TOKENS.md) — shared values, ownership and project initialization.
-- [Typography](design-system/TYPOGRAPHY.md) — type scale and font policy.
-- [Layout](design-system/LAYOUT.md) — spacing, grid and card-minimal layout.
-- [Colors](design-system/COLORS.md) — neutral palette, semantic state colors and customization.
-- [Assets](design-system/ASSETS.md) — purposeful imagery, icons and license checks.
-- [Components](design-system/COMPONENTS.md) — functional component rules for shadcn/ui and Tailwind CSS.
+## Design System starters
 
-## Default approach
+[TOKENS](design-system/TOKENS.md) · [TYPOGRAPHY](design-system/TYPOGRAPHY.md) · [LAYOUT](design-system/LAYOUT.md) · [COLORS](design-system/COLORS.md) · [ASSETS](design-system/ASSETS.md) · [COMPONENTS](design-system/COMPONENTS.md)
 
-1. Start with the user's task, necessary content, and primary action.
-2. Use familiar interface patterns and at most **two standard UI font families** (functional code/terminal font exception).
-3. **Do not add nonfunctional decoration or novel design patterns unless the user explicitly requests them.**
-4. For mockups, use clearly fictional example values and keep the sample disclosure in review notes, not decorative page copy. Production content must be verified. Ask only when missing information materially changes the structure or behavior.
-5. Build meaningful, accessible interactions, then review and report actual test results.
+Project-specific, coherent styling decisions are allowed. Preserve existing brand identity and verify accessibility. Neutral is a starter, not the compulsory appearance of every website.
 
-Visual effects, decorative UI copy, and originality are **opt-in**, not agent defaults. Functional borders, feedback, icons, and product imagery remain acceptable when required for the task.
+## Image decision
 
-For new projects, first offer a choice between the default neutral color template and a custom color palette. Skip the question if the user already chose or the existing project has a theme.
+When the agent independently judges informative images to be useful and the user has not already decided, it **asks one concise question**: user-provided assets, properly licensed agent-sourced/created illustrative assets, or no images. No unnecessary image question for interfaces that would not benefit from imagery. Never imply that stock imagery proves real-company facilities or products; check rights for sold design packs.
 
-## Working with coding agents
+## Workflow
 
-Open the repository root so compatible coding agents can discover `AGENTS.md`. Other agents must be instructed to read `AGENTS.md` and the Governance file directly. Always consult `governance/REVIEW_CHECKLIST.md` before declaring a result ready.
+Brief → Art Direction → conditional image question → implementation → actual screenshot visual review/revision → browser/static QA → independent HITL.
 
-## Project status
+Historical experiments under [validation](validation/README.md) remain pinned to their original Governance revisions. Their evidence must not be relabeled as v2.0 results.
 
-Governance documents maintained here; production design components are not yet committed.
+This repository currently contains design methodology and experimental protocols, not a commercially approved component catalogue.

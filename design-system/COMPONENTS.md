@@ -1,6 +1,6 @@
 # Design System — Component Rules
 
-- Version: **1.0**
+- Version: **2.0**
 - Technology direction: **React + shadcn/ui + Tailwind CSS**; installed versions must be inspected before implementation.
 
 ## 1. Build from user actions
@@ -40,9 +40,9 @@ For a **preview page**, use concise, realistic but obviously fictional values wh
 ## 5. Implementation checklist
 
 - [ ] Purpose/user action documented.
-- [ ] Familiar UX pattern chosen; no unsolicited novelty.
+- [ ] Familiar interaction behavior retained while purposeful Art Direction may determine original visual composition.
 - [ ] UI fonts within limit; typography tokens used.
-- [ ] No unauthorized decorative text, preview disclaimers, assets, gradients, glows, animation, card repetition.
+- [ ] No meaningless or deceptive metadata, fake states, unrelated ornamentation or filler card repetition; purposeful restrained visual expression remains allowed.
 - [ ] Colors and spacing follow approved tokens.
 - [ ] Component states, responsive behavior and keyboard usability reviewed.
 - [ ] Actual implementation tests run or **Not tested** accurately recorded.

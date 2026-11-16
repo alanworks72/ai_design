@@ -1,144 +1,47 @@
-# Anti-Slop Design Governance
+# Anti-Slop AI Design Governance
 
-Version: **1.3**  
-Scope: Websites, components, templates, interactive demos, screenshots, and AI-assisted frontend design in this repository.  
-Status: **Mandatory default**. Explicit user requirements may authorize scoped exceptions.
+Version: **2.0**. Applies to websites, components, templates and AI-generated frontend work.
 
-## 1. Objective and priorities
+## 1. Objective and distinction
+Build **coherent, expressive, professional UI without generic AI embellishments or deception**. Anti-Slop is not a requirement to minimize images, colors, visual variety or design elements.
 
-Build interfaces that let real users **understand, navigate, decide, and act**. A visually pleasing appearance is not a substitute for working software or useful content.
+| Category | Policy | Examples |
+|---|---|---|
+| Information and interaction | Use when valuable | Useful images/screenshots, meaningful borders, categories, authentic feedback |
+| Purposeful aesthetic expression | **Allowed without separate opt-in** | Brand accents, editorial layout, intentional typographic contrast, appropriate illustration, restrained depth and motion |
+| Nonfunctional AI-Slop | **Prohibited** | Fake online dots, decorative English eyebrow stacks, invented metrics, arbitrary orbit art, repeated filler cards, unrelated images, random glow |
 
-Priorities, in order:
-1. User requirements and actual task completion.
-2. Familiar and predictable interaction patterns.
-3. Legibility, accessibility, responsive behavior, and accurate content.
-4. Consistency in typography, spacing, color, and components.
-5. Novelty or stylistic expression **only when the user explicitly requests it**.
+A gradient, shadow, rounded corner, illustration, photo or asymmetrical composition is not inherently Slop. Judge **purpose, coherence, prominence and repetition**. Identical-looking, under-designed white pages can also fail professional quality.
 
-Anti-Slop is not a mandate to make every website identical or unfinished. Quality comes from content hierarchy, alignment, proportion, usable controls, and meticulous execution—not extra decorations. **Do not equate fewer images, weaker emphasis, or more white space with higher design quality.** A useful image is content, not an ornamental exception.
+## 2. Work order
+Define user, task, necessary/verified facts, primary action and real states. Follow [Art Direction](../design/ART_DIRECTION.md) before UI code and [Visual Communication](VISUAL_COMMUNICATION.md) for image/copy meaning. Choose design based on audience, material and task, not minimum element count.
 
-## 2. Define the task before designing
+If images would improve understanding and user has not decided, **ask the user** as specified in [ASSETS.md](../design-system/ASSETS.md); record user decision. Contextual illustrative stock imagery can support a fictional mockup but may not be presented as actual company-owned inventory or facilities.
 
-Identify the intended user, what they need to accomplish, required information, the primary action, and relevant states (empty, loading, error, success, mobile, etc.).
+## 3. Honest content
+- Mockups: use natural fictional company/contact examples; document their status outside customer UI. No intrusive "replace later" labels.
+- Production: use verified company-specific facts and assets; ask when missing data materially affects truthful content.
+- No invented customers, testimonials, metrics, certifications, guarantees, inventory or abilities.
+- Name controls by real action: copying a draft is not submitting an inquiry.
+- Copy should be idiomatic and useful; remove redundant instructions and unsupported generic slogans. Real step numbers and category labels are legitimate.
 
-Do not create decorative material to occupy whitespace or conceal missing content. Choose an established interface pattern that supports the task.
+## 4. Visual standards
+- Allow purposeful brand/style expression and content-driven compositions even without explicit style instructions.
+- Reject ornamental status dots without real state, fabricated metadata, arbitrary shapes, unrelated stock art, unjustified glow, forced card repetition and purely decorative UI copy.
+- Purposeful images, accent colors, editorial asymmetry, restrained shadows/gradients and motion may be used when coherent, relevant and accessible. No blanket prior approval required for every visual choice.
+- Preserve familiar navigation/forms and correct keyboard/action semantics; visual originality must not obstruct use.
+- A visually empty wireframe is not a successful finished site simply because it contains zero forbidden ornaments.
 
-Before layout implementation, follow [Visual Communication & Editorial Quality](VISUAL_COMMUNICATION.md): identify what a first-time visitor should recognize within the first screen; which verified or clearly fictional visuals materially help; the primary information hierarchy; and whether every visible sentence is natural, specific and supported. Include visuals where they carry necessary information, and omit visuals that merely fill space. For a mockup, distinguish **illustrative category/context imagery** from **claimed photographic evidence of the actual organization**. Assess both an informative-asset treatment and a text-only treatment before deciding; record what users gain or lose. A missing company asset does not by itself prohibit accurately contextualized, properly licensed example imagery.
+## 5. Design systems
+Use semantic tokens and internally consistent typography, colors, spacing and components. [Design System](../design-system/TOKENS.md) values are starters, not mandatory identical branding across projects. Allow a deliberate project-specific system, respecting existing user branding and contrast/accessibility.
 
-### Missing content decision rule
+## 6. Verification gates
+- **Brief:** truth, task, actions and audience understood.
+- **Direction:** purposeful visual concept; appropriate hierarchy, images and user image decision (if triggered).
+- **Implementation:** real interactions, semantics, responsive behavior and contrast verified.
+- **Visual QA:** inspect actual desktop/mobile screenshots for both over-design and under-design; revise substantive defects per [VISUAL_QA.md](../validation/VISUAL_QA.md).
+- **HITL:** independent human aesthetic/editorial approval separate from static/browser PASS.
 
-- **Mockup/sample page with enough structure:** fill necessary fields with concise, natural, **clearly fictional example values** rather than visible `[Placeholder]` text or notes about replacing information. Examples: `가온유통`, `Tel. 02-000-0000`, `서울특별시 OO구 OO로 123, 3층`, `contact@example.com`. Document their fictional nature **outside the rendered page**, in project/review notes.
-- **Prototype:** use realistic fictional example data and distinguish actual working controls from mocked behavior. If the interface simulates rather than performs an action, name that action honestly.
-- **Behavioral examples:** use small, realistic sample data and avoid implying that an example belongs to a real customer. Do not add gratuitous on-page disclaimers such as “design review sample,” “replace with real company information,” or “not connected to a server” to fill UI space. If a limitation materially affects user action (such as a send button that does not send), the UI must communicate it or the control must be redesigned to honestly perform its labeled action.
-- **Production/real organization:** do not publish fictional contact, company, product, or legal details as genuine; obtain and verify actual information before release.
-- **Content would materially change the page structure, features, or primary action:** ask the user a concise, targeted question before making the consequential choice.
-- Never manufacture real-sounding testimonials, statistics, customers, reviews, prices, product capabilities, or endorsements as if verified. Do not use marketing fluff to fill space.
+Hard failure: misleading content/functionality, fake status, unlicensed asset distribution, known broken/inaccessible primary action, demonstrably purposeless recurring UI garnish. Quality failure: generic, visually underdeveloped composition, incoherent hierarchy or awkward copy. **Novel layout alone is not a failure.**
 
-Do not ask for every missing detail when clearly fictional sample content is sufficient for a mockup. Never treat mockup content as verified production information.
-
-## 3. Typography
-
-- Use at most **two font families** in general UI: headings and body. One family is preferable if it works.
-- An actual code editor, code sample, or terminal can use monospace as a **functional exception**. Do not add a third family solely to create a code-like visual style.
-- Define a compact type scale and intentional heading hierarchy; choose line height and weight for legibility.
-- Do not add tiny uppercase eyebrow labels, exaggerated letter spacing, or arbitrary font changes just to imitate editorial design.
-- Support Korean/English glyph rendering and content wrapping.
-
-## 4. Functional copy only
-
-Every visible string must help a user understand, decide, navigate, provide input, or interpret an outcome.
-
-**Do not add by default:**
-- Invented numbering: `01 / SHOWCASE`, `INTERACTIVE PRODUCT DEMO / 001`, `VOL. 01`.
-- Decorative eyebrow, kicker, overline, uppercase caption, or arbitrary category labels.
-- Performative metadata: `LIVE COMPONENT · NO BACKEND REQUIRED`, `USE CASE: DEVELOPER TOOLS` where not required for a decision.
-- Development/template terminology: `REUSABLE INTERACTIVE DEMO BLOCK`, `COMPONENT SHOWCASE` as customer-facing content.
-- Unsupported claims, artificial counters, generic slogans, invented proof points.
-- Development-only or preview disclaimers in rendered UI that do not help a real visitor, including “실제 정보로 교체 예정”, “디자인 검토용 예제”, “이 미리보기에서만 유지됩니다”. Keep such notices in delivery notes unless they are genuinely required to prevent misleading user actions.
-
-Real workflow step numbering, meaningful filters/categories, required technical compatibility notes, form labels, status/error feedback, and accessibility text are functional and allowed.
-
-**Deletion test:** If removing the text causes no meaningful loss of understanding, navigation, or decision quality, remove it unless the user explicitly requested that copy.
-
-**Editorial test:** Prefer a natural, direct headline and supporting sentence over template-like claims such as “your trusted partner,” “innovative solutions,” or a literal description of the site category. Name the actual offering and intended reader's task; do not invent competitive advantages, scope, results, logistics capabilities or guarantees. A short sentence is not necessarily a good sentence. Review important Korean copy aloud for awkwardness or repetition.
-
-## 5. Decoration: explicit opt-in
-
-**Default rule: Do not add nonfunctional decoration.** Brand identity alone, a desire for uniqueness, or adjectives such as “premium” do not grant the agent permission to add ornaments.
-
-Without an explicit user request, do not add:
-- Gradients, glow, decorative blur, textures, geometric background shapes, visual noise, ornate shadows.
-- Decorative 3D, animations, illustrations, unrelated photos, decorative icons or badges. Brief, purposeful hover/focus/state-feedback transitions are allowed; the 120–180ms default is a candidate, not a hard duration limit.
-- Separators, cards, ornamental borders, or empty panels solely to make the page look designed.
-- Fabricated visual labels to balance a layout.
-- Decorative status dots (e.g., a green dot next to '내 작업 목록'), colored circles, or online/active indicators that do not reflect real, changing application state. Do not use them to imply connectivity, availability, progress, or activity. When genuine status must be conveyed, use a clear text label by default; a dot or equivalent visual marker may be added only if explicitly requested by the user and backed by real state.
-
-**Allowed by default when functionally necessary:** clear grouping, input boundaries, meaningful dividers, hover/focus/disabled/error/success indicators, useful icons, product images needed to understand the product, **domain-relevant workplace/process photography that clarifies what the business actually does**, actual UI screenshots, explanatory diagrams, and motion needed to communicate an interaction or state change. These are content choices, not opt-in decoration. Do not claim a generic stock photo depicts the real organization.
-
-**Explicit authorization:** A direct user instruction or provided brand/design specification can authorize a decorative element within its stated scope. A broad request for a "beautiful" or "professional" page does not automatically authorize gradients, animation, or decorative labels.
-
-Record authorized exceptions as a short note describing the request and where it was applied. Do not spread a scoped exception across unrelated components.
-
-## 6. Familiarity before originality
-
-- Default to familiar, understandable navigation, forms, content patterns, and interaction behavior.
-- Use existing proven UI patterns where appropriate; avoid novelty for its own sake.
-- Do not introduce unusual composition, unconventional navigation, gratuitous interactive experiments, or deliberate layout disruption unless requested.
-- If a user requests originality, explore alternatives **while retaining understandable labels, controls, feedback, accessibility, and task completion**.
-- A request for originality is **not** blanket permission to add decorative text, decorative visual effects, or invented content. Confirm the specific treatment only when it materially affects the result.
-
-The goal is not to clone other creators' distinctive designs. Familiar UX patterns are a starting point, not authorization to copy proprietary assets or exact artwork.
-
-## 7. Design tokens and component standards
-
-- Define semantic colors and consistent spacing and type scales; avoid arbitrary style values. Radius is optional and must not be introduced as a global scale unless needed for component consistency.
-- Choose composition based on actual content rather than defaulting to hero + three cards + fake dashboard.
-- Reuse functioning components; no nominal variants made only to inflate a marketplace catalog.
-- Components must have a user task, input/content contract, and realistic empty/error/success states where applicable.
-- Whitespace is acceptable. Do not fill it with captions, dots, figures, icons, lines, or decorative images.
-
-## 8. Interaction, accessibility, and honesty
-
-- Primary actions must work, or the interface must transparently disclose prototype/simulated behavior.
-- Do not present static mockups, fake AI responses, or predetermined output as live features.
-- Use semantic HTML, labels, keyboard interaction, visible focus, sufficient contrast, and responsive layouts.
-- Check realistic lengths and wrapping in actual target languages.
-- Motion needs an interaction purpose and should respect reduced-motion settings where applicable.
-- Report verification precisely; a file created or a screenshot generated does **not** prove browser function, accessibility compliance, or production readiness.
-
-## 9. Design and release gates
-
-**Gate A — Purpose:** user, primary task, action, content, and unresolved structure-changing questions recorded.
-
-**Gate B — Design:** familiar pattern selected; typography <= 2 families (functional code exception); no unauthorized decoration, fabricated content, editorial filler, or novelty; first-screen comprehension, informative visual assets, natural copy and differentiated content emphasis checked.
-
-**Gate C — Implementation:** semantic tokens, working controls, states, responsive layout, and accessibility considered.
-
-**Gate D — Review:** evaluate at desktop/mobile widths, verify mockup data is documented outside the page, check the copy deletion test, inspect for unauthorized ornamentation and novelty, and execute [REVIEW_CHECKLIST.md](REVIEW_CHECKLIST.md). Review consists of static checks, browser checks and HITL review; none is interchangeable with the others.
-
-For applicable hard-gate failures, remove or correct the issue before release. Untested requirements remain **Not tested**, not Pass.
-
-## 10. Exception record
-
-Exceptions exist for **explicit user requests or provided design/brand requirements**, not the agent's independent aesthetic preference.
-
-Document only actual exceptions:
-- Relevant user instruction or design specification:
-- Affected element and component:
-- Scope (where allowed, where not):
-- Functional/accessibility considerations:
-- Review decision:
-
-Functional necessities listed in section 5 do **not** require exception records.
-
-## 11. Definition of done
-
-Not ready for release when:
-- Unrequested decoration or invented metadata is present.
-- More than two ordinary UI font families are used without a documented functional exception.
-- Fictional preview content is presented as actual production information, or development-only disclaimers clutter the rendered UI.
-- A novel layout was introduced without being requested.
-- A primary action is broken or presented misleadingly as working.
-- Responsive and accessibility checks are missing or falsely reported as passed.
-
-Governance prevents recurring design mistakes; it does not guarantee originality, visual excellence, or commercial performance. Human review remains necessary.
+Design quality is not guaranteed by the absence of Slop; an independent reviewer must assess it. See [REVIEW_CHECKLIST.md](REVIEW_CHECKLIST.md).

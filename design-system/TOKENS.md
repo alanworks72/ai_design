@@ -1,68 +1,30 @@
 # Design System — Tokens
 
-- Version: **1.0**
-- Status: **Version 1.0; proposed values explicitly marked**
-- Applies with: `../governance/ANTI_SLOP.md` (v1.1)
+Version **2.0**. [Governance](../governance/ANTI_SLOP.md) defines integrity constraints; [Art Direction](../design/ART_DIRECTION.md) chooses a project-appropriate visual identity.
 
-## 1. Principles
+## Principles
+**Tokens ensure internal consistency; they must not force every website to look identical.** Preserve existing brand design systems. Default values are starters, and deliberate project-level adaptations are allowed when appropriate to audience, brand and content.
 
-Tokens encode repeated **functional choices**, not decoration. Defaults are fixed across projects unless the user opts to customize colors at project start. Existing project tokens take precedence: never silently overwrite them.
+Ownership: [Colors](COLORS.md), [Typography](TYPOGRAPHY.md), [Layout](LAYOUT.md), [Assets](ASSETS.md), [Components](COMPONENTS.md).
 
-**Token ownership**
-- `COLORS.md`: semantic colors and state colors.
-- `TYPOGRAPHY.md`: font, size, weight, line-height.
-- `LAYOUT.md`: spacing, max-width, breakpoints, grid.
-- `COMPONENTS.md`: behavior and component usage, referencing these tokens.
-
-## 2. Defaults
-
-| Domain | Default | Status |
+## Starter tokens
+| Role | Neutral starter | Policy |
 |---|---|---|
-| Background | `#FFFFFF` | **Agreed** |
-| Primary foreground/action | `#171717` | **Approved default** |
-| Neutral supporting text | `#737373` on white; use `#525252` on surface | **Approved default; contrast checked** |
-| Neutral border/surface | `#E5E5E5` / `#F5F5F5` | **Approved default** |
-| Functional colors | Green `#22C55E`, amber `#F59E0B`, red `#EF4444` | **Proposed values; direction agreed** |
-| Body typography | Product UI 14/20; Website 16/24 | **Approved default** |
-| Font weight | 400 / 500 / 600 | **Approved default** |
-| Spacing | 4, 8, 12, 16, 24, 32, 48, 64, 80, 96px | **Approved default** |
-| Radius | **No shared radius scale yet** | **Agreed** |
-| Card layout | Not a default layout tool | **Agreed** |
+| Background | #FFFFFF | May adapt within coherent project theme |
+| Main foreground / primary | #171717 | May use approved project accent |
+| Muted foreground | #737373 on white; #525252 on #F5F5F5 | Contrast verified in context |
+| Border / surface | #E5E5E5 / #F5F5F5 | Functional or coherent visual grouping |
+| Typography | Website body 16/24, product dense 14/20; Wanted Sans | Default, not mandatory brand identity |
+| Weights | 400 / 500 / 600 | Can extend intentionally in project typography |
+| Spacing | 4,8,12,16,24,32,48,64,80,96px | Starter scale, composition-aware |
+| Radius | No mandatory global scale | Component/project consistency |
 
-Do not introduce a `radius` scale just because shadcn/ui exposes radius-related CSS variables. A component may retain a necessary library default; document any product-wide deviations rather than using rounded cards as a style language.
+Use CSS variables / semantic Tailwind mapping; check actual installed Tailwind/shadcn version. Verify contrast, disabled/focus states and loading in browser.
 
-## 3. Tailwind / shadcn/ui binding
+## Project initialization
+- Existing theme: preserve.
+- User has chosen palette: respect it.
+- No prior preference: if brand/palette materially affects the design, ask one concise question about neutral starter vs project-specific color direction. **If the user delegates styling decisions**, choose a restrained direction and document it rather than forcing Neutral everywhere.
+- White is a safe starter, not a compulsory backdrop. Choose accents and surfaces coherently, avoiding arbitrary colors and unverified brand marks.
 
-Use **CSS variables with semantic names** and map them to Tailwind utilities. Check actual installed Tailwind/shadcn versions before generating exact configuration code; v3/v4 configuration conventions differ.
-
-Example *conceptual mapping*:
-
-```css
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --surface: #f5f5f5;
-  --border: #e5e5e5;
-  --primary: #171717;
-  --primary-foreground: #ffffff;
-}
-```
-
-These tokens alone are **not** a complete shadcn/ui theme: required component tokens and contrast combinations must be defined and tested in the actual project before use.
-
-## 4. Project initialization policy
-
-1. Check whether the existing project has an established design system. If yes, preserve it; never silently replace colors.
-2. When starting a **new project** and no preference has already been stated, present two choices once: **“기본 템플릿(흰색 + Neutral) / 사용자 정의 컬러 팔레트 중 무엇을 사용할까요?”**. Do not ask again when the user has already made the choice.
-3. If default: use the approved neutral palette. If custom: obtain the brand color(s), requested scope (accent only or whole theme), and background preference.
-4. Keep `#FFFFFF` background unless the user specifically requests another color or a dark theme.
-5. Generate semantic tokens and verify readable foreground/background, border, hover, focus, disabled, and feedback states.
-6. Do not ask for each hex value individually when one representative brand color suffices to prepare a **proposal**; proposed derivative colors still require validation.
-
-## 5. Exceptions and release
-
-An explicitly requested alternate theme changes concrete color values, **not** Governance prohibitions on decorative copy, effects, or fabricated content. Document the selection. No UI is release-ready until the repository Governance checklist is executed.
-
-## 6. Research provenance
-
-Based on our prior comparisons of the *officially published* systems of GitHub Primer, IBM Carbon, and Vercel Geist, plus user decisions. The values listed as proposed are **our chosen defaults**, not measured averages of award-winning websites. Computed styles of awarded sites remain unmeasured.
+Project overrides are design decisions, not automatically prohibited decoration. Actual commercial releases require rights/accessibility review.

@@ -1,55 +1,35 @@
 # Design System — Assets
 
-- Version: **1.0**
-- Applies under Governance v1.3: decoration is **explicit opt-in**.
+Version **2.0**. Governed by [Anti-Slop v2.0](../governance/ANTI_SLOP.md) and [Art Direction](../design/ART_DIRECTION.md).
 
-## 1. Selection rule
+## Image consultation (Codex, Claude and other agents)
 
-Before adding an image, icon, illustration, chart, video or animation, write one sentence answering: **What will the user understand or do better because of this asset?** If there is no concrete answer, omit it. Empty space is acceptable.
+**Trigger:** If the agent independently decides that photos, illustrations, screenshots or other imagery would materially help users recognize the offering, compare options, or understand the task, **and the user has not already decided image use**, ask a single concise question about images before finalizing the design.
 
-**Do not interpret this as an image-minimization target.** First identify whether a first-time visitor needs to *see* the product, environment, process, or interface to understand the offering. If yes, choose the smallest informative set of appropriate visuals; avoiding all imagery can itself be a design failure.
+Suggested Korean question:
 
-### Stock photo classification
+> 이 페이지는 [구체적 정보 전달 목적] 때문에 이미지가 있으면 더 이해하기 쉬울 것 같습니다. 이미지는 어떻게 할까요? ① 직접 이미지 제공 ② 제가 이용 권리를 확인할 수 있는 예시 이미지를 선정/제작 ③ 이미지 없이 구성
 
-- **Informative stock photography** (conditional default): Depicts a generic product category, workplace setting or common process to help identify the offering; use only when it adds meaning, matches the stated scope and has appropriate rights. Example: a generic warehouse aisle as logistics context on a fictional B2B distributor mockup, **not** a claim that the company owns that facility.
-- **Decorative stock hero** (explicit opt-in): Mood-only imagery with no meaningful connection to the visitor's decision, or any photograph used solely to occupy a hero slot. A stock photo is not automatically decorative because it is in the hero, nor informative merely because it depicts the industry.
-- **Actual-organization evidence** (requires verification): Real facilities, employees, inventory, branded products, delivery fleet, client work or other claims of fact. Do not replace missing evidence with stock assets.
+The agent may recommend one approach. **Do not ask reflexively** for screens where imagery contributes little. If the user has already provided images or image preferences, apply them without repeating the question. Do not make the user choose every crop or placement. If imagery materially changes design and response is unavailable, mark choice **PENDING** and avoid assuming permission; safe unrelated work may continue. Never purchase assets without consent.
 
-Compare the informative-asset and text-only alternatives before choosing a text-only layout for a domain where visual examples may aid recognition. Record the user benefit and representation/licensing constraints, not merely “no real photos provided.”
+## Classification
 
-## 2. Allowed use cases
-
-| Asset | Functional reason | Default |
+| Kind | When to use | Integrity boundary |
 |---|---|---|
-| Product screenshot | Shows actual interface and workflow | Use when necessary; otherwise omit |
-| Product photo | Shows physical product or relevant usage | Use when necessary |
-| Photography | Demonstrates a real environment or use case | Use when it meaningfully clarifies the business; distinguish illustrative stock from actual company evidence |
-| Icon | Distinguishes actions/status, supports scanning | Use sparingly and consistently |
-| Illustration | Explains an idea that text/UI cannot explain efficiently | Case-by-case; no decorative filler |
-| Chart | Shows measured data or comparisons | Only with real or explicitly labeled example data |
-| Video/animation | Demonstrates behavior or gives meaningful feedback | Only when required; respect reduced motion |
-| Abstract art, mood-only stock hero, 3D background | Decorative identity without information value | **Off by default**, user opt-in |
+| Actual product/UI image | Shows verified interface, item, comparison | Do not invent real product evidence |
+| Informative illustrative photo | Helps explain category, process or ordinary environment | Do not claim it depicts real company inventory/facilities |
+| Diagram / explanatory illustration | Makes complex concepts/workflows easier | Must accurately represent the intended flow |
+| Purposeful brand imagery | Establishes coherent distinct identity and does not mislead | Not forced; evaluate Art Direction and accessibility |
+| Mood-only stock or ornamental art | Has no meaningful informational or coherent brand purpose | Omit as Slop |
 
-An actual product screenshot is more informative than an invented dashboard mockup. Do not claim a static preview represents working functionality.
+A photo is not automatically decorative merely because it is in the Hero, nor informative merely because it shows the same industry. If the user declines imagery, deliver a complete, well-composed text-led design.
 
-## 3. Consistent usage
+## Usage
+Preserve crops and proportions, appropriate alt text, reasonable file sizes/responsive images, consistent visual language and meaningful focal points. Avoid identical asset framing where content roles differ. Don't add fake company proof, arbitrary icons, repetitive cards or unnecessary captions.
 
-- Start with one icon library when icons are needed; **Lucide** is a candidate compatible with the shadcn/ui ecosystem. Verify installed version and license for commercial redistribution.
-- Do not mix unrelated illustration or icon styles on one page.
-- Preserve intrinsic image proportions and provide appropriate alt text; purely decorative images (when explicitly requested) should not clutter assistive narration.
-- Do not add unnecessary borders, background cards or captions around every asset.
-- Use authentic product material or clearly fictional preview examples. Record the fictional source in design/review notes **outside rendered UI**; do not insert decorative on-page 'sample' or 'replace later' disclosures. Never invent visual evidence, certification, performance claims or customer logos. Production assets must be verified.
+## Licensing and provenance
+For design packs: record author, origin, license, attribution, derivative rights, redistribution/bundling rights, trademark constraints and commercial use. A website's use permission is not automatically a right to resell its underlying assets. Use reference material only as reference absent proper rights. For mockups document clearly illustrative status in delivery notes; avoid misleading user-facing claims.
 
-## 4. Licensing checklist
-
-Before including an asset in a **sold** design pack, confirm: source, author, license, modification rights, redistribution rights, commercial use, attribution obligation and any trademark constraints. Reference-only screenshots from third-party sites are **not automatically licensed for resale**.
-
-| Asset | Source | License | Redistribution allowed? | Attribution | Status |
+| Asset | Source/Author | License | Redistribution | Attribution | Status |
 |---|---|---|---|---|---|
-| `[Asset]` | `[URL/source]` | `[License]` | `[Yes/No/Unknown]` | `[Requirement]` | Pending |
-
-Do not bundle third-party brand assets into a pack without explicit rights.
-
-## 5. Provenance
-
-The guidelines are informed by *Dropbox Brand imagery/iconography*, *GitHub Primer*, *Vercel Geist* and *IBM Carbon*. They describe our usage decisions, not proof that these references apply identical policies to every site.
+| Example | Document per project | Verify | Verify separately | Verify | PENDING |

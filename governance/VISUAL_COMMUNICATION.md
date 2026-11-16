@@ -1,6 +1,6 @@
 # Visual Communication & Editorial Quality
 
-Status: **Mandatory design review** under Anti-Slop Governance v1.3. This guide adds positive quality criteria without relaxing any ban on purposeless decoration.
+Status: **Mandatory design review** under Anti-Slop Governance v2.0. This guide owns content and editorial clarity; [Art Direction](../design/ART_DIRECTION.md) owns visual composition. Purposeful expression is allowed; purposeless decoration is not.
 
 ## 1. Principle
 
@@ -13,7 +13,7 @@ An asset is **informative content** when it improves recognition, comparison, ve
 Record briefly in development/review notes (not in rendered customer UI):
 
 1. **First-screen recognition:** What should a first-time visitor recognize before scrolling? State the actual offering, audience and primary action in plain language.
-2. **Evidence and assets:** Compare (A) a text-only treatment with (B) at least one realistically obtainable informative visual treatment when the domain has a visible product, environment, process, or UI. Name the specific information each version conveys and what a visitor would understand less well without the visual. If visuals do not improve comprehension, explicitly choose text-only with that comparison recorded. This is a comparison requirement, **not** an image quota.
+2. **Evidence and assets:** If images appear materially useful and the user has not specified imagery, ask once as in [ASSETS.md](../design-system/ASSETS.md). After the user's choice, compare (A) a text-only treatment with (B) at least one realistically obtainable informative visual treatment when the domain has a visible product, environment, process, or UI. Name the specific information each version conveys and what a visitor would understand less well without the visual. If visuals do not improve comprehension, explicitly choose text-only with that comparison recorded. This is a comparison requirement, **not** an image quota.
 3. **Content priority:** Rank the page's primary action and the two or three most important information groups. Use type scale, alignment, proportion, contrast and whitespace to distinguish them.
 4. **Editorial plan:** Write a concrete headline, supporting explanation, section titles and action labels. Identify any missing business facts rather than inventing differentiators.
 5. **Rights and accuracy:** Identify actual organization-owned content versus illustrative preview content. Check asset licensing and redistribution rights for commercial packs.
@@ -47,7 +47,7 @@ Do not turn examples into mandatory page templates. Avoid claiming a stock image
 - **Avoid repeated calls to inquire:** Distinguish a value proposition (what the organization offers), a product/category explanation (what the user can examine), and a CTA (what the control does). Do not end every section with the same imperative.
 - Write actions as the action the interface genuinely performs: “문의 내용 복사” if the app only copies a draft; do not label it “문의 전송” without sending.
 - Remove claims not supported by the brief, including speed, nationwide distribution, cost savings, certifications, number of clients or guaranteed supply.
-- Do not fix weak copy by adding decorative English eyebrows, slogans or invented statistics.
+- Do not fix weak copy with meaningless English eyebrows, generic slogans or invented statistics. Truthful brand-specific editorial expression is allowed.
 - In a sample, natural fictional contact details are acceptable under Governance rules, but do not invent differentiating capabilities.
 
 ## 5. Hierarchy without visual clutter
