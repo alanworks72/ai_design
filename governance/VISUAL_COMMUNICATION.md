@@ -1,71 +1,29 @@
 # Visual Communication & Editorial Quality
 
-Status: **Mandatory design review** under Anti-Slop Governance v2.0. This guide owns content and editorial clarity; [Art Direction](../design/ART_DIRECTION.md) owns visual composition. Purposeful expression is allowed; purposeless decoration is not.
+Applies under [Anti-Slop Governance v2.1](ANTI_SLOP.md), the [locked v1.0 Design System](PROJECT_CHARTER.md), and [Art Direction](../design/ART_DIRECTION.md).
 
-## 1. Principle
+## Purpose
 
-Minimalism is a method, not the objective. Create interfaces that communicate the offering and guide decisions **without looking like either a generic AI landing page or an empty wireframe**.
+Make content understandable, specific and truthful. **Visual Communication chooses what to show; Art Direction chooses how to compose it within the approved tokens.** Neither can silently change colors, fonts or the project's technology direction.
 
-An asset is **informative content** when it improves recognition, comparison, verification, task completion or comprehension. It does not require decorative opt-in. An asset is **ornament** when it merely fills space, adds a fashionable mood or mimics a template; the purposeful-expression and integrity requirements of [ANTI_SLOP.md](ANTI_SLOP.md) still apply.
+## Content decisions
+- Identify the audience, primary task, main action and first-screen business/product meaning.
+- Give major sections different useful roles: context of the business, product/category detail, process, and next action. Avoid repeated commands to “문의하세요” in every section.
+- Use natural, idiomatic Korean. A heading should express a real proposition, not “B2B 기업 홈페이지” or generic praise.
+- Real process numbers, factual labels, input guidance and legitimate subtitles are allowed. Gratuitous English eyebrow metadata, invented metrics and template-maker jargon are not.
+- For mockups, use clear fictional contact details and record their status in off-page development notes. Production claims and assets must be verified.
+- Keep controls honest: a form that creates and copies a draft may not imply server submission.
 
-## 2. Required pre-design decisions
+## Information imagery
 
-Record briefly in development/review notes (not in rendered customer UI):
+Useful product, category, UI or workplace photography/diagrams can improve the page. **Never remove helpful visuals merely to maximize minimalism.** A stock image may illustrate a general industry context but must not be presented as a real company's owned facilities, inventory or clients.
 
-1. **First-screen recognition:** What should a first-time visitor recognize before scrolling? State the actual offering, audience and primary action in plain language.
-2. **Evidence and assets:** If images appear materially useful and the user has not specified imagery, ask once as in [ASSETS.md](../design-system/ASSETS.md). After the user's choice, compare (A) a text-only treatment with (B) at least one realistically obtainable informative visual treatment when the domain has a visible product, environment, process, or UI. Name the specific information each version conveys and what a visitor would understand less well without the visual. If visuals do not improve comprehension, explicitly choose text-only with that comparison recorded. This is a comparison requirement, **not** an image quota.
-3. **Content priority:** Rank the page's primary action and the two or three most important information groups. Use type scale, alignment, proportion, contrast and whitespace to distinguish them.
-4. **Editorial plan:** Write a concrete headline, supporting explanation, section titles and action labels. Identify any missing business facts rather than inventing differentiators.
-5. **Rights and accuracy:** Identify actual organization-owned content versus illustrative preview content. Check asset licensing and redistribution rights for commercial packs.
+When the agent sees a material benefit from imagery and the user has not given a decision, ask the single [image consultation question](../design-system/ASSETS.md). The user can supply assets, authorize rights-checked illustrative sourcing/creation, or choose a text-led page. No forced image quota, and no repeated question if already answered.
 
-These decisions are lightweight notes, not new obligatory on-page labels or meta sections.
+An asset must add information or an appropriate, consistent visual role; it should not overrepresent one category or duplicate the exact same categories in adjacent sections.
 
-## 3. Visual selection examples
+## Editing check
 
-| Context | Often informative | Avoid without explicit request |
-|---|---|---|
-| B2B distributor | Actual products, product categories, relevant logistics context | Decorative orbit graphics, unrelated factory shots, generic credibility claims |
-| Manufacturer | Products, verified process/site imagery | Decorative machinery imagery that implies unverified capabilities |
-| SaaS | Actual UI screenshots or a truthful workflow diagram | Fabricated dashboards, stock laptop mockups masquerading as the product |
-| Portfolio | Real project outputs and role-specific evidence | Generic stock hero, meaningless badges |
-| Forms or settings | Usually clear controls and contextual examples | Forced stock photos, decorative illustration |
+For routine tasks, check whole-page copy once for repeated meaning, awkward phrases, and CTA accuracy. An extended before/after editorial log is needed only for substantial writing revisions or evaluation experiments, not for every simple web page.
 
-Do not turn examples into mandatory page templates. Avoid claiming a stock image is a photo of the company's facilities or staff. Illustrative images must remain honestly contextualized. If assets are unavailable or redistribution rights are unknown, use truthful diagrams, text, or appropriately licensed alternatives instead of false evidence.
-
-### Illustrative imagery vs evidence (mockups)
-
-- **Illustrative category or context image:** A relevant licensed photo can communicate a *type* of product, work setting or workflow in a fictional design sample. A generic warehouse aisle can communicate the logistics domain, but must not be described as the fictional company's own warehouse; category imagery must not assert a specific stocked SKU or brand.
-- **Evidence of an actual organization:** Photos presented as an actual site, staff, inventory, certification or case study require verified provenance. Generic stock media must never stand in for that evidence.
-- **Decision method:** Compare whether text labels alone provide the same immediate recognition as an accurate visual example. Prefer the informative treatment when it improves recognition without introducing factual claims or licensing risk. If equivalent, text-only is fine. If a safe usable visual cannot be obtained, do not fabricate one.
-- **Preview vs release:** A preview can use accurately framed and properly licensed illustrative assets. A production customer website must obtain verified organization-specific claims and assets. For a **resold source pack**, verify commercial use **and redistribution/bundling rights**; commercial-use permission alone does not establish redistribution rights. Document the source and usage context outside the rendered mockup, but do not hide a material representation risk behind off-page notes.
-
-## 4. Editorial quality
-
-- Prefer a **clear customer-facing proposition**, not a description such as “B2B distribution company website.”
-- Write concise, idiomatic Korean where the audience is Korean. Read main headings, explanatory sentences and CTAs aloud for unnatural particles, repetition or unnecessary jargon.
-- **Perform an actual before/after edit**, not just a statement that copy was reviewed: check the hero, company description, category descriptions and primary CTA for repetitive nouns/verbs, overly literal site descriptions and vague statements. Record the original and revised wording of at least the main headline and one supporting sentence in review notes. If no change is needed, explain the concrete reason.
-- **Avoid repeated calls to inquire:** Distinguish a value proposition (what the organization offers), a product/category explanation (what the user can examine), and a CTA (what the control does). Do not end every section with the same imperative.
-- Write actions as the action the interface genuinely performs: “문의 내용 복사” if the app only copies a draft; do not label it “문의 전송” without sending.
-- Remove claims not supported by the brief, including speed, nationwide distribution, cost savings, certifications, number of clients or guaranteed supply.
-- Do not fix weak copy with meaningless English eyebrows, generic slogans or invented statistics. Truthful brand-specific editorial expression is allowed.
-- In a sample, natural fictional contact details are acceptable under Governance rules, but do not invent differentiating capabilities.
-
-## 5. Hierarchy without visual clutter
-
-- Make the **primary value and CTA** visually easy to locate. Not every content block needs equal size or emphasis.
-- Use approved typography and spacing tokens. Use emphasis (size/weight/contrast) deliberately, and functional semantic colors as defined in the Design System.
-- Vary composition only when content meaningfully warrants it; repeating identical rows can be correct for equally ranked items. Do not force asymmetry merely to hide an AI-generated appearance.
-- Use images selectively in the hero and content sections when the image actually teaches or distinguishes. Do not create a mandatory hero/photo/cards pattern.
-- Maintain accessibility, text contrast, responsive reading order and honest controls.
-
-## 6. Final HITL questions
-
-Before delivery, record **Pass / Fail / PENDING** and evidence for:
-
-1. Can a first-time visitor identify the business or product without reading the entire page?
-2. Does each major visual convey useful information? Would removing it harm understanding? If nothing visual is used, is that justified?
-3. Is the primary action obvious and accurately labeled?
-4. Were the headline and supporting copy actually reviewed **against alternatives**, removing repetition, awkward phrasing and unsupported claims? Is the final wording natural and specific?
-5. Does the page have meaningful hierarchy without invented labels, arbitrary cards, gradients or status dots?
-
-**Do not self-certify visual excellence from source inspection, automated tests or this checklist.** Human review is required. Refer to [REVIEW_CHECKLIST.md](REVIEW_CHECKLIST.md).
+The completed interface must make the offering and primary action clear **without** either empty wireframe minimalism or unnecessary decorative copy. Human editorial approval is independent of automated build/axe results.

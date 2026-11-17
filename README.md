@@ -1,32 +1,34 @@
 # AI Design
 
-**Anti-Slop AI Design Methodology — Governance v2.0**
+**Anti-Slop AI Design Methodology — normalized Governance v2.1 / approved Design System v1.0**
 
-Purpose: produce polished, purposeful, distinctive, usable frontends without generic AI decoration, fabricated content or misleading interactions. **Anti-Slop does not mean removing visual design.**
+Goal: enable Codex, Claude and other Code Agents to produce meaningful, reliable, professionally finished web pages with **one task prompt** and a reusable set of development rules.
 
-## Core documents
+**Anti-Slop means removing pointless AI-generated embellishments, not removing design itself.** Quality requires *both* Anti-Slop compliance and useful visual composition.
 
-- [AGENTS.md](AGENTS.md): agent workflow and conditional user consultation about images.
-- [Anti-Slop Governance](governance/ANTI_SLOP.md): the boundary between purposeful design and Slop.
-- [Art Direction](design/ART_DIRECTION.md): visual identity, information priority, composition and image roles.
-- [Visual Communication & Editorial Quality](governance/VISUAL_COMMUNICATION.md): useful assets and natural, accurate copy.
-- [Review Checklist](governance/REVIEW_CHECKLIST.md): release gates.
-- [Visual QA](validation/VISUAL_QA.md): screenshot critique for both over-styling and under-design.
+## Single entrypoint
 
-## Design System starters
+Read [AGENTS.md](AGENTS.md), which links the normative references below. Specify the page brief; agents handle purposeful layout and actual implementation without a multi-agent ceremony by default.
 
-[TOKENS](design-system/TOKENS.md) · [TYPOGRAPHY](design-system/TYPOGRAPHY.md) · [LAYOUT](design-system/LAYOUT.md) · [COLORS](design-system/COLORS.md) · [ASSETS](design-system/ASSETS.md) · [COMPONENTS](design-system/COMPONENTS.md)
+## Normative references
 
-Project-specific, coherent styling decisions are allowed. Preserve existing brand identity and verify accessibility. Neutral is a starter, not the compulsory appearance of every website.
+- [Project Charter & locked decisions](governance/PROJECT_CHARTER.md) — mission, historical errors, approval policy and the immutable decision boundary.
+- [Anti-Slop Governance](governance/ANTI_SLOP.md) — content integrity, no fake/decorative filler, permissible purposeful visual expression.
+- [Design System v1.0](design-system/TOKENS.md) — approved baseline values, with [Colors](design-system/COLORS.md), [Typography](design-system/TYPOGRAPHY.md), [Layout](design-system/LAYOUT.md), [Assets](design-system/ASSETS.md), and [Components](design-system/COMPONENTS.md).
+- [Art Direction](design/ART_DIRECTION.md) — composition and hierarchy **within** the approved system.
+- [Visual Communication & Editorial](governance/VISUAL_COMMUNICATION.md) — natural copy and informative image roles.
+- [Review Checklist](governance/REVIEW_CHECKLIST.md), [Visual QA](validation/VISUAL_QA.md) — separate rule compliance, browser function and visual finish.
 
-## Image decision
+## Visual assets and style
 
-When the agent independently judges informative images to be useful and the user has not already decided, it **asks one concise question**: user-provided assets, properly licensed agent-sourced/created illustrative assets, or no images. No unnecessary image question for interfaces that would not benefit from imagery. Never imply that stock imagery proves real-company facilities or products; check rights for sold design packs.
+New projects: offer **default white + Neutral** or a custom color palette once, unless already specified. Never silently invent a branded palette. If the agent finds images materially helpful and image preferences are undecided, ask once whether the user will supply assets, permit suitably rights-cleared illustrative media, or prefers no imagery.
 
-## Workflow
+The default typeface is **Wanted Sans**; typography and spacing follow v1.0. Familiar navigation/form behavior is required; original, content-specific visual compositions are allowed. An existing customer style overrides the generic default and must be preserved.
 
-Brief → Art Direction → conditional image question → implementation → actual screenshot visual review/revision → browser/static QA → independent HITL.
+## Optional quality escalation and research
 
-Historical experiments under [validation](validation/README.md) remain pinned to their original Governance revisions. Their evidence must not be relabeled as v2.0 results.
+Regular projects should use one Code Agent and brief screenshot QA. If persistent issues warrant it, an [isolated Critic](validation/MULTI_AGENT_EVALUATION.md) can assist, with Preserve/Change/Avoid and **before/after non-regression** checks.
 
-This repository currently contains design methodology and experimental protocols, not a commercially approved component catalogue.
+[Validation experiments](validation/README.md) and [multi-device guidance](validation/MULTI_DEVICE_WORKFLOW.md) remain available. Historical experiments are pinned to their original Governance revisions; restoring v1.0 does not retroactively relabel past results.
+
+This repository contains a design methodology and experimental documentation, not a released commercial component catalogue.

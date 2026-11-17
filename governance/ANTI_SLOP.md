@@ -1,49 +1,61 @@
 # Anti-Slop AI Design Governance
 
-Version: **2.0**. Applies to websites, components, templates and AI-generated frontend work.
+Version: **2.1 (normalized)**  
+Scope: Agent-generated web pages, components, prototypes and sellable design packs.  
+Decision authority: [Project Charter](PROJECT_CHARTER.md), including the **approved Design System v1.0**.
 
-## 1. Objective and distinction
-Build **coherent, expressive, professional UI without generic AI embellishments or deception**. Anti-Slop is not a requirement to minimize images, colors, visual variety or design elements.
+## 1. Objective
 
-| Category | Policy | Examples |
-|---|---|---|
-| Information and interaction | Use when valuable | Useful images/screenshots, meaningful borders, categories, authentic feedback |
-| Purposeful aesthetic expression | **Allowed without separate opt-in** | Brand accents, editorial layout, intentional typographic contrast, appropriate illustration, restrained depth and motion |
-| Nonfunctional AI-Slop | **Prohibited** | Fake online dots, decorative English eyebrow stacks, invented metrics, arbitrary orbit art, repeated filler cards, unrelated images, random glow |
+Stop **meaningless or deceptive AI-generated design patterns** without stripping a page of useful visual communication or professional finish. **Anti-Slop is not Minimalism.** More/less decoration is not the score; clarity, relevance, consistency, authenticity and usable function are the criteria.
 
-A gradient, shadow, rounded corner, illustration, photo or asymmetrical composition is not inherently Slop. Judge **purpose, coherence, prominence and repetition**. Identical-looking, under-designed white pages can also fail professional quality.
+Keep separate:
+- **Design System compliance:** approved palette, typography, spacing, components and user-authorized overrides.
+- **Anti-Slop:** remove filler, generic copied conventions, fabricated information and unrelated visual noise.
+- **Visual quality:** content-specific composition, meaningful imagery, hierarchy, readability and polish.
+- **Functional quality:** real interaction, accessibility, responsive performance and truthful status.
 
-**Local usefulness does not prove global quality.** Each element can have a plausible purpose while their combined arrangement still creates an AI-template look. Evaluate page-wide duplication, disproportionate emphasis, generic illustration aesthetics, visual clichés and evidence density. A green palette, category drawings, a dark brand band and a card may each be defensible yet still form an unconvincing landing-page composition together.
+A page can be free of Slop yet visually poor. Passing one dimension does not imply passing another.
 
-## 2. Work order
-Define user, task, necessary/verified facts, primary action and real states. Follow [Art Direction](../design/ART_DIRECTION.md) before UI code and [Visual Communication](VISUAL_COMMUNICATION.md) for image/copy meaning. Choose design based on audience, material and task, not minimum element count.
+## 2. Hard prohibitions
 
-If images would improve understanding and user has not decided, **ask the user** as specified in [ASSETS.md](../design-system/ASSETS.md); record user decision. Contextual illustrative stock imagery can support a fictional mockup but may not be presented as actual company-owned inventory or facilities.
+- Fabricated companies/customers, metrics, certifications, reviews, status/activity indicators, product capabilities, inventory, facilities or guarantees.
+- False functionality: buttons that pretend to submit, canned AI outputs presented as real, success states without real success.
+- Gratuitous editorial metadata such as `01 / SHOWCASE`, decorative uppercase English eyebrows, generic meaningless slogans or development/template notes displayed to customers.
+- Arbitrary floating graphics, status dots, repeated shadow/glow/gradient motifs, unrelated imagery, or a Card around every section **with no justified communication or interaction purpose**.
+- Unsupported asset/trademark claims or distribution rights.
 
-## 3. Honest content
-- Mockups: use natural fictional company/contact examples; document their status outside customer UI. No intrusive "replace later" labels.
-- Production: use verified company-specific facts and assets; ask when missing data materially affects truthful content.
-- No invented customers, testimonials, metrics, certifications, guarantees, inventory or abilities.
-- Name controls by real action: copying a draft is not submitting an inquiry.
-- Copy should be idiomatic and useful; remove redundant instructions and unsupported generic slogans. Real step numbers and category labels are legitimate.
+**Deletion test:** if removing an element loses no useful communication, task support, coherent brand expression or visual hierarchy, remove it. Real process numbers, meaningful labels, actual state indicators and icons needed for clarity are not decorative merely because they are visual.
 
-## 4. Visual standards
-- Allow purposeful brand/style expression and content-driven compositions even without explicit style instructions.
-- Reject ornamental status dots without real state, fabricated metadata, arbitrary shapes, unrelated stock art, unjustified glow, forced card repetition and purely decorative UI copy.
-- Purposeful images, accent colors, editorial asymmetry, restrained shadows/gradients and motion may be used when coherent, relevant and accessible. No blanket prior approval required for every visual choice.
-- Preserve familiar navigation/forms and correct keyboard/action semantics; visual originality must not obstruct use.
-- A visually empty wireframe is not a successful finished site simply because it contains zero forbidden ornaments.
+## 3. Positive design permission (within the approved Design System)
 
-## 5. Design systems
-Use semantic tokens and internally consistent typography, colors, spacing and components. [Design System](../design-system/TOKENS.md) values are starters, not mandatory identical branding across projects. Allow a deliberate project-specific system, respecting existing user branding and contrast/accessibility.
+The agent **may independently compose** an effective Hero, useful category/content imagery, editorial rows, asymmetrical text/image layouts, varied section emphasis, whitespace and proportion. None requires a separate “novel layout” approval if it preserves familiar interactions and user comprehension.
 
-## 6. Verification gates
-- **Brief:** truth, task, actions and audience understood.
-- **Direction:** purposeful visual concept; appropriate hierarchy, images and user image decision (if triggered).
-- **Implementation:** real interactions, semantics, responsive behavior and contrast verified.
-- **Visual QA:** inspect actual desktop/mobile screenshots for both over-design and under-design; conduct a skeptical *direction-level* review of whole-page composition, including whether the original strategy should be rejected, and revise substantive defects per [VISUAL_QA.md](../validation/VISUAL_QA.md).
-- **HITL:** independent human aesthetic/editorial approval separate from static/browser PASS.
+This permission **does not** grant the agent authority to select a different primary color, background, font, typography scale, spacing system or framework contrary to [approved defaults](../design-system/TOKENS.md). Existing customer branding and explicitly chosen customization take precedence. Changing an approved style decision requires user authorization.
 
-Hard failure: misleading content/functionality, fake status, unlicensed asset distribution, known broken/inaccessible primary action, demonstrably purposeless recurring UI garnish. Quality failure: generic, visually underdeveloped composition, incoherent hierarchy or awkward copy. **Novel layout alone is not a failure.**
+- Information-rich **photos or diagrams are permitted**, sometimes preferable to text-only pages; use [Assets](../design-system/ASSETS.md) and ask the user about images **only when beneficial and undecided**.
+- Gradients/glows/3D/ornamental animation and decorative stock art are **off by default**. Functional layering/focus/shadows/short feedback transitions are allowed when needed; an aesthetic effect is not justified by the word “professional” alone.
+- Avoid both generic “Hero + three decorative cards” formulas **and** over-sanitized black-text wireframes. Make composition content-specific without inventing unnecessary components.
 
-Design quality is not guaranteed by the absence of Slop; an independent reviewer must assess it. See [REVIEW_CHECKLIST.md](REVIEW_CHECKLIST.md).
+## 4. Truthfulness and user content
+
+- **Fictional preview**: natural, obviously fictional sample contact/content values when needed; note provenance outside the rendered UI. Do not invent real-sounding proof or credentials.
+- **Production**: verify company-specific claims and asset ownership; ask when missing information changes the page meaningfully.
+- **Forms**: actual labeled action matches implemented behavior; local draft-copy is not an email submission.
+- **Copy**: concise idiomatic language, no repeated generic descriptions. A factual subtitle is permitted; an ornamental label stack is not.
+
+## 5. Review and revisions
+
+Work from the task and approved style → [Art Direction](../design/ART_DIRECTION.md) → implementation → [Visual QA](../validation/VISUAL_QA.md) → functional/style validation.
+
+The implementation must preserve the value of existing informative assets and content unless changing them demonstrably improves **overall** quality. Correcting a misleading stock image by simply deleting all imagery and leaving a blank composition is not automatically an improvement. Criticism must identify what to preserve and what to change.
+
+**Regressions are rejected:** compare original and revised screens; if the patch fixes a local complaint but makes the page worse globally, keep the original and propose a better alternative. An agent's own rationale or automated axe/build PASS is not an independent aesthetic endorsement.
+
+## 6. Approvals and escalation
+
+- Approved colors, fonts and style defaults remain binding unless explicitly changed by the user. A user-approved image sourcing route does not approve a new color theme.
+- Ask at most one concise image-use question when informative imagery would materially help and the user has not already decided. Record the decision; avoid re-asking.
+- Default to **one Code Agent** and one brief screenshot critique. A separated Critic or multi-agent workflow is an optional escalation, not mandatory bureaucracy.
+- For a commercial release, final independent human review checks visual suitability, asset rights and open concerns. Unverified states are **PENDING**, never invented PASS.
+
+See [Review Checklist](REVIEW_CHECKLIST.md).

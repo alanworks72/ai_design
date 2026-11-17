@@ -1,6 +1,6 @@
 # Design System — Typography
 
-- Version: **2.0**
+- Version: **1.0**
 - Status: type scale approved; **Wanted Sans selected as default** (webfont packaging and rendering need technical verification).
 
 ## 1. Font policy
@@ -22,7 +22,7 @@
 | `body-sm` | 14px | 20px | 400 | Dense product UI and supporting text |
 | `label` | 14px | 20px | 500 | Field label, navigation, button |
 
-The starter weights are **400, 500, 600**. A coherent project type system may add other supported weights or a larger display tier when content and Art Direction justify it; test actual rendering and responsive fit. These are our design decisions, not a measured average of award-winning sites.
+The approved default weights are **400, 500, 600**. Do not add 700+ by default. These are our design decisions, not a measured average of award-winning sites.
 
 ## 3. Contextual usage
 
@@ -34,11 +34,9 @@ The starter weights are **400, 500, 600**. A coherent project type system may ad
 
 ## 4. Copy and hierarchy
 
-- No meaningless eyebrows, fabricated editorial metadata, invented section numbering or gratuitous uppercase labels. A purposeful brand-specific subtitle is allowed; avoid default AI template jargon.
+- No decorative eyebrows, kickers, metadata, invented section numbering or gratuitous uppercase labels.
 - Prefer a useful heading and a concise explanatory sentence over a decorative heading stack.
 - Use weight, spacing and actual content priority before introducing accent colors.
-- Do not give every section identical prominence by default. Establish a clear primary headline, supporting explanation, section headings and CTA emphasis according to user decisions; maintain a coherent reusable project type scale; extend starter tokens if a chosen design direction and content hierarchy justify it.
-- Edit headline and CTA copy for natural Korean, specificity and usefulness. Avoid phrases that merely explain the page type or use generic B2B marketing language.
 - Check Korean/English long words, numbers, mixed scripts, and truncation.
 
 ## 5. Verification

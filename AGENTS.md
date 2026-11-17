@@ -1,25 +1,32 @@
-# AI Design — Agent Instructions
+# AI Design — Code Agent Instructions
 
-Goal: **Anti-Slop AI Design** produces polished, purposeful, distinctive, accessible UI. Anti-Slop is not anti-design or mandatory minimalism.
+**Mission:** Create meaningful, reliable, professionally designed web pages with **Anti-Slop**. This is a simple, reusable rule set for Codex, Claude and other Code Agents—not an instruction to produce empty wireframes.
 
-## Mandatory workflow
-1. Read [Governance](governance/ANTI_SLOP.md); identify audience, task, truthful content, key action and states.
-2. Establish **Art Direction** using [ART_DIRECTION.md](design/ART_DIRECTION.md): define contrasting *information strategies* and evaluate their complete page-wide compositions, not just the presence of imagery or style adjectives. Select with evidence of domain fit, content hierarchy and restraint.
-3. **Image consultation:** if the agent judges that images would materially improve the page and the user has not already specified image preferences, ask one concise question offering (a) user images, (b) appropriately licensed illustrative images selected/created by the agent, or (c) no images. Explain why; record the answer. Follow [ASSETS.md](design-system/ASSETS.md). Do not assume no assets means no imagery. If consequential, resolve the choice before final design; do not block unrelated reversible work.
-4. Implement with project-specific semantic tokens and [Design System](design-system/TOKENS.md). Familiar interaction semantics remain; thoughtful original composition is allowed.
-5. Open real rendered screenshots and perform an **adversarial visual critique** with [VISUAL_QA.md](validation/VISUAL_QA.md): evaluate the entire combination of elements, challenge whether the original Art Direction was wrong, and revise content/composition (not merely crops, fonts or breakpoints). If a major direction-level problem remains, return to Art Direction instead of polishing a flawed concept.
-6. Verify functionality and accessibility using [REVIEW_CHECKLIST.md](governance/REVIEW_CHECKLIST.md). Independent HITL approval remains separate. For recurring failures, consult the **optional** [Multi-Agent Evaluation Plan](validation/MULTI_AGENT_EVALUATION.md); multiple agents are not a substitute for independent human judgment.
+## Required references and priority
 
-## Hard boundaries
-- No fabricated metrics, customers, partnerships, facilities, certifications, inventory, live states or technical claims.
-- No fake status dots, ornamental English eyebrow labels, invented section indices, generic meaningless slogans, decorative card stacks or unrelated stock scenery.
-- **Purposeful design expression is allowed by default**: coherent visual composition, relevant photography, intentional typography and layout proportions, project accents, restrained depth or motion when justified. Don't automatically remove an element because it is visually expressive.
-- Honest actions, keyboard access, focus, contrast, mobile reading order, appropriate motion and responsive behavior are required.
-- Preview content may use natural fictional values documented outside rendered UI; real production claims must be verified.
-- At most two UI font families by default, with functional monospace for actual code.
+Read [Project Charter & locked decisions](governance/PROJECT_CHARTER.md), then [Anti-Slop Governance](governance/ANTI_SLOP.md), the approved [Design System](design-system/TOKENS.md) and its [Typography](design-system/TYPOGRAPHY.md), [Layout](design-system/LAYOUT.md), [Colors](design-system/COLORS.md), [Assets](design-system/ASSETS.md) and [Components](design-system/COMPONENTS.md). Use [Art Direction](design/ART_DIRECTION.md) for composition and [Visual Communication](governance/VISUAL_COMMUNICATION.md) for content.
 
-## Precedence
-User requirements, factual integrity, accessibility and real function > Anti-Slop ban on misleading/purposeless choices > chosen project Art Direction > starter Design System tokens. Existing brand themes are preserved. Original visual composition needs no special opt-in; unfamiliar interactions and paid asset acquisition do.
+**Priority:** user-approved project requirements and factual/functional/accessibility integrity > locked Design System choices > purposeful Art Direction within those choices > optional visual embellishment. Governance forbids Slop; it may not silently overwrite Design System decisions.
 
-## Reporting
-Describe purpose, art direction, image question/decision and rights, assumed facts, visual revisions, actual tests and unresolved HITL issues. Do not claim visual excellence from tests alone.
+## Default workflow (one task prompt is enough)
+
+1. **Understand the brief:** audience, real action, necessary content and states; do not invent factual claims or fake function.
+2. **Respect the approved style:** keep an existing project's theme. For a new project lacking a palette decision, ask **once** whether to use the default white/Neutral system or user-defined colors; don't ask again when already chosen.
+3. **Consider images:** if imagery materially improves understanding and the user has not decided its use, ask **one concise question** offering user-provided assets, agent-selected/created rights-checked illustrations/photos, or no imagery. If already decided, proceed. [Details](design-system/ASSETS.md).
+4. **Design and implement:** choose a good, content-specific layout and image/text hierarchy **using the approved tokens**. Original composition is allowed; unconventional interaction patterns require separate justification. Use the agreed React + shadcn/ui + Tailwind direction by default; document a necessary stack exception rather than silently changing the target.
+5. **Review visually:** open actual 390/768/1440 screenshots. Check **both Slop and under-design**; fix substantive problems without deleting useful strengths. See [Visual QA](validation/VISUAL_QA.md).
+6. **Verify and report:** build/function/accessibility, Design System compliance, Anti-Slop and visual quality are distinct checks; never claim unrun tests or independent human HITL approval. [Checklist](governance/REVIEW_CHECKLIST.md).
+
+## Non-negotiables
+
+No fabricated metrics, facilities, customer proof, false active-state indicators, decorative editorial junk, filler cards, irrelevant visuals, fake AI output or dead primary controls. Purposeful **images, visual contrast, layout variety and composition are allowed**. More decoration is not automatically better; less design is not automatically safer.
+
+When revising an existing page, preserve valuable assets, information and functional behavior by default. A critique item is not permission to indiscriminately remove images or change an approved palette. **Reject/revert a revision if it lowers overall quality.**
+
+## Escalation
+
+A single Code Agent is the normal path. A separate Critic or multi-agent process is optional for persistent quality problems or explicit user request, with a **before/after non-regression gate**. Do not make users manage a chain of agents for routine work.
+
+## Delivery
+
+Briefly record the chosen composition, image/palette decisions, source and rights, implemented actions, screenshots/QA, tests actually run and remaining limitations. Mockup-only factual disclosures belong in development notes, not as decorative page text.
