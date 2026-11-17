@@ -22,3 +22,8 @@ A user provides **one brief**, and a single agent normally handles the stages in
 Repeat matched conditions when claiming reproducible improvements; one well-designed screenshot is not a causal estimate. Unrun tests are PENDING, not PASS.
 
 [Multi-agent evaluation](MULTI_AGENT_EVALUATION.md) is an **optional research workflow**, not a requirement to produce a basic webpage. Multi-device artifacts may be managed using [MULTI_DEVICE_WORKFLOW.md](MULTI_DEVICE_WORKFLOW.md).
+
+
+## Current controlled pilot (optional)
+
+[Generation quality and score reliability protocol](QUALITY_SCORE_VALIDATION.md) pins the existing normative methodology and separates **fresh creation**, **independent scoring of the same artifact**, **human calibration**, and **repeat-run stability**. It includes one generation prompt and one blind-review prompt, plus an optional [arithmetical scorecard checker](tools/scorecard_check.py). **This experiment does not alter the normal Code Agent workflow or approved Design System.**
