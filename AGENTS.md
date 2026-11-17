@@ -1,32 +1,39 @@
 # AI Design — Code Agent Instructions
 
-**Mission:** Create meaningful, reliable, professionally designed web pages with **Anti-Slop**. This is a simple, reusable rule set for Codex, Claude and other Code Agents—not an instruction to produce empty wireframes.
+**Mission:** Build meaningful, reliable, professionally designed web pages **without AI-Slop**, from **one user development brief**. Anti-Slop is **not** an instruction to remove design.
 
-## Required references and priority
+## Authoritative contract (read once per run)
 
-Read [Project Charter & locked decisions](governance/PROJECT_CHARTER.md), then [Anti-Slop Governance](governance/ANTI_SLOP.md), the approved [Design System](design-system/TOKENS.md) and its [Typography](design-system/TYPOGRAPHY.md), [Layout](design-system/LAYOUT.md), [Colors](design-system/COLORS.md), [Assets](design-system/ASSETS.md) and [Components](design-system/COMPONENTS.md). Use [Art Direction](design/ART_DIRECTION.md) for composition and [Visual Communication](governance/VISUAL_COMMUNICATION.md) for content.
+1. [Project Charter — locked decisions](governance/PROJECT_CHARTER.md).
+2. [Anti-Slop Governance](governance/ANTI_SLOP.md) and **approved Design System v1.0**: [Tokens](design-system/TOKENS.md), [Colors](design-system/COLORS.md), [Typography](design-system/TYPOGRAPHY.md), [Layout](design-system/LAYOUT.md), [Assets](design-system/ASSETS.md), [Components](design-system/COMPONENTS.md).
+3. [Development Workflow](development/WORKFLOW.md), [Implementation Method](development/IMPLEMENTATION.md) and **fixed [Quality Scorecard](validation/SCORECARD.md)**.
+4. [Art Direction](design/ART_DIRECTION.md), [Visual Communication](governance/VISUAL_COMMUNICATION.md), [Visual QA](validation/VISUAL_QA.md) and [Review Checklist](governance/REVIEW_CHECKLIST.md) as relevant to the task.
 
-**Priority:** user-approved project requirements and factual/functional/accessibility integrity > locked Design System choices > purposeful Art Direction within those choices > optional visual embellishment. Governance forbids Slop; it may not silently overwrite Design System decisions.
+**Priority:** explicit user requirements and truthful/accessible function > **user-approved Design System** > purposeful Art Direction within that system > optional presentation details. Governance blocks Slop; it never changes approved style tokens. Preserve any established customer theme; for a new project ask once about Neutral/white versus custom only if not already decided. Ask once about **materially useful imagery** only if sourcing preference is unknown.
 
-## Default workflow (one task prompt is enough)
+**Instruction loading:** If this `AGENTS.md` is in a *sibling reference repository*, do not assume Codex/Claude automatically loaded it. **Explicitly open** the specified paths, record the ai_design revision and check conflicting project/global instructions. Refer to [R01](research/REFERENCES.md).
 
-1. **Understand the brief:** audience, real action, necessary content and states; do not invent factual claims or fake function.
-2. **Respect the approved style:** keep an existing project's theme. For a new project lacking a palette decision, ask **once** whether to use the default white/Neutral system or user-defined colors; don't ask again when already chosen.
-3. **Consider images:** if imagery materially improves understanding and the user has not decided its use, ask **one concise question** offering user-provided assets, agent-selected/created rights-checked illustrations/photos, or no imagery. If already decided, proceed. [Details](design-system/ASSETS.md).
-4. **Design and implement:** choose a good, content-specific layout and image/text hierarchy **using the approved tokens**. Original composition is allowed; unconventional interaction patterns require separate justification. Use the agreed React + shadcn/ui + Tailwind direction by default; document a necessary stack exception rather than silently changing the target.
-5. **Review visually:** open actual 390/768/1440 screenshots. Check **both Slop and under-design**; fix substantive problems without deleting useful strengths. See [Visual QA](validation/VISUAL_QA.md).
-6. **Verify and report:** build/function/accessibility, Design System compliance, Anti-Slop and visual quality are distinct checks; never claim unrun tests or independent human HITL approval. [Checklist](governance/REVIEW_CHECKLIST.md).
+## Required six-stage workflow — internal to the Agent
 
-## Non-negotiables
+1. **Understand:** read task, actual files/environment, locked palette/type/spacing, mandatory user actions and content/rights limitations.
+2. **Plan and freeze:** **before implementing UI**, write `docs/AI_DESIGN_PLAN.md` and prefill/freeze `docs/AI_DESIGN_SCORECARD.md` with the 20 fixed rubric criteria, **project-specific** acceptance/evidence targets and blockers. Use [templates](development/PROJECT_TEMPLATES.md). Do **not** assign scores yet.
+3. **Implement:** produce actual working, responsive UI with approved tokens, meaningful image/text composition and true behaviors. Preferred new-project direction remains React + shadcn/ui + Tailwind; inspect installed versions; document necessary existing-stack exceptions.
+4. **First review:** run real build/actions, **open** 390/768/1440 screenshots, check Design System, Anti-Slop **including individual conspicuous borders/panels/callouts**, visual quality, function and accessibility **separately**. Record defect locations and first-pass ratings.
+5. **Refine:** fix observed problems with **Preserve / Change / Avoid**, compare matching before/after renders and rerun relevant tests; **do not strip useful visuals** to make a checklist pass.
+6. **Final Quality Gate:** grade the **same frozen 100-point rubric** with evidence, mandatory user acceptance, critical non-compensatory gates and numeric thresholds. Output **PASS / FAIL / PENDING**, never a self-declared independent human approval. See [Scorecard](validation/SCORECARD.md).
 
-No fabricated metrics, facilities, customer proof, false active-state indicators, decorative editorial junk, filler cards, irrelevant visuals, fake AI output or dead primary controls. Purposeful **images, visual contrast, layout variety and composition are allowed**. More decoration is not automatically better; less design is not automatically safer.
+**Provisional threshold:** >=85/100, every category >=70%, **all required evidence and acceptance complete**, no critical violation, no major regression. Ratings without evidence are **UNVERIFIED**, so do not claim PASS. Default at most two targeted refinement rounds; if still below gate, report actual FAIL/PENDING rather than silently weaken criteria.
 
-When revising an existing page, preserve valuable assets, information and functional behavior by default. A critique item is not permission to indiscriminately remove images or change an approved palette. **Reject/revert a revision if it lowers overall quality.**
+## Non-negotiable quality boundaries
 
-## Escalation
+- **No** fake company claims, status dots, ornamental eyebrow stacks, purposeless accent borders/callouts/cards, unlicensed assets, dead buttons, fake form submissions or misleading outcomes.
+- **Yes** to informative photography, useful illustrations, content-specific composition, true groups and appropriate emphasis. Not every border/image is Slop; test its independent contribution. **Inspect wrapper effects separately from the content inside.**
+- **Visual quality and Anti-Slop are independent.** Build/axe success does not establish design success or WCAG conformance. Preserve existing informative assets and strong composition when fixing a defect.
+- Do not change user-approved colors, fonts, weight/spacing scale or existing project stack without an authorized reason/decision.
+- Do not edit methodology rules, commit/push or publish as a side effect of generating a page unless asked.
 
-A single Code Agent is the normal path. A separate Critic or multi-agent process is optional for persistent quality problems or explicit user request, with a **before/after non-regression gate**. Do not make users manage a chain of agents for routine work.
+## Optional escalation and delivery
 
-## Delivery
+Use one Code Agent by default. An isolated Critic or multi-agent split may follow [optional evaluation](validation/MULTI_AGENT_EVALUATION.md), using the **same frozen requirements, rubric and non-regression gate**. Never make the user orchestrate routine QA.
 
-Briefly record the chosen composition, image/palette decisions, source and rights, implemented actions, screenshots/QA, tests actually run and remaining limitations. Mockup-only factual disclosures belong in development notes, not as decorative page text.
+Deliver actual output, brief Design Plan, screenshot/test evidence, computed rubric category scores, status and limitations. Human commercial-release approval is separate. Research basis: [verified references](research/REFERENCES.md).

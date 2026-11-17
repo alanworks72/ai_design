@@ -38,13 +38,18 @@ The source files under `design-system/` remain the authoritative detailed values
 
 An innovative but legible composition does not require user permission. Arbitrary gradients, fake status dots, English label stacks and irrelevant pictures do not become valid simply because someone can invent an aesthetic rationale.
 
-## Default workflow — minimal interaction
+## Development Method — mandatory operational sequence, simple user experience
 
-Brief → read Governance + approved Design System → one palette question **if needed** → one image-use question **if triggered** → select purposeful composition → implement → inspect actual rendered viewports → make **targeted** fixes → run functional/static checks → report outstanding subjective approval.
+A user supplies **one ordinary page brief**. The Code Agent follows the [Development Workflow](../development/WORKFLOW.md) without asking users to orchestrate multiple agents:
 
-One direction is sufficient for ordinary requests. Additional alternatives, isolated Critic or multi-agent stages are **optional escalation**, not a requirement for every website.
+**Brief → pre-implementation DESIGN_PLAN and frozen SCORECARD → implementation → first browser/style/Anti-Slop review → targeted refinement → final evidence-based Quality Gate.**
 
-When revising existing work, write a short **Preserve / Change / Do not introduce** contract. Never remove approved informative imagery, typography or other strengths merely to silence a criticism. If the revision loses important visual quality, **do not adopt it**; compare with the original and revert/refine.
+- Common [SCORECARD](../validation/SCORECARD.md) is fixed at 100 points (Anti-Slop 25, visual 25, Design System 20, function 20, responsive/accessibility 10). Project-specific acceptance/evidence targets are added **before coding**, but weights/thresholds are not manipulated.
+- Working policy: **>=85 total, >=70% in every category, no confirmed critical violation, all required evidence and acceptance verified, and no major revision regression**. These are **provisional local criteria**, not proven by external research. Human commercial release review remains distinct.
+- If a constraint or verification step is unavailable, mark **PENDING**; if a confirmed violation remains, mark **FAIL**. An agent's own PASS is an evidence-qualified candidate for user review, not independent human approval.
+- Existing brand decisions, approved v1.0 tokens, the image choice already made by the user, and useful visual assets **must be preserved**. Do not add bureaucracy to ordinary tasks: two small project records and a concise final report are sufficient.
+- When revising existing work, use **Preserve / Change / Avoid** and actual before/after screen comparisons. Never solve a criticism by deleting a useful visual treatment and ignoring total quality.
+- Independent Critic and multi-agent orchestration remain **optional escalation**, evaluated against the same frozen rubric.
 
 ## What went wrong, and permanent safeguards
 

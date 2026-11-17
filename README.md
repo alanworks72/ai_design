@@ -1,34 +1,45 @@
-# AI Design
+# AI Design — Anti-Slop Web Development Methodology
 
-**Anti-Slop AI Design Methodology — normalized Governance v2.1 / approved Design System v1.0**
+**Goal:** Give Codex, Claude and other Code Agents a **simple, repeatable development method** to build functional, coherent, visually finished web pages without AI Slop. The user normally supplies **one task brief**, not a series of designer/critic prompts.
 
-Goal: enable Codex, Claude and other Code Agents to produce meaningful, reliable, professionally finished web pages with **one task prompt** and a reusable set of development rules.
+**Normative style remains the user-approved Design System v1.0. Governance v2.1 is unchanged; the new Development Method operationalizes it.**
 
-**Anti-Slop means removing pointless AI-generated embellishments, not removing design itself.** Quality requires *both* Anti-Slop compliance and useful visual composition.
+## How to use
 
-## Single entrypoint
+Give the Code Agent the path to [AGENTS.md](AGENTS.md) and a normal page brief. When `ai_design` lives outside the implementation project's directory tree, instruct the agent to **open that file explicitly**; do not assume sibling files are automatically loaded.
 
-Read [AGENTS.md](AGENTS.md), which links the normative references below. Specify the page brief; agents handle purposeful layout and actual implementation without a multi-agent ceremony by default.
+The Agent internally performs:
 
-## Normative references
+```text
+Understand → freeze DESIGN_PLAN + SCORECARD before implementation
+           → Implement → first browser/Anti-Slop QA
+           → targeted refinement → final 100-point Quality Gate
+           → evidence-qualified PASS / FAIL / PENDING
+```
 
-- [Project Charter & locked decisions](governance/PROJECT_CHARTER.md) — mission, historical errors, approval policy and the immutable decision boundary.
-- [Anti-Slop Governance](governance/ANTI_SLOP.md) — content integrity, no fake/decorative filler, permissible purposeful visual expression.
-- [Design System v1.0](design-system/TOKENS.md) — approved baseline values, with [Colors](design-system/COLORS.md), [Typography](design-system/TYPOGRAPHY.md), [Layout](design-system/LAYOUT.md), [Assets](design-system/ASSETS.md), and [Components](design-system/COMPONENTS.md).
-- [Art Direction](design/ART_DIRECTION.md) — composition and hierarchy **within** the approved system.
-- [Visual Communication & Editorial](governance/VISUAL_COMMUNICATION.md) — natural copy and informative image roles.
-- [Review Checklist](governance/REVIEW_CHECKLIST.md), [Visual QA](validation/VISUAL_QA.md) — separate rule compliance, browser function and visual finish.
+User decisions are requested **only when material and unknown**, for example default Neutral vs branded colors or rights-checked images vs user-provided assets vs no imagery. Previously supplied decisions must not be re-asked.
 
-## Visual assets and style
+## Responsibility map
 
-New projects: offer **default white + Neutral** or a custom color palette once, unless already specified. Never silently invent a branded palette. If the agent finds images materially helpful and image preferences are undecided, ask once whether the user will supply assets, permit suitably rights-cleared illustrative media, or prefers no imagery.
+| Layer | Source of truth | What it does |
+|---|---|---|
+| Mission & locked decisions | [Project Charter](governance/PROJECT_CHARTER.md) | Preserve originally approved style and learn from prior methodology failures |
+| Anti-Slop | [Governance v2.1](governance/ANTI_SLOP.md) | Forbid purposeless/deceptive effects and fake functionality; permit purposeful design |
+| Design System | [Tokens](design-system/TOKENS.md), [Colors](design-system/COLORS.md), [Typography](design-system/TYPOGRAPHY.md), [Layout](design-system/LAYOUT.md), [Components](design-system/COMPONENTS.md), [Assets](design-system/ASSETS.md) | **Locked** white/Neutral and Wanted Sans defaults, scales, component/asset policy |
+| Design Method | [Art Direction](design/ART_DIRECTION.md) + [Visual Communication](governance/VISUAL_COMMUNICATION.md) | Content, imagery, page composition and hierarchy **within approved tokens** |
+| **Development Method** | [WORKFLOW.md](development/WORKFLOW.md), [IMPLEMENTATION.md](development/IMPLEMENTATION.md), [PROJECT_TEMPLATES.md](development/PROJECT_TEMPLATES.md) | Plan → freeze quality checks → build → inspect → refine → conclude |
+| **Quality Evaluation** | [SCORECARD.md](validation/SCORECARD.md), [VISUAL_QA.md](validation/VISUAL_QA.md), [REVIEW_CHECKLIST.md](governance/REVIEW_CHECKLIST.md) | 20 evidence-anchored criteria, hard blockers, thresholds and visual non-regression |
 
-The default typeface is **Wanted Sans**; typography and spacing follow v1.0. Familiar navigation/form behavior is required; original, content-specific visual compositions are allowed. An existing customer style overrides the generic default and must be preserved.
+## Quality Gate: provisional working policy
 
-## Optional quality escalation and research
+100 points: Anti-Slop 25, Visual Quality 25, Design System 20, Functional Requirements 20, Responsive/Accessibility 10. Initial acceptance: **>=85 total AND >=70% per category**, no critical violation, verified mandatory acceptance, no unresolved major regression. An unassessed item is **UNVERIFIED**, not free credit. Actual screenshot, code and behavior evidence is required.
 
-Regular projects should use one Code Agent and brief screenshot QA. If persistent issues warrant it, an [isolated Critic](validation/MULTI_AGENT_EVALUATION.md) can assist, with Preserve/Change/Avoid and **before/after non-regression** checks.
+These weights and cutoffs are **project hypotheses**, not calibrated industry standards. AI self-assessment is **provisional**, not independent human approval.
 
-[Validation experiments](validation/README.md) and [multi-device guidance](validation/MULTI_DEVICE_WORKFLOW.md) remain available. Historical experiments are pinned to their original Governance revisions; restoring v1.0 does not retroactively relabel past results.
+## References and evaluation
 
-This repository contains a design methodology and experimental documentation, not a released commercial component catalogue.
+[Research References](research/REFERENCES.md) catalogues official Codex/Claude/GitHub/Playwright/W3C/shadcn sources and relevant HCI/Code Agent research, with a mapping from evidence to our **own** design decisions.
+
+[Validation Protocol](validation/README.md) keeps historical controlled experiments and pilot evidence separate from normative rules. [Optional multi-agent review](validation/MULTI_AGENT_EVALUATION.md) uses the same frozen scorecard; additional agents are not required for basic web development.
+
+**Never treat the absence of decoration, a passing build, or 0 axe violations as evidence of complete professional web design.** Never silently rewrite user-approved Design System values.

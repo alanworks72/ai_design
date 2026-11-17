@@ -16,6 +16,16 @@ Art Direction chooses **what to emphasize and how to arrange it**, not the proje
 
 **One well-supported direction is sufficient** for normal requests. Compare two directions only if there is a material ambiguity, the user asks for alternatives, or visual QA reveals a substantive concept problem. Do not substitute two written paragraphs for actually good design.
 
+## Pre-implementation design plan (required)
+
+Before UI implementation, write the compact project-side [DESIGN_PLAN template](../development/PROJECT_TEMPLATES.md) and identify specific acceptance/evidence targets in the frozen [SCORECARD](../validation/SCORECARD.md). The design plan names:
+- Real audience, first-screen message, necessary content sections, actual CTA.
+- Chosen composition, intended image/text roles and responsive rearrangement (390/768/1440).
+- Locked user-selected colors, fonts and layout tokens; known image rights/choices.
+- Project risks: misleading imagery, repeated copy, purposeless Hero accents, weak functional feedback or visually empty sections.
+
+**The plan does not invent palette/font exceptions.** Its corresponding checklist must be frozen **before** creating UI source. A new user-approved requirement may be recorded as a new plan revision; an agent may not silently rewrite prior expectations after viewing its output.
+
 ## Permitted creative choices
 
 - Content-driven split Hero vs concise text-led introduction; editorial image-and-text rows vs product directory; navigation labels and information groupings.

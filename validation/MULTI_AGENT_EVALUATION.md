@@ -27,3 +27,15 @@ Functional Playwright/build/axe checks can be tools, not separate LLM agents.
 Compare a single-agent baseline against an isolated-Critic approach with matched briefs, pinned rules, observable execution budgets and blind human quality ratings across multiple trials. Track Anti-Slop, Design System compliance and visual quality separately.
 
 Only if it consistently improves results should orchestration tooling (e.g. LangGraph) be implemented. Code Agents must remain usable with **one prompt** when no escalation is needed.
+
+
+## Shared normative Quality Gate
+
+Every role, whether single-agent or multi-agent, uses the **same pre-implementation frozen** [100-point rubric](SCORECARD.md), [development plan](../development/WORKFLOW.md) and [project-side templates](../development/PROJECT_TEMPLATES.md).
+
+- An independent Critic cannot relax user-approved Design System, rewrite assessment criteria or raise scores for the sake of approval.
+- Hand off the **original screenshot(s)** and task/locked design first, before Designer rationales; separately record **strengths to preserve**, observed faults, specific change targets and how to verify them.
+- The Orchestrator compares the actual before/after UI and functional tests; it **rejects** revisions that improve a local issue while degrading overall visual quality.
+- The final score remains **agent-internal and evidence-qualified**, never an independent human aesthetic approval. Calibration needs matched single-agent and multi-agent runs with blind human assessment.
+
+This document is an escalation playbook, **not** permission to require users to run additional agents manually for ordinary page generation.

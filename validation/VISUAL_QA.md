@@ -1,40 +1,53 @@
-# Visual QA — Anti-Slop and Professional Finish
+# Visual QA — Evidence First, Not a Decoration Ban
 
-Version: **2.1 normalized**. A practical screen-based inspection for ordinary Code Agent work.
+Applies with [Anti-Slop Governance v2.1](../governance/ANTI_SLOP.md), [Art Direction](../design/ART_DIRECTION.md), [Development Workflow](../development/WORKFLOW.md) and the **frozen 100-point [SCORECARD](SCORECARD.md)**.
 
-## Two independent questions
+## Why this review is necessary
 
-**A. Anti-Slop:** Is there irrelevant, deceptive, repetitive or template-like design noise?  
-**B. Visual quality:** Can a visitor recognize the offering, understand the action, and see a coherent, balanced, professional page using the approved Design System?
+A Code Agent may receive the right rules, implement a grey Hero callout with an unnecessary black accent line, view the screenshot and still claim “Anti-Slop PASS: no fake metrics and no repeated cards.” That **does not** verify whether the callout border itself has a purpose.
 
-A high A score does not imply B. A minimalist wireframe and a decorated AI landing page can both fail.
+Anti-Slop and visual finish are two separate evaluation dimensions. A beautiful-looking but misleading design and an empty sanitized wireframe can both fail.
 
-## Normal single-agent check
+## Review 1 — immediately after first implementation
 
-Open actual 390/768/1440px screenshots after implementation (and transition widths when applicable). In a short review, check:
+Actually **open** full-page screenshots at **390, 768 and 1440px** with the correct running app, browser/fonts and source. Inspect transitional viewport widths where layouts change. Check the following separately:
 
-| Dimension | Main question |
+| Probe | Evidence question |
 |---|---|
-| Approved system | Are colors, background, fonts and type/spacing roles consistent with the user's selected system and [approved baseline](../governance/PROJECT_CHARTER.md)? |
-| Recognition | What business/product/action can a new visitor identify immediately? |
-| Hierarchy | Are image/text proportions and section emphasis proportional to actual information value? |
-| Imagery | Does it add real understanding? Does it overrepresent one category or invent company evidence? |
-| Duplication | Does each region add information beyond earlier sections? |
-| Editorial quality | Is copy natural, specific, nonrepetitive and truthful about the CTA? |
-| Interaction/accessibility | Is the reading order coherent and the UI usable on narrow screens, with meaningful focus/labels? |
-| Anti-Slop | Are labels, dots, arrows, cards, effects or placeholder-style phrases merely ornamental? |
+| First-screen meaning | Can a visitor tell what the offering is and what to do next? |
+| Information hierarchy | Do Hero/sections/CTA have emphasis proportional to meaning? |
+| Domain/imagery | Does the image show relevant information without falsely claiming business evidence or unfairly elevating one category? |
+| Copy | Is each line natural, specific and *incrementally informative* rather than repeated generic wording? |
+| **Conspicuous decoration (A1)** | **For an accent border, callout, panel, dot, icon, visual separator or effect: what independent information/hierarchy does this *wrapper* provide?** |
+| Under-design (V3–V5) | If imagery/character was removed, does the page still convey the business and have credible professional finish? |
+| Function/accessibility | Do actual actions, mobile reading order, labels, focus and error recovery work? |
 
-For routine tasks, record **the top 1–3 meaningful observations and fixes**, not a lengthy mandatory audit essay. If nothing material is wrong, don't invent changes.
+### Conspicuous visual device probe (operational Deletion Test)
 
-## Non-regression for revisions (mandatory)
+Choose **up to three high-salience candidates** after actually looking at the screen; if none is seen, explicitly record "No conspicuous suspect device observed" and state which screens were checked.
 
-Before editing, list:
-- **Preserve:** useful existing images, strengths of visual hierarchy, approved tokens, functioning controls.
-- **Change:** a specific observed problem and the smallest substantive fix.
-- **Avoid:** unnecessary new Slop, removing meaningful information or silently changing style tokens.
+1. Identify exact target, screen viewport and CSS/component selector.
+2. Separate **usefulness of its content** from **usefulness of its decoration**. A useful instruction paragraph does **not** justify its grey background *and* left border by default.
+3. Check whether spacing, text hierarchy or an existing surface **already** communicates the same grouping. If so, ask what additional value the extra effect provides.
+4. Remove or simplify **only the questionable layer**, preserving content and actions, when it has no independent benefit. Prefer a matched rendered comparison when the hierarchy tradeoff is uncertain.
+5. Check the **whole page** after the change: do not fix a decorative border by deleting all images or undermining the page's identity.
 
-After editing, inspect the same before/after screen widths. Judge **both** (1) issue resolved and (2) overall visual quality maintained or improved. **Reject or revert** patches that resolve the complaint by degrading composition or information value. A new independent Critic is optional when the choice is uncertain or recurring failure occurs.
+**Conditional permission remains:** a border/panel is useful when it differentiates an actual error/state, interaction boundary, comparison or meaningful group that spacing alone cannot communicate well. Never make the presence of a border automatic failure.
 
-## Reporting and approval
+Record **finding → evidence → judgement → target change**. A generic claim like "no decorative metadata or repeated cards" **cannot justify A1 PASS** if an untested prominent callout is still visible.
 
-Report actual captured evidence, known limitations and functional tests separately. Static/axe success does not establish visual quality; independent human sign-off is required for final commercial release, not for delivering a reviewable preview. Multi-agent escalation is optional and must carry the same Preserve/Change/Avoid contract and before/after non-regression gate.
+## Score and remedy
+
+Use the **pre-frozen targets** from project `docs/AI_DESIGN_SCORECARD.md`; never create easier criteria after implementation. Give first-pass ratings 0–4 per [fixed rubric](SCORECARD.md), or **UNVERIFIED** where evidence is missing. First-pass numbers are **diagnostic**, not completion status.
+
+For each substantial fix record **Preserve / Change / Avoid**. Save matched before and after screens and rerun affected tests. Explicitly consider whether Anti-Slop increased but overall visual quality decreased (or vice versa). **Reject/revert degraded revisions.**
+
+## Final Quality Gate — separate from first review
+
+Open the **final actual render**, inspect affected screens, score all 20 common items and verify the mandatory project acceptance and hard gates. A field with no evidence is **UNVERIFIED**. Apply >=85 total, >=70% per category, no critical violation, no major regression. Otherwise **FAIL / PENDING** as specified in [SCORECARD](SCORECARD.md).
+
+A build PASS or axe zero violations is **not** a full accessibility certificate, editorial review or aesthetic approval. Human release review is separately PENDING unless actually performed.
+
+## Efficiency contract
+
+This is not a request for a long report on every CSS declaration. The code agent normally records **1–3 high-impact findings**, full-page screenshots, relevant test commands and the fixed score table. An independent Critic is optional, especially when uncertainty remains, and must use the same design locks and criteria.

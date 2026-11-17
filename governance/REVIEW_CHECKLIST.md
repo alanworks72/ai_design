@@ -1,31 +1,35 @@
-# AI Design Review Checklist — normalized v2.1
+# AI Design Review Checklist — Execution & Completion
 
-Separate **Design System compliance**, **Anti-Slop**, **functionality**, and **visual quality**. Record PASS / FAIL / PENDING / N/A with evidence; don't claim unrun tests or independent HITL approval.
+This is a **quick operational companion** to the normative [100-point Scorecard](../validation/SCORECARD.md), not a substitute for it. Read [Project Charter](PROJECT_CHARTER.md), [Development Workflow](../development/WORKFLOW.md) and [Visual QA](../validation/VISUAL_QA.md).
 
-## A. Contract / Static review
-- [ ] Audience, main task/action and required truthful content identified.
-- [ ] Existing brand theme preserved; otherwise user chose default Neutral/white or custom colors **once**.
-- [ ] Approved v1.0 [Typography](../design-system/TYPOGRAPHY.md), [Colors](../design-system/COLORS.md), [Layout](../design-system/LAYOUT.md) and [Components](../design-system/COMPONENTS.md) used. Document actual user-authorized exceptions.
-- [ ] If imagery would materially help and is not decided, one image question asked; chosen rights and roles recorded.
-- [ ] No unsupported business claims, fake statuses, dead controls, meaningless ornamental labels or unexplained repeated effects.
-- [ ] Project technology follows the established/requested stack; deviations are explicit rather than silent.
+## A. Before implementation: mandatory
 
-## B. Actual browser review
-- [ ] Screens at 390, 768 and 1440px inspected; mobile overflow and reading order checked.
-- [ ] Navigation and primary interaction genuinely work; form validation, errors and recovery verified.
-- [ ] Keyboard, focus, contrast, labels, relevant states and reduced motion checked as applicable.
-- [ ] Serious/critical unresolved accessibility problems and tool limitations recorded accurately.
+- [ ] Read applicable `AGENTS.md`, Governance, Design System, Art Direction, Workflow and Scorecard **from actual paths**; record the methodology revision.
+- [ ] Preserve the existing design theme or confirm the known default Neutral vs custom decision; no silent color/font/token overrides.
+- [ ] Determine whether informative images would materially help; ask the user about image sourcing **only if relevant and undecided**.
+- [ ] Write **`docs/AI_DESIGN_PLAN.md`** with real users, content, layout, image/CTA roles, responsive plan and truth constraints.
+- [ ] Freeze **`docs/AI_DESIGN_SCORECARD.md`**: 20 fixed common criteria and 3–8 project-specific acceptance/evidence targets; identify mandatory user requirements, blocking conditions and actual evidence methods.
+- [ ] Do **not** assign scores to unbuilt UI; no score/weight/threshold editing after the plan is frozen.
 
-## C. Visual & editorial QA
-- [ ] Both decorative **AI-Slop** and **under-designed** output reviewed using [Visual QA](../validation/VISUAL_QA.md).
-- [ ] First-screen recognition, category accuracy and CTA emphasis are appropriate.
-- [ ] Image/copy/section roles do not unnecessarily repeat; the result is not a sterile template.
-- [ ] In revisions: Preserve / Change / Avoid documented; **before/after non-regression** completed. A worsened design is not adopted.
-- [ ] Briefly record meaningful findings and fixes. Independent Critic is optional, not a universal gate.
+## B. First review: implementation evidence
 
-## D. Delivery and final commercial release
-- [ ] Commands actually run and failures/not-tested limitations reported.
-- [ ] Mockup facts and asset provenance documented outside rendered preview.
-- [ ] For an actual sold/released pack: independent human approval of visual/editorial quality and rights completed, or Release = PENDING.
+- [ ] Actual app built/run; correct site/server and locked CSS/font observed in browser.
+- [ ] Opened and visually inspected **390/768/1440** full-page renders and key transition widths.
+- [ ] Tested required navigation, primary action, validation/recovery, real result and failure states as applicable.
+- [ ] Checked keyboard/focus/semantics/contrast and axe where available, with manual limitations stated.
+- [ ] Inspected high-attention border/panel/callout/icon/image effects **independently of their interior content**. Applied Deletion Test; recorded up to three suspect elements and evidence, or that no suspects were observed.
+- [ ] Scored initial 20 criteria **with evidence**; recorded UNVERIFIED instead of guessing.
 
-**Release PASS** requires approved style, functional/accessibility and Anti-Slop requirements, visual suitability and independent commercial review when relevant. An exploratory page can be delivered for review with PENDING items clearly reported.
+## C. Refinement and final gate
+
+- [ ] For meaningful fixes: Preserve / Change / Avoid logged; original visual strengths and approved assets not silently removed.
+- [ ] Compared before/after **actual screens** and reran relevant action/accessibility tests; regression rejected or reverted.
+- [ ] Same frozen 20 criteria rescored with actual source/screenshot/test evidence; all project mandatory cases verified.
+- [ ] Computed A/25, V/25, D/20, F/20, R/10 and Total/100 exactly per Scorecard.
+- [ ] Checked critical gates G01–G07, category floors **70%**, provisional total cutoff **85**, and no unresolved major regression.
+- [ ] Status: **PASS** (agent-provisional, evidence complete) / **FAIL** (confirmed defect or threshold unmet) / **PENDING** (required evidence/decision absent).
+- [ ] Reported real test command outcomes, file locations, evidence and limitations; did **not** claim independent human approval.
+
+**Evidence over assertions:** "No fake metrics" does not verify whether a decorative Hero border is purposeless. "Axe 0" does not verify total accessibility. "Uses tokens" does not prove good visual composition.
+
+Normal task = one brief, one Code Agent, two small project records. Independent Critic/multi-agent work is optional. No extra default agent or checklist creation ceremony.
