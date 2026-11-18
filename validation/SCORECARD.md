@@ -115,3 +115,24 @@ If any G gate is **confirmed**, decision = **FAIL** regardless of aggregate. If 
 **Keep the existing 20 items, weights (25/25/20/20/10), rating anchors, 85 threshold, 70% per-category floors and G01–G07 unchanged.** For a **whole website** request, [Website Quality Gate](WEBSITE_QUALITY_GATE.md) W01–W06 must clear **before** the numeric PASS can represent a finished site.
 
 Evaluate Anti-Slop at element/page/site levels, Visual Quality on **representative page families**, Design System consistently across routes, Functions on **all mandatory routes and cross-route journeys**, and Responsive/Accessibility on each relevant family/state. A polished Home score does not substitute for page/route completeness. If the required site is replaced by one Home with anchors, verdict **FAIL despite a high numeric score**. Record user acceptance separately from the self-score. Historic one-route runs keep their original scope and pinned rules.
+
+
+## Corporate-site Visual Quality evidence anchors — v3.x clarification, **no numerical change**
+
+These are **evidence and interpretation clarifications for existing V1–V5**, **not** new criteria or scores. The 20 IDs, rating 0–4 anchors, weights 25/25/20/20/10, threshold 85, floors 70% and G01–G07 remain unchanged.
+
+For **corporate websites**, a numeric grade should reflect more than the mere presence of a title, route, source file, shared token or functioning button:
+
+| Existing ID | Required evidence before a high grade | When 4 is **not** justified |
+|---|---|---|
+| **V1 — Recognition** | Home visibly explains **what business the company conducts**, target audience and useful next destinations. About and offering pages communicate their respective distinct purpose. | Home is primarily "구매 품목을 정리하세요" rather than describing the actual company/business offering. |
+| **V2 — Hierarchy** | Each page's actual content priority is legible; appropriate contrast between business identity, offering details, process and user action. | Every route has the same visually weighted headline, short grey paragraph and CTA regardless of meaning. |
+| **V3 — Informative expression** | Images, diagrams, comparisons or **purposeful text-led composition** make the available subject matter clearer and more concrete. | A generic box/bottle/package illustration repeats without adding category-specific information, or large space substitutes for substantive content. **Not** a mandatory photography rule. |
+| **V4 — Page/site rhythm** | Evidence from **multiple page families** shows appropriate density, non-redundant content roles and meaningful compositional differences within shared tokens. | Several detail routes merely change titles/illustrations in an identical thin description/table/CTA template; wide whitespace conceals limited substance. |
+| **V5 — Editorial finish** | Specific, natural, truthful copy suited to the page's purpose; sourced/authorized business identity and category-specific explanations. | Company/About consists largely of buyer preparation instructions; generic copy repeats across unrelated pages; developer-prototype labeling is used as brand messaging. |
+
+**W05 comes first:** when the page fundamentally fails its business/content purpose, record **Website W05 VIOLATION or PENDING** per [Website Quality Gate](WEBSITE_QUALITY_GATE.md). A numerically high A/D/F/R score **cannot compensate**. Minor compositional or editorial deficiencies that **do not** destroy page purpose remain weighted V1–V5 imperfections; do not classify every subjective disagreement as a hard failure.
+
+**Rating discipline:** `4` means the *actual cited page(s) and rendered evidence* demonstrate strong task-appropriate performance without material observed defects. `3` should name an actual minor defect; `2` should name a materially deficient visual/content treatment; `UNVERIFIED` requires no invented score. A supplied reference site can inform what to inspect, but **similarity to its visuals is not scored**. Self-rating is an **agent-provisional observation**. When human or independent review rejects the candidate, preserve the frozen numbers and record **user acceptance FAIL** and reasons separately rather than retroactively rewriting scores.
+
+**Historical integrity:** v3.0 Gaon eight-route pilot self-reported **93.75/100 and W05 CLEAR** under its original instructions, while the user judged it insufficiently corporate. Keep that as **calibration evidence of possible false PASS**, not a claim of independently reproduced failure. A new benchmark/content-enriched test must be labelled separately and compared under matched input if claiming methodology improvement.

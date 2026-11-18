@@ -26,8 +26,9 @@ For a full site, define real URL routes and distinct Page Specs before coding. A
 
 ```text
 One brief
-  → Scope and source-backed content
-  → Sitemap / Page Specs / user journeys / text wireframe
+  → Scope, company identity/business model and source-backed content
+  → Comparable corporate-site research (or verifiable offline reference pack)
+  → Sitemap / substantial Page Specs / user journeys / text wireframe
   → Locked Design System + purposeful Art Direction + frozen Scorecard
   → Shared shell + individual route/page-family implementation
   → Verify every mandatory URL and cross-page journey
@@ -35,9 +36,17 @@ One brief
   → Website Gate (W01–W06) AND 100-point Gate → final status
 ```
 
+## Corporate content and industry fit
+
+Before Sitemap and visual styling, establish the organization's **real business identity, offer, audiences, service model and sourced facts**, then inspect relevant comparable official sites for **page-purpose, content and media** patterns. See [Corporate Reference Analysis](research/CORPORATE_SITE_REFERENCE_ANALYSIS.md).
+
+A full website cannot pass on route count and functional tests alone. [Website W05](validation/WEBSITE_QUALITY_GATE.md) checks whether Company truly describes the company and detail pages provide **unique decision-useful content**; false corporate content and visually cloned empty routes remain unacceptable. The existing Style/Design System tokens and 100-point scores are **unchanged**.
+
 ## Research and experiments
 
 The attached user-supplied [기업 웹사이트 개발 표준 절차 및 R&R](research/WEBSITE_REFERENCES.md) provided the principal phases, gate and role distinctions. Additional verified standards: [Website References](research/WEBSITE_REFERENCES.md), including Nielsen Norman Group (IA), Google Search Central (URLs/SEO), W3C (accessibility), OWASP (security), Playwright (browser checks).
+
+A separate [rich-content fictional enterprise fixture](validation/TEST_CASE_DISTRIBUTION_CORPORATE_V2.md) is available for matched design-method comparison, to avoid accidentally penalizing an Agent for missing client data. It is **not a rewrite or rescore** of prior experiments.
 
 New reproducible **multi-page** fixed brief: [TEST_CASE_DISTRIBUTION_WEBSITE.md](validation/TEST_CASE_DISTRIBUTION_WEBSITE.md). Historic [single-page pilot](validation/TEST_CASE_DISTRIBUTION.md) remains unchanged. **No new website generation or score validity is claimed until a controlled run is executed.**
 

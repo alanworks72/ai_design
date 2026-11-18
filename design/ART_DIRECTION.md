@@ -26,6 +26,34 @@ Before UI implementation, write the compact project-side [DESIGN_PLAN template](
 
 **The plan does not invent palette/font exceptions.** Its corresponding checklist must be frozen **before** creating UI source. A new user-approved requirement may be recorded as a new plan revision; an agent may not silently rewrite prior expectations after viewing its output.
 
+## Corporate website composition — business meaning before decoration
+
+For a corporate site, start with the **Company Profile**, adequate source-backed content and [Reference Findings](../research/CORPORATE_SITE_REFERENCE_ANALYSIS.md) from the Site Blueprint. Do not design a beautiful `Home → three cards → generic process → contact` shell and then fill it with invented or repetitive sentences.
+
+Define **one concise content-to-expression plan per page family**, e.g.:
+
+| Page role | What must be understood | Possible appropriate form — not mandated |
+|---|---|---|
+| **Home** | what business this is, whom it serves, how to enter its offering | substantive enterprise message, relevant business/domain image/graphic where justified, clear real pathways |
+| **Company** | actual enterprise identity, scope of service, business model | explanatory editorial hierarchy or process/business-model diagram **only if facts support it**; not mostly a buyer checklist |
+| **Offering/index** | areas served and useful distinctions | comparison categories, representative context, concise sourced differences |
+| **Product/category detail** | what is specifically different about this offering, how to assess it | meaningful examples, criteria/specifications, diagrams or images suited to that **specific category**; shared template is fine if information is genuinely unique |
+| **Process** | how the interaction/work progresses and what the customer prepares | a readable sequence, decision/requirement points, exceptions where relevant |
+| **Contact/task** | how to complete a valid action and recover from errors | focused form/instructions with truthful status, not decorative enterprise claims |
+
+Decide the **information hierarchy first**, then choose visual media/shape to help visitors comprehend that information. A monochrome palette can support professional enterprise visuals; it does **not** require every page to be black headline + grey paragraph + thin rule + large blank space. An original editorial composition is permitted within locked type/color/spacing. Image-free layouts are acceptable only if they still communicate enough substance.
+
+When several detail pages share a component, audit **content and composition together**:
+- Do the visitors learn different facts/criteria on each page, beyond a changed title or repeated procurement advice?
+- Does the type and depth of information justify a table, illustration, photograph, comparison, short form, or different order?
+- Is the same image/card/arrow pattern repeated because of the brand system, or because the Agent copied a generic template with no communication value?
+
+**What not to do:** copying the source website's layout/brand, forcing stock photography, fabricating customer stories/enterprise KPIs, changing Wanted Sans/Neutral tokens, or requiring an arbitrary "creative accent" for every route.
+
+### Before/after visual evaluation contract
+
+The first screenshot review must inspect **representative page families**, not only the global Homepage. For Company, ask whether the layout successfully communicates **company identity/business**, not simply whether the heading says "회사 소개". For category details, evaluate the usefulness of the distinct information. If a source is too sparse, escalate a **content gap**, not an empty ornamental panel or random filler. Distinguish a real page-purpose failure (Website W05) from local polish deficits (V1–V5 weighted score).
+
 ## Permitted creative choices
 
 - Content-driven split Hero vs concise text-led introduction; editorial image-and-text rows vs product directory; navigation labels and information groupings.
