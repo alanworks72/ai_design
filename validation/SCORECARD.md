@@ -109,3 +109,9 @@ If any G gate is **confirmed**, decision = **FAIL** regardless of aggregate. If 
 - To validate methodology improvements: matched task/inputs and pinned versions, independent blind review of at least original and revision, human ratings when practical, multiple tasks and repeated runs.
 - An isolated Critic is **optional**, but cannot overwrite frozen weights or auto-approve release; it must inspect screenshots before reading implementation rationale.
 - **No numeric score substitutes for actual page functionality or an informed visual review.**
+
+## Website-first application (proposed v3.0) — no numerical rubric changes
+
+**Keep the existing 20 items, weights (25/25/20/20/10), rating anchors, 85 threshold, 70% per-category floors and G01–G07 unchanged.** For a **whole website** request, [Website Quality Gate](WEBSITE_QUALITY_GATE.md) W01–W06 must clear **before** the numeric PASS can represent a finished site.
+
+Evaluate Anti-Slop at element/page/site levels, Visual Quality on **representative page families**, Design System consistently across routes, Functions on **all mandatory routes and cross-route journeys**, and Responsive/Accessibility on each relevant family/state. A polished Home score does not substitute for page/route completeness. If the required site is replaced by one Home with anchors, verdict **FAIL despite a high numeric score**. Record user acceptance separately from the self-score. Historic one-route runs keep their original scope and pinned rules.

@@ -1,45 +1,44 @@
-# AI Design — Anti-Slop Web Development Methodology
+# AI Design — Website-first Anti-Slop Development Methodology
 
-**Goal:** Give Codex, Claude and other Code Agents a **simple, repeatable development method** to build functional, coherent, visually finished web pages without AI Slop. The user normally supplies **one task brief**, not a series of designer/critic prompts.
+**Goal:** A Code Agent (Codex, Claude Code and equivalents) takes **one website brief** and develops a **meaningful, coherent, usable website**, not merely a convincing single-scroll landing screen. Anti-Slop, approved Design System consistency, actual route/function completeness and visual quality are independent duties.
 
-**Normative style remains the user-approved Design System v1.0. Governance v2.1 is unchanged; the new Development Method operationalizes it.**
+**Website-first v3.0 is being reviewed in a proposal branch.** The locked user-approved **Design System v1.0 tokens remain unchanged**. Existing single-page quality-run01 and historic experiments remain pinned to their original rule versions.
 
-## How to use
+## Start with one file
 
-Give the Code Agent the path to [AGENTS.md](AGENTS.md) and a normal page brief. When `ai_design` lives outside the implementation project's directory tree, instruct the agent to **open that file explicitly**; do not assume sibling files are automatically loaded.
+Use [AGENTS.md](AGENTS.md) as the entrypoint. It explicitly loads the applicable rules even if ai_design is in a sibling repository.
 
-The Agent internally performs:
+## Four normative layers + execution & evaluation
+
+| Layer | Responsibility | Document |
+|---|---|---|
+| Anti-Slop Governance | Stop fake data, purposeless visual elements, fake route depth and copied page templates; **allow purposeful design** | [Original v2.1](governance/ANTI_SLOP.md) + [Website Anti-Slop](governance/WEBSITE_ANTI_SLOP.md) |
+| Approved Design System | Preserve white/Neutral/Wanted Sans and approved tokens; add **shared site-shell and page-family conventions** without re-theming | [Tokens](design-system/TOKENS.md), [Site System](design-system/SITE_SYSTEM.md), original Colors/Typography/Layout/Assets/Components |
+| Design Method | Scope, content, IA, Sitemap, Page Specs, user journeys, wireframe, page-specific Art Direction | [Site Architecture](design/SITE_ARCHITECTURE.md), [Art Direction](design/ART_DIRECTION.md) |
+| Development Method | Nine practical phases with gates: scope/content → IA/spec → UX/design → routes/feature implementation → QA/fix → delivery | [Workflow](development/WORKFLOW.md), [Implementation](development/IMPLEMENTATION.md), [Templates](development/PROJECT_TEMPLATES.md), [Role Boundaries](development/RESPONSIBILITIES.md) |
+| Quality Evaluation | **Site completeness W01–W06 first**; then the **unchanged 100-point rubric**; page-family visual QA and real route/journey tests | [Website Gate](validation/WEBSITE_QUALITY_GATE.md), [Scorecard](validation/SCORECARD.md), [Visual QA](validation/VISUAL_QA.md) |
+
+## Website is not the Home page
+
+For a full site, define real URL routes and distinct Page Specs before coding. A Home page summarizes and links to substantive secondary pages. Related pages share Header/Footer and style tokens but do **not** clone the same Hero/cards layout. A single landing page is appropriate only when explicitly requested or approved as the actual scope.
+
+### Minimal Agent workflow
 
 ```text
-Understand → freeze DESIGN_PLAN + SCORECARD before implementation
-           → Implement → first browser/Anti-Slop QA
-           → targeted refinement → final 100-point Quality Gate
-           → evidence-qualified PASS / FAIL / PENDING
+One brief
+  → Scope and source-backed content
+  → Sitemap / Page Specs / user journeys / text wireframe
+  → Locked Design System + purposeful Art Direction + frozen Scorecard
+  → Shared shell + individual route/page-family implementation
+  → Verify every mandatory URL and cross-page journey
+  → Anti-Slop at Element / Page / Site levels; fix with non-regression
+  → Website Gate (W01–W06) AND 100-point Gate → final status
 ```
 
-User decisions are requested **only when material and unknown**, for example default Neutral vs branded colors or rights-checked images vs user-provided assets vs no imagery. Previously supplied decisions must not be re-asked.
+## Research and experiments
 
-## Responsibility map
+The attached user-supplied [기업 웹사이트 개발 표준 절차 및 R&R](research/WEBSITE_REFERENCES.md) provided the principal phases, gate and role distinctions. Additional verified standards: [Website References](research/WEBSITE_REFERENCES.md), including Nielsen Norman Group (IA), Google Search Central (URLs/SEO), W3C (accessibility), OWASP (security), Playwright (browser checks).
 
-| Layer | Source of truth | What it does |
-|---|---|---|
-| Mission & locked decisions | [Project Charter](governance/PROJECT_CHARTER.md) | Preserve originally approved style and learn from prior methodology failures |
-| Anti-Slop | [Governance v2.1](governance/ANTI_SLOP.md) | Forbid purposeless/deceptive effects and fake functionality; permit purposeful design |
-| Design System | [Tokens](design-system/TOKENS.md), [Colors](design-system/COLORS.md), [Typography](design-system/TYPOGRAPHY.md), [Layout](design-system/LAYOUT.md), [Components](design-system/COMPONENTS.md), [Assets](design-system/ASSETS.md) | **Locked** white/Neutral and Wanted Sans defaults, scales, component/asset policy |
-| Design Method | [Art Direction](design/ART_DIRECTION.md) + [Visual Communication](governance/VISUAL_COMMUNICATION.md) | Content, imagery, page composition and hierarchy **within approved tokens** |
-| **Development Method** | [WORKFLOW.md](development/WORKFLOW.md), [IMPLEMENTATION.md](development/IMPLEMENTATION.md), [PROJECT_TEMPLATES.md](development/PROJECT_TEMPLATES.md) | Plan → freeze quality checks → build → inspect → refine → conclude |
-| **Quality Evaluation** | [SCORECARD.md](validation/SCORECARD.md), [VISUAL_QA.md](validation/VISUAL_QA.md), [REVIEW_CHECKLIST.md](governance/REVIEW_CHECKLIST.md) | 20 evidence-anchored criteria, hard blockers, thresholds and visual non-regression |
+New reproducible **multi-page** fixed brief: [TEST_CASE_DISTRIBUTION_WEBSITE.md](validation/TEST_CASE_DISTRIBUTION_WEBSITE.md). Historic [single-page pilot](validation/TEST_CASE_DISTRIBUTION.md) remains unchanged. **No new website generation or score validity is claimed until a controlled run is executed.**
 
-## Quality Gate: provisional working policy
-
-100 points: Anti-Slop 25, Visual Quality 25, Design System 20, Functional Requirements 20, Responsive/Accessibility 10. Initial acceptance: **>=85 total AND >=70% per category**, no critical violation, verified mandatory acceptance, no unresolved major regression. An unassessed item is **UNVERIFIED**, not free credit. Actual screenshot, code and behavior evidence is required.
-
-These weights and cutoffs are **project hypotheses**, not calibrated industry standards. AI self-assessment is **provisional**, not independent human approval.
-
-## References and evaluation
-
-[Research References](research/REFERENCES.md) catalogues official Codex/Claude/GitHub/Playwright/W3C/shadcn sources and relevant HCI/Code Agent research, with a mapping from evidence to our **own** design decisions.
-
-[Validation Protocol](validation/README.md) keeps historical controlled experiments and pilot evidence separate from normative rules. [Optional multi-agent review](validation/MULTI_AGENT_EVALUATION.md) uses the same frozen scorecard; additional agents are not required for basic web development.
-
-**Never treat the absence of decoration, a passing build, or 0 axe violations as evidence of complete professional web design.** Never silently rewrite user-approved Design System values.
+The 85/100 and category floor numbers are **provisional project policies**; a high page score cannot override missing mandatory site routes. The user is responsible for business, brand, content and final release approval; an Agent's PASS is a reviewable candidate, not a human endorsement.

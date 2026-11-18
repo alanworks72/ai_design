@@ -66,3 +66,11 @@ Before editing a normative document: identify its owner, compare against this ch
 Archive experiment-specific prompts and evidence under `validation/`; historical runs keep their original pinned governance versions. Neither a high build-test pass count nor zero decorative elements proves a finished design.
 
 This charter is a decision record designed to prevent silent regression of the project's agreed goals.
+
+## Website-first scope — proposed v3.0 extension
+
+The original **one user brief → meaningful, reliable, professional web development without AI Slop** mission now covers an **entire website**, not just a Homepage. Website requests require meaningful information architecture, a Sitemap, distinct Page Specs, route-level content, real cross-route user journeys and whole-site acceptance. An explicitly requested/approved single Landing Page is the exception. Do not invent unneeded routes.
+
+**Locked decisions are unchanged:** [Design System v1.0](../design-system/TOKENS.md) values cannot be silently modified for page variety. [Site System](../design-system/SITE_SYSTEM.md) extends components while [Site Architecture](../design/SITE_ARCHITECTURE.md) defines page roles.
+
+The Code Agent can perform scope analysis, IA, design, implementation and QA but does not replace the user/PO as accountable owner of major business facts, IA approval, branding or release. [Website Quality Gate](../validation/WEBSITE_QUALITY_GATE.md) (W01–W06) **must clear before** a numerical Scorecard PASS can be interpreted as a website PASS. Historical single-page scores remain pinned and are not retroactively renamed.

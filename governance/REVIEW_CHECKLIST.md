@@ -33,3 +33,14 @@ This is a **quick operational companion** to the normative [100-point Scorecard]
 **Evidence over assertions:** "No fake metrics" does not verify whether a decorative Hero border is purposeless. "Axe 0" does not verify total accessibility. "Uses tokens" does not prove good visual composition.
 
 Normal task = one brief, one Code Agent, two small project records. Independent Critic/multi-agent work is optional. No extra default agent or checklist creation ceremony.
+
+## Mandatory Website-first checks (v3.0 proposal)
+
+- [ ] Scope recognized: a website is not silently reduced to one Landing Page; single page requires explicit scope.
+- [ ] Before UI: Sitemap, route inventory, Page Specs, sourced content/TBD, user journeys, page-family wireframes and frozen test targets.
+- [ ] Every **mandatory route** has distinct content and purpose; direct URL/refresh and navigation tested.
+- [ ] Every essential **cross-page journey** is actually executed; no fake Home-anchor menu, broken deep link, or fake interaction.
+- [ ] Real 390/768/1440 screenshots **per page family**, consistent locked Design System and no repeated generic page template.
+- [ ] Website Quality Gate **W01–W06 all CLEAR** with route/requirements coverage evidence, before weighted score PASS.
+- [ ] Existing 20-item/100-point/85 threshold and G01–G07 unchanged, user/PO acceptance separate.
+- [ ] SEO/metadata, security, accessibility, performance and production release checked to the extent required by actual scope; no unverified claims of deployment.

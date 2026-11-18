@@ -59,3 +59,7 @@ The implementation must preserve the value of existing informative assets and co
 - For a commercial release, final independent human review checks visual suitability, asset rights and open concerns. Unverified states are **PENDING**, never invented PASS.
 
 See [Review Checklist](REVIEW_CHECKLIST.md).
+
+## Website-wide Anti-Slop application (proposed v3.0)
+
+The original element/page prohibitions apply across the **site**. The companion [Website-wide Governance](WEBSITE_ANTI_SLOP.md) rejects fake multi-page navigation using Home anchors, invented news/client cases or other filler routes, identical Hero/cards templates cloned everywhere, and arbitrary route-level style drift. Purposeful page-family differences and informative media remain **allowed**. These extra checks neither loosen factual rules nor override approved colors, typography or spacing.
