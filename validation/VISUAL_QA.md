@@ -57,3 +57,16 @@ This is not a request for a long report on every CSS declaration. The code agent
 Apply element, page **and site** Anti-Slop inspection. Open actual 390/768/1440 screenshots of **every required distinct page family** and check each mandatory URL separately. A polished Home screenshot is not website-wide evidence. Verify page role differentiation, truthful content, image value, stable shared design tokens, accessible nav, and absence of repeated generic Hero/cards/CTA templates across unrelated routes. Do not delete useful images or pages solely to simplify the layout.
 
 Before claiming PASS, also clear [Website Quality Gate](WEBSITE_QUALITY_GATE.md) W01–W06 (real IA, route specs, direct URL/refresh, journeys, content and site-wide visual QA). Preserve the original 20-item Scorecard for numerical evaluation.
+
+## Corporate-site meaning and under-design probe (v3.x clarification)
+
+On representative screenshots and actual page text/source, before declaring W05 CLEAR or V1–V5 high:
+- **Home:** can a visitor identify the **business itself** and why/where to explore its offerings? Is it mostly an "instructions for buyers" homepage?
+- **Company:** is there actual source-backed/synthetic-authorized **business identity, operating/service model and value** beyond a heading and a supplier/buyer checklist?
+- **Category details:** do they convey **different useful information** about their subject, or only swap name/image in the same generic description-table-CTA layout? A shared table can still be valuable if entries serve specific decisions.
+- **Presentation:** is there purposeful use of imagery/illustrations, text hierarchy, comparison and whitespace suited to the **available content**? A black headline + grey paragraph + border on every page is not automatically a polished enterprise site.
+- **Source adequacy:** if essential company details are absent, mark a `CONTENT_GAP`; do **not** fill with fake company history, customer proof or boilerplate claims.
+
+Record **the route, frozen Page Spec question, observed actual content/screenshot and why it fulfils/fails the role**. Use [Corporate Reference Analysis](../research/CORPORATE_SITE_REFERENCE_ANALYSIS.md) for transferable industry observations, not screenshot similarity scoring.
+
+**W05** handles failure of a fundamental page purpose; **V1–V5** handle weighted visual/editorial quality once a substantive page is present. A mere aesthetic disagreement does not automatically create a W05 hard violation. Human acceptance is separate.

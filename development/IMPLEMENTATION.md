@@ -10,6 +10,20 @@
 - Treat content not supplied as **TBD in project notes**, not invented public facts. Explicit fictional samples are allowed only within stated brief; assets require user-authorized rights.
 - Choose one coherent routing/deployment strategy. The React + shadcn/ui + Tailwind direction remains where appropriate, but existing stack and justified native semantics are allowed. Framework boilerplate does not override approved tokens.
 
+## Corporate content-to-code contract
+
+Before creating routes/templates, read the Site Blueprint's **Company Profile, source status, Reference Findings and per-route visitor question** ([Site Architecture](../design/SITE_ARCHITECTURE.md)). Convert them to a concrete **page-content inventory**:
+
+- **Home:** a truthful organization/business proposition, target visitors and real destinations to business areas; never only a procurement worksheet.
+- **Company/About:** what the company does, its customers, operating/service model and supported offering. Do **not** automatically place a buyer's packaging/quantity checklist here.
+- **Index and detail:** real/authorized fictional category differences, useful examples/specification criteria and next actions. A reusable component is fine, but different titles with identical generic details are **not** an adequate website.
+- **Process:** what happens after an inquiry, responsibility boundaries and relevant customer preparation.
+- **Contact:** the action that is actually implemented, with honest error/success/fallback.
+
+Where a required page lacks adequate approved content, retain `CONTENT_GAP` in planning/QA and seek material input or mark PENDING; **do not fabricate an About-history, certifications, supplier network or company KPIs** to make the layout look complete. Illustrative test fixture facts are allowed only as explicitly authorized synthetic inputs.
+
+Implementation must not turn **page layout and route coverage into proxy measures for enterprise content quality**. Test source-backed page role before polishing borders, color and imagery.
+
 ## 2. Build order
 
 1. Implement the **frozen route structure**, including a truthful not-found behavior. Use independent URLs, not fake hash routes or one Home with section anchors standing in for real pages.

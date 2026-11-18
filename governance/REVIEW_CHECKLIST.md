@@ -41,6 +41,8 @@ Normal task = one brief, one Code Agent, two small project records. Independent 
 - [ ] Every **mandatory route** has distinct content and purpose; direct URL/refresh and navigation tested.
 - [ ] Every essential **cross-page journey** is actually executed; no fake Home-anchor menu, broken deep link, or fake interaction.
 - [ ] Real 390/768/1440 screenshots **per page family**, consistent locked Design System and no repeated generic page template.
+- [ ] **Corporate Identity + reference analysis** recorded before IA: what business, for whom, source-backed services; 2–3 comparable official sites or honestly labelled offline reference findings.
+- [ ] **W05 page-purpose check:** Home presents enterprise business, Company explains business/service model, Detail routes add meaningful unique information; repeated buyer checklists or relabelled generic tables do not pass as substantive pages.
 - [ ] Website Quality Gate **W01–W06 all CLEAR** with route/requirements coverage evidence, before weighted score PASS.
 - [ ] Existing 20-item/100-point/85 threshold and G01–G07 unchanged, user/PO acceptance separate.
 - [ ] SEO/metadata, security, accessibility, performance and production release checked to the extent required by actual scope; no unverified claims of deployment.

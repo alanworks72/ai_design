@@ -40,3 +40,15 @@ This source is **the user's proposed workflow**, not an independent scientific v
 - [Multi-page Pilot](../validation/TEST_CASE_DISTRIBUTION_WEBSITE.md): new experiment with explicit routes and journeys, deliberately distinct from earlier Home-only studies.
 
 **Methodological caution:** We do not treat the existence of multiple routes as proof of usable IA, or 0 axe violations as full accessibility. The Website Gate and site-level rubric applicability are **our engineering proposals**, to be validated by actual Code Agent runs and human feedback.
+
+## Corporate-site fit and reference analysis (new)
+
+[Corporate Reference Analysis](CORPORATE_SITE_REFERENCE_ANALYSIS.md) documents concrete, inspected official sites and distinguishes **their real company facts** from **transferable content structure practices**. Its evidence set includes:
+
+- [CJ프레시웨이 Home](https://www.cjfreshway.com/index.jsp) and [Company](https://www.cjfreshway.com/solution/company.jsp) — distinguish business domains/solutions from company identity and consultation.
+- [동원홈푸드 Home](https://www.dwhf.co.kr/kor/main) and [Company](https://www.dwhf.co.kr/kor/about/intro) — corporate introduction and business portfolios.
+- [Bunzl About](https://www.bunzl.com/about-us/) — states its distribution business model and customer purpose.
+- [Nielsen Norman Group: About Us Information on Websites](https://www.nngroup.com/articles/about-us-information-on-websites/) — site visitors need clear, authentic company-purpose information; **insufficient substance** is a documented problem.
+- [Nielsen Norman Group: Information Scent](https://www.nngroup.com/articles/information-scent/) — meaningful link labels/context/category imagery help users predict destination content.
+
+These references **do not** authorize copying visuals, inventing a fictional company's credibility metrics, changing Design System tokens or requiring a fixed number of page sections. Use them to decide **what the page must communicate**, then design an original presentation that serves the brief.
