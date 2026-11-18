@@ -51,3 +51,7 @@ For a **preview page**, use concise, realistic but obviously fictional values wh
 ## 6. Reference implementation boundary
 
 Do not treat static design boards, generated screenshots or third-party award pages as reusable source components. Only the project's reviewed and licensed implementations can become sellable assets.
+
+## Whole-site component contracts (proposed extension)
+
+Apply [Site System](SITE_SYSTEM.md): shared accessible Header/Footer, real route navigation, truthful active state, hierarchical breadcrumb when relevant, real error/not-found behavior, and distinct Page Types from the frozen Sitemap. **Reuse components for behavior and consistency, not to clone one visual page template across routes.** Native accessible controls remain acceptable when appropriate under existing implementation rules. Every mandatory URL requires a Page Spec and direct URL/browser evidence; see [Website Gate](../validation/WEBSITE_QUALITY_GATE.md).

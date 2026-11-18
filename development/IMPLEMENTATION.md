@@ -1,93 +1,56 @@
-# Implementation Method — Turning a Frozen Plan into a Working Web Page
+# Website Implementation Method — Route Coverage and Real User Journeys
 
-Status: **normative execution guidance** for [WORKFLOW.md](WORKFLOW.md). Follow [Project Charter](../governance/PROJECT_CHARTER.md) and **approved Design System v1.0**; do not replace its defaults with current framework examples.
+**Website-first v3.0 proposal.** Apply [WORKFLOW](WORKFLOW.md), [Site Architecture](../design/SITE_ARCHITECTURE.md), [Site System](../design-system/SITE_SYSTEM.md), [Website Quality Gate](../validation/WEBSITE_QUALITY_GATE.md) and locked v1.0 tokens.
 
-## 0. Preflight before touching UI
+## 1. Before touching UI
 
-1. Locate the task project and the **actual** `ai_design/AGENTS.md`. Read the linked authoritative files; note their paths, revision, and applicable local/global agent overrides. A sibling repo is **not** in Codex's automatic instruction scope by default ([source](../research/REFERENCES.md)).
-2. Inspect existing source, lockfile, runtime, scripts, existing styles and assets. Do not assume OS, Node, React, Tailwind or shadcn versions. Identify `src`, public assets, app entry, routes and test setup.
-3. Protect current user files/branches. Do not overwrite prior pilots, reset worktrees, add new dependencies, publish or push without authorization.
-4. Write `docs/AI_DESIGN_PLAN.md` **and freeze** `docs/AI_DESIGN_SCORECARD.md` project-specific evidence targets **before** coding the UI. See [templates](PROJECT_TEMPLATES.md).
-5. Decide the known palette: established user theme → preserve; approved new-project default → white/Neutral; otherwise ask once. For materially useful but undecided images, ask once by [ASSETS](../design-system/ASSETS.md); do not silently re-theme or remove imagery.
+- Inspect actual project, global/local AGENTS instructions, existing stack, lockfile, routes, source files and deployment needs. Explicitly load external sibling ai_design instructions; record the pinned revision.
+- Classify static informational site, CMS site, service-connected site or web app **from real requirements**. Do not invent a backend, login, dynamic search or publishing system.
+- Freeze the Site Blueprint and project acceptance **before coding**: Sitemap, required routes, distinct Page Specs, authentic content/source status, key journeys, desktop/mobile wireframes and locked Design System.
+- Treat content not supplied as **TBD in project notes**, not invented public facts. Explicit fictional samples are allowed only within stated brief; assets require user-authorized rights.
+- Choose one coherent routing/deployment strategy. The React + shadcn/ui + Tailwind direction remains where appropriate, but existing stack and justified native semantics are allowed. Framework boilerplate does not override approved tokens.
 
-## 1. Convert requirements into information architecture
+## 2. Build order
 
-Build a small **content-to-component map** before choosing visuals:
+1. Implement the **frozen route structure**, including a truthful not-found behavior. Use independent URLs, not fake hash routes or one Home with section anchors standing in for real pages.
+2. Build accessible global Header/Footer, route navigation, mobile menu, focus/skip, and breadcrumbs only for actual hierarchy.
+3. Build one representative page per **required page family** (Home, index/listing, detail, process/guide, task/contact, article when content exists). Reuse navigation and design tokens without cloning one Hero/three-cards composition.
+4. Populate route-specific content and truthful CTA destinations, accessible states, page titles and metadata. Separate verified sources from example data and pending production copy.
+5. Implement required cross-page workflows, including form validation/recovery and real API/CMS integration **only** if explicitly required.
+6. Confirm every required route is directly reachable, the browser refreshes into the same page, and unknown URLs do not silently look like Home.
 
-| Task input | UI decision | How to verify |
-|---|---|---|
-| Audience + offering | First screen must identify service/product and primary action | 390 and 1440 screenshots |
-| Required categories/content | Sections or comparison/list with new information per section | Visible text inventory and section map |
-| Real action (submit/copy/navigate) | Named control, actual behavior and clear status | Browser action test, including failure |
-| Images/assets | Informative role, source, rights, and accuracy of representation | Asset log + screenshot |
-| Responsive/accessibility | Semantic headings, labels, focus, reading order, real tap targets | Keyboard/axe/manual + breakpoints |
+Possible code separation: shared site layout + components; page-family templates; route-specific pages and sourced data; optional service adapters. The actual framework is project-specific, not prescribed by this folder suggestion.
 
-Do not automatically generate `hero + three cards + badges + about + generic form`. Choose components because the data and user tasks need them.
+## 3. Website-wide Anti-Slop during implementation
 
-## 2. Implement within locked tokens
+Inspect three scopes:
+- **Element:** each prominent accent border, callout, icon, dot, panel, image, arrow or animation has independent purpose beyond its content.
+- **Page:** section order and content are meaningful; not every route gets the same Hero/cards/CTA template.
+- **Site:** no fake navigation depth, empty route shells, duplicated marketing copy, invented case studies or changing palette per route.
 
-- Prefer the existing/requested stack. For a new project without contrary requirements, the **established direction** is React + shadcn/ui + Tailwind; **inspect versions first**. An exceptional alternative must be documented before building; framework boilerplate alone does not require adopting shadcn's default visual tokens.
-- Use **semantic CSS tokens** mapped from approved [Colors](../design-system/COLORS.md), [Typography](../design-system/TYPOGRAPHY.md), [Layout](../design-system/LAYOUT.md), [Components](../design-system/COMPONENTS.md). Framework defaults and prebuilt examples are **not design authority**.
-- Reuse actual shadcn primitives where helpful; don't describe hand-written lookalikes as imported shadcn components. Keep native semantics when simpler and appropriate.
-- Separate structure, visuals and behavior: section semantics/real text → responsive grid/typography → actual function/state → source-backed images. Prefer understandable code; no arbitrary proliferation of custom components.
-- All visible interactive controls must work. Form actions must truthfully describe their behavior (e.g. creating a local draft is **not** sending an email). Validate input and give recovery feedback. No made-up success, stock photos as claimed real facilities, fake metrics or placeholder-like customer-facing copy.
-- Maintain keyboard and focus behavior, readable contrast, responsive flow and reduced motion where relevant.
+Do not delete informative images or entire pages merely to silence a critique. Use Preserve / Change / Avoid; compare before/after professional quality across representative routes.
 
-## 3. Anti-Slop at the point of creation
+## 4. Browser and technical test matrix
 
-For each **visually prominent** Hero ornament, panel, vertical accent border, background tile, status dot, icon, shadow or illustrative image:
+For **every mandatory route**:
+- Direct browser URL and refresh; 404/redirect semantics where server supports them.
+- Destination reachable via intended navigation; real title/h1 and unique purpose/content; correct CTA action/destination.
+- Applicable states, accurate content, navigation and no dead primary control.
 
-1. **Content:** What actual information or task does the interior content support?
-2. **Treatment:** What additional benefit does the *border/background/icon itself* add beyond text, spacing, grouping and approved tokens?
-3. **Deletion test:** If only that treatment is removed (content kept), is useful hierarchy, meaning or brand expression demonstrably lost? If not, remove/simplify the treatment.
-4. **Repetition:** Is this an unearned copy of adjacent sections or generic AI layout conventions?
-5. **Visual regression:** Does removal make the page under-designed? If so, find a better informative composition rather than stripping visuals globally.
+For **each distinct page family**:
+- Actual full-page 390/768/1440px screenshots, plus relevant breakpoint edges. Check semantic headings, typography, locked tokens, images, responsive layout, focus/keyboard, contrast and purposeful composition.
+- One Home screenshot cannot stand in for the entire website.
 
-Example: useful purchasing instructions can sit in a split Hero; that does **not** automatically justify both a grey `aside` background **and** a black left border. Check each layer independently. Conversely, a real error alert may need a distinguishable surface/edge for rapid recognition.
+For **each mandatory end-to-end user journey**:
+- Execute navigation across routes, including required input and failure recovery when applicable.
+- Record tests and their actual result. Verify changed journeys after modifications.
 
-The goal is **judgement grounded in the rendered screen**, not banning all borders or creating audit paperwork for every CSS rule.
+For public/production-oriented work, additionally inspect unique page title/description, crawlable links and stable URLs, canonical/robots/sitemap where applicable, truthful SEO content, appropriate performance and security. For CMS/backends, test real data/authorization/error handling. A purely local mockup cannot claim production readiness.
 
-## 4. Real render and browser checks
+Use an **isolated local server/port** for browser checks to avoid testing a different app. A zero-violation axe run is not WCAG certification. Do not invent Core Web Vitals field results or deployment success.
 
-Use the project's existing commands where available; otherwise implement minimal checks suited to the stack. Suggested order:
+## 5. Final delivery
 
-```bash
-npm ci                    # only if npm/lockfile is actually the project manager
-npm run build             # inspect package.json first
-npm test                  # if configured; record exact command/outcome
-```
+Output route coverage, requirement coverage, executed journeys, per-family screenshot references, correct build/functional/accessibility outcomes, the existing frozen Scorecard and website hard-gate results. Unverified evidence is PENDING. Human/brand/content approval is separate.
 
-For Playwright projects: start the **actual app being tested** with a dedicated port and `reuseExistingServer: false` if using Playwright webServer; verify `baseURL` and the served content. Capture **full-page** actual browser screenshots at 390/768/1440 with the same browser/environment when comparing revisions. Validate transition widths near actual breakpoints. Confirm webfont loaded and inspect computed styles if checking Design System fidelity. Match source to rendered page; do not accidentally capture an unrelated dev server.
-
-Test **required actions**, not only rendering:
-- Navigation and primary action actually reach their intended destination.
-- Form required/email/whitespace/error recovery, submission or draft behavior, status, clipboard failure fallback where applicable.
-- Keyboard Tab, focus, menu Escape/return, semantic labels/reading order.
-- No unintended horizontal overflow, clipped controls or missing images/fonts.
-- `@axe-core/playwright` and manual high-risk review; **0 violations is not WCAG full conformance**.
-- If requested, browser console/network and production preview checks. Record unrun tests as PENDING.
-
-[Playwright visual comparison](https://playwright.dev/docs/test-snapshots) cautions that OS/browser/graphics differences alter pixels; **never judge aesthetics by pixel diff alone**.
-
-## 5. First review and refinement
-
-First review uses the frozen scorecard to identify **top-impact defects**. Inspect the whole page and, in particular, whether an individual high-attention visual device is *doing something*, not just whether many cards or false claims are absent. Generate reasoned findings with a screenshot/selector/section location.
-
-On revisions write:
-- **PRESERVE:** approved tokens, accurate images, useful copy and strong composition.
-- **CHANGE:** the exact unsupported/redundant/misleading item and required functional behavior.
-- **AVOID:** re-theming, indiscriminate image deletion, new ornamental noise and regressions.
-
-Capture before/after matched screens, rerun affected functional/axe checks and judge overall quality. A repair that removes all imagery to resolve a single photo's representativeness **fails the regression check** if it substantially worsens comprehension/visual quality.
-
-## 6. Final quality decision and delivery
-
-Complete [SCORECARD.md](../validation/SCORECARD.md) **without changing the frozen criteria**. Score only evaluated criteria with file+viewport+source/test evidence. Apply hard gates and category floors **before** claiming completion. On FAIL/PENDING after the normal two refinement passes, **stop** and give the user actionable blockers, not a false PASS.
-
-Report:
-- Actual implementation, chosen Art Direction and image/source decisions.
-- Build/browser test commands and outputs, screenshots inspected and major visual findings.
-- Design System, Anti-Slop, Functional, Visual and Accessibility scores; overall status and unresolved risks.
-- An **agent-provisional** result, distinct from **independent human release approval**.
-
-Do not claim successful tests, actual deployment, asset ownership or human review without evidence.
+**Do not commit, push or deploy unless the user asked for those actions.** Local implementation and demonstration are not an authorized production release.

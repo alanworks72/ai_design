@@ -58,3 +58,7 @@ Prefer original vendor specifications, standards and paper/benchmark pages. For 
 - We preserve **user-approved Design System v1.0** values. Vendor framework defaults are implementation examples, not policy overrides.
 - Multi-agent design is optional and its incremental effectiveness must be tested against a matched single-agent baseline, not assumed.
 - References and links were checked on the review date. Vendor docs and project APIs may evolve; verify them again before implementation against a concrete installed version.
+
+## Additional whole-site references
+
+The website-first extension draws on the user-supplied *기업 웹사이트 개발 표준 절차 및 R&R* and curated [Website References](WEBSITE_REFERENCES.md): Nielsen Norman Group IA/Sitemap, Google Search Central descriptive URLs/crawlable links, Next.js route/layout patterns, Playwright real route tests, W3C accessibility, OWASP risk-based security and web.dev performance guidance. These support **specific practices**, not an empirical claim that our exact workflow/scorecard is optimal.

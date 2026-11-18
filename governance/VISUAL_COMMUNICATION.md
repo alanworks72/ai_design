@@ -27,3 +27,7 @@ An asset must add information or an appropriate, consistent visual role; it shou
 For routine tasks, check whole-page copy once for repeated meaning, awkward phrases, and CTA accuracy. An extended before/after editorial log is needed only for substantial writing revisions or evaluation experiments, not for every simple web page.
 
 The completed interface must make the offering and primary action clear **without** either empty wireframe minimalism or unnecessary decorative copy. Human editorial approval is independent of automated build/axe results.
+
+## Multi-route content and editorial integrity
+
+Home is the **entry point**, not the holder of all information. Each route's Page Spec (see [Site Architecture](../design/SITE_ARCHITECTURE.md)) must have unique user value, source-backed information and a real action or purposeful destination. A website full of duplicated slogans, invented news/case studies or empty template pages is Slop even if each page looks neat. Distinguish VERIFIED facts, explicitly FICTIONAL_SAMPLE preview content and unresolved TBD in planning; never present a TBD as a real company claim.

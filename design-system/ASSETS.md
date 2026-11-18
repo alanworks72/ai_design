@@ -53,3 +53,7 @@ Do not bundle third-party brand assets into a pack without explicit rights.
 ## 6. Provenance
 
 The guidelines are informed by *Dropbox Brand imagery/iconography*, *GitHub Primer*, *Vercel Geist* and *IBM Carbon*. They describe our usage decisions, not proof that these references apply identical policies to every site.
+
+## Applying visual assets across a website
+
+Record user image-source permission, source/license, **which route** each image serves and what it helps the visitor understand. A single illustrative photo may support one page; do not mechanically copy it across every route or misrepresent actual facilities, inventory or clients. Conversely, removing all informative media to reduce decorative risk is **not** automatically a better design. Use [Site System](SITE_SYSTEM.md) and [Site Architecture](../design/SITE_ARCHITECTURE.md).

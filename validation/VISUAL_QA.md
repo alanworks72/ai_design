@@ -51,3 +51,9 @@ A build PASS or axe zero violations is **not** a full accessibility certificate,
 ## Efficiency contract
 
 This is not a request for a long report on every CSS declaration. The code agent normally records **1–3 high-impact findings**, full-page screenshots, relevant test commands and the fixed score table. An independent Critic is optional, especially when uncertainty remains, and must use the same design locks and criteria.
+
+## Whole-site Visual QA (proposed v3.0)
+
+Apply element, page **and site** Anti-Slop inspection. Open actual 390/768/1440 screenshots of **every required distinct page family** and check each mandatory URL separately. A polished Home screenshot is not website-wide evidence. Verify page role differentiation, truthful content, image value, stable shared design tokens, accessible nav, and absence of repeated generic Hero/cards/CTA templates across unrelated routes. Do not delete useful images or pages solely to simplify the layout.
+
+Before claiming PASS, also clear [Website Quality Gate](WEBSITE_QUALITY_GATE.md) W01–W06 (real IA, route specs, direct URL/refresh, journeys, content and site-wide visual QA). Preserve the original 20-item Scorecard for numerical evaluation.

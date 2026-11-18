@@ -27,3 +27,7 @@ Repeat matched conditions when claiming reproducible improvements; one well-desi
 ## Current controlled pilot (optional)
 
 [Generation quality and score reliability protocol](QUALITY_SCORE_VALIDATION.md) pins the existing normative methodology and separates **fresh creation**, **independent scoring of the same artifact**, **human calibration**, and **repeat-run stability**. It includes one generation prompt and one blind-review prompt, plus an optional [arithmetical scorecard checker](tools/scorecard_check.py). **This experiment does not alter the normal Code Agent workflow or approved Design System.**
+
+## Website-first validation (new proposal; previous results preserved)
+
+Use [Website Quality Gate](WEBSITE_QUALITY_GATE.md) W01–W06 before the unchanged [100-point Scorecard](SCORECARD.md) for website requests. [Site Architecture](../design/SITE_ARCHITECTURE.md) and [Site System](../design-system/SITE_SYSTEM.md) are the new normative scope and shared component sources. [Multi-page Gaon test](TEST_CASE_DISTRIBUTION_WEBSITE.md) is an **independent website experiment**. Earlier [single-Homepage tests](TEST_CASE_DISTRIBUTION.md) and quality-run01 retain their original scope, prompt and scores; they must never be relabeled as whole-site tests. See [Website References](../research/WEBSITE_REFERENCES.md).

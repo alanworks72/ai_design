@@ -39,3 +39,7 @@ Every role, whether single-agent or multi-agent, uses the **same pre-implementat
 - The final score remains **agent-internal and evidence-qualified**, never an independent human aesthetic approval. Calibration needs matched single-agent and multi-agent runs with blind human assessment.
 
 This document is an escalation playbook, **not** permission to require users to run additional agents manually for ordinary page generation.
+
+## Website-first Critic handoff
+
+Optional Designer/Implementer/Critic agents share a frozen **Sitemap, Page Specs, user journeys, approved Design System, W01–W06 website gates and original Scorecard**. Review actual representative page-family renders, real route navigation and original strengths, not just one Home screenshot. A revision that solves decorative issues by deleting required site structure or useful media is not a successful improvement. Independent human business/content/release approval is never implicit.

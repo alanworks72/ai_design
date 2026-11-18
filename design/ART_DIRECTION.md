@@ -51,3 +51,7 @@ Before changing a rendered page, record **Preserve / Change / Do not introduce**
 Inspect actual 390/768/1440px screenshots and use [Visual QA](../validation/VISUAL_QA.md). Compare against the original for both Anti-Slop and professional finish. If neither candidate is clearly better, retain the original and report the tradeoff.
 
 The art director **cannot override** approved Design System rules on its own.
+
+## Site-wide Art Direction (proposed extension)
+
+[Site Architecture](SITE_ARCHITECTURE.md) fixes route families before visual composition. Define one shared brand language **within approved Design System v1.0**, but choose content-specific layouts for Home, index, detail, process, contact and other actually required pages. Reuse Header/Footer and semantic tokens without duplicating generic Hero/cards/CTA strips on all routes. Evaluate visual quality across representative **page families**, not just Home. Record the page-family composition matrix in the pre-code Site Blueprint; see [Site System](../design-system/SITE_SYSTEM.md).
