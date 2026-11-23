@@ -135,4 +135,12 @@ For **corporate websites**, a numeric grade should reflect more than the mere pr
 
 **Rating discipline:** `4` means the *actual cited page(s) and rendered evidence* demonstrate strong task-appropriate performance without material observed defects. `3` should name an actual minor defect; `2` should name a materially deficient visual/content treatment; `UNVERIFIED` requires no invented score. A supplied reference site can inform what to inspect, but **similarity to its visuals is not scored**. Self-rating is an **agent-provisional observation**. When human or independent review rejects the candidate, preserve the frozen numbers and record **user acceptance FAIL** and reasons separately rather than retroactively rewriting scores.
 
+## 2026-11-23 calibration status — proposed, no rubric changes
+
+The owner's industrial A/B judgments were **human 70–75 (A) vs 82–84 (Visual Art Direction B)** while Agent self-scores were **95.00 vs 93.75**. This inverted ranking warns that the existing rubric rewards technical/token conformity more reliably than subjective originality/craft. It does **not** mathematically establish exact score bias or authorize rewriting historic results.
+
+Use [Visual Acceptance](VISUAL_ACCEPTANCE.md) as a separate reviewer record for Look-specific craft, page-family expression, icon Slop and genuine willingness to publish. DesignPrompts Looks are an **owner-chosen 90+ reference pool**, not a template catalogue to copy.
+
+Retain all 20 IDs, 25/25/20/20/10 weights, 85 threshold and 70% floors. A future numeric rubric revision requires repeated multi-domain blind A/B with human judgments, not a new threshold chosen to make a build PASS.
+
 **Historical integrity:** v3.0 Gaon eight-route pilot self-reported **93.75/100 and W05 CLEAR** under its original instructions, while the user judged it insufficiently corporate. Keep that as **calibration evidence of possible false PASS**, not a claim of independently reproduced failure. A new benchmark/content-enriched test must be labelled separately and compared under matched input if claiming methodology improvement.

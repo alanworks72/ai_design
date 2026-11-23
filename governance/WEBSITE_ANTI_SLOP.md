@@ -32,6 +32,12 @@ A bare route count does **not** show website quality. Meaningful pages are justi
 - A Homepage may summarize and link to detail pages without reproducing all their content. Repeated *navigation labels* are allowed; repeated substantive text that adds no new information is suspect.
 - Accessible links, breadcrumbs, filters and page indicators are not decorations when they convey real position, relationships or state.
 
+## v3.2 clarification — coherent visual language is not Slop by default
+
+An approved Look may use visual marks, diagrams, alternate fields or strong typography for **consistent identity and reading structure**. Judge their role in context rather than banning a characteristic just because removing it leaves text readable. Conversely, a generic arrow appended to every internal link, arbitrary trust chips and repeated faint borders may be Slop in a clean site. Examine semantics, repetition, consistency and actual screenshots. A minimalist page lacking a clear visual idea can be under-designed.
+
+Style freedom never permits fictitious proof, decorative filler sections, inaccessible controls or fake actions. A project-level Look needs explicit user authorization to alter original v1.0 tokens; unrelated sites retain the default.
+
 ## 4. Specific deletion / replacement test
 
 For a questionable Border, Callout, Arrow, Badge, repeated section **or entire route**:

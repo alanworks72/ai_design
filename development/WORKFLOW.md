@@ -1,6 +1,6 @@
-# Website Development Method — Structure First, Design with Purpose
+# Website Development Method — Content First, Visual Target Before Implementation
 
-**Website-first v3.0 proposal.** Original Anti-Slop protections, approved Design System v1.0 and the numerical 100-point evaluation rubric remain intact. The default user experience remains **one website brief, one Code Agent**.
+**Visual-first v3.2 proposal** on corporate-content v3.1. Original Anti-Slop protections, approved Design System v1.0 **default**, historic 100-point rubric and website hard gates remain intact. A specifically user-approved, **project-scoped** Look is a permitted explicit customization. Default user experience stays **one website brief, one Code Agent**, not mandatory Figma, MCP or repeated approvals.
 
 ## Default scope
 
@@ -15,9 +15,9 @@
 | **03 IA/Sitemap** | Design content hierarchy **from available business facts and real user questions**, independent routes, main/sub navigation, index/detail/404 needs | Sitemap + route inventory | Mandatory content maps to distinct meaningful pages; no route exists only to fill a menu |
 | **04 Flows and Page Specs** | Define distinct visitor question, **adequate unique content/source**, CTA, states, metadata and acceptance for **every required route**; record content gaps and user journeys | Page Specs + flow map | **G1 Architecture** — route substance and user goals verified, not merely Route IDs mapped |
 | **05 Wireframe/UX** | Translate meaningful page content into **appropriate information forms**, shared shell, page-family hierarchies and desktop/mobile reading order | content-to-presentation matrix + wireframe descriptions | A corporate About page communicates the company, a buying guide the buying process, and details deliver unique information |
-| **06 UI/Art Direction** | Apply locked colors, fonts, spacing and site-wide component contracts; plan informative media/rights and visual hierarchy; **freeze checklist before coding** | site composition matrix + AI_DESIGN_SCORECARD.md | **G2 Design** — approval constraints and test targets frozen |
-| **07 Implementation** | Build real routing, shared layout, distinct pages, functional navigation/CTAs, content sources and actual states; CMS/API only if required | code, route and requirements coverage | Real routes/critical actions work; no content fabrication |
-| **08 QA → targeted refinement → final scoring** | Test routes/flows and **page purpose, content substance, reference-grounded industry fit, visual composition and Anti-Slop**, responsive/accessibility/SEO as relevant; preserve strengths when fixing | WEBSITE_QA + W05 evidence + existing 100-point Scorecard | **G3 Acceptance** — site hard gates and weighted score both pass, not just tests/route count |
+| **06 Look + Visual-first Art Direction** | Preserve the current theme/default **or** apply an explicitly approved project Look; create compact Brand Kit and **real opening + representative inner-page visual target**, inspect 390/1440 screenshots, then freeze implementation target and unchanged Scorecard | Look Contract + visual target screenshots/source + composition map + AI_DESIGN_SCORECARD.md | **G2 Design** — project Look source/approval, visual targets and frozen test expectations recorded; missing render marked UNVERIFIED |
+| **07 Implementation** | Build real routing, shared shell, **page-family-specific expression from visual target**, route-specific content and actions; CMS/API only if required | code, target-to-render correspondence, route and requirements coverage | Real routes/critical actions work; chosen Look does not collapse into generic page repetition |
+| **08 QA → targeted refinement → final scoring** | Test routes/flows, purpose, provenance, **visual-target match and cross-page design craft**, icons/arrow slop, responsive/accessibility/SEO; preserve strengths | WEBSITE_QA + target screenshots + W05 evidence + unchanged 100-point Scorecard + independent user visual review status | **G3 Acceptance** — required website/functional gates pass; agent self-score is not human design approval |
 | **09 Delivery/operation** | Report routes, verified functionality, missing decisions, licensing and release readiness; deploy only with explicit authorization | delivery and optional runbook | No false release or human sign-off |
 
 The prior six-step flow (brief, plan, build, first QA, refine, score) is now the **high-level grouping** of these website phases, not a reason to skip Site Architecture. Small sites use **one concise planning file**, not nine separate user-facing documents.
@@ -32,15 +32,17 @@ This is **not a separate user prompt, mandatory multi-agent review, website clon
 
 ## Default project records
 
-1. **docs/AI_DESIGN_PLAN.md:** a compact Site Blueprint containing Scope, content provenance, Sitemap, route table, Page Specs, cross-page flows, wireframe and Art Direction.
+1. **docs/AI_DESIGN_PLAN.md:** a compact Site Blueprint containing Scope, content provenance, Sitemap, route table, Page Specs, cross-page flows, **Look Contract/approval, Brand Kit and visual-target references**, and page-family Art Direction.
 2. **docs/AI_DESIGN_SCORECARD.md:** frozen common 20 scoring criteria and website hard gate targets, first/final ratings with evidence.
-3. **docs/WEBSITE_QA.md:** executed route/requirements matrix, journeys, screenshots and technical findings. For small sites this can be a scorecard section; larger sites can split per-page documents.
+3. **docs/WEBSITE_QA.md:** executed route/requirements matrix, journeys, screenshots, **target-to-final comparison, independent user acceptance state** and technical findings. For small sites this can be a scorecard section; larger sites can split per-page documents.
 
 Templates: [PROJECT_TEMPLATES.md](PROJECT_TEMPLATES.md). Page Specs and wireframes may be Markdown/text diagrams rather than mandatory Figma. Neither CMS, backend nor separate Agent team is automatically required.
 
 ## Non-compensatory scope and quality decisions
 
 **A site requiring independent routes cannot PASS with one long Home and anchors, nor can a full set of routes PASS if their page-purpose content is empty or incorrectly reassigned.** Before using the numeric Scorecard, apply the [Website Quality Gate](../validation/WEBSITE_QUALITY_GATE.md): route/page completeness, real browser navigation, distinct page roles, evidence and actual journeys. An excellent landing-page score cannot compensate for missing site structure.
+
+**Visual target requirement:** follow [Visual-first](../design/VISUAL_FIRST.md). The chosen Look becomes a recorded **project-level** contract, not an unauthorized global token rewrite. Use image-based Brand Kit/opening where available and appropriate; otherwise rendered HTML/CSS prototypes. In CLI one-prompt mode, `AGENT_PROPOSED` targets permit internal continuation; **do not claim human approval**. When the user **explicitly requests a staged checkpoint**, pause for actual approval; otherwise continue the normal single-request workflow. A Code Agent must not publish or deploy by default. A missing render must be disclosed, not treated as completed exploration.
 
 First visual QA is diagnostic. After at most two normal targeted repair passes, re-test affected routes, preserve existing informative visuals and reject regressions. Then apply the unchanged 100-point score (85 minimum, 70% per area, critical gates clear), plus mandatory site hard gates. **FAIL or PENDING cannot be re-labelled PASS by the agent.**
 
@@ -50,4 +52,4 @@ Major IA/brand/real content decisions remain accountable to the user/PO. The Cod
 
 A single Agent may perform UX planning, design, frontend and QA responsibilities in order; distinguish *functions* from distinct human approvals. Use [Role Boundaries](RESPONSIBILITIES.md) for human Accountable vs Agent Responsible decisions. A separate Critic is optional, receives the frozen Sitemap/Page Specs and screenshots first, and uses the **same rules**. Do not ask the user to coordinate routine agent steps.
 
-This methodology was expanded using the user-supplied Corporate Website Standard Procedure & R&R. See [Website References](../research/WEBSITE_REFERENCES.md).
+This methodology was expanded using the user-supplied Corporate Website Standard Procedure & R&R. The visual-first extension is independently derived from the owner's [DesignPrompts prompt analysis and visual design benchmark](../research/VISUAL_DESIGN_BENCHMARK.md), without copying its proprietary text/templates. See [Website References](../research/WEBSITE_REFERENCES.md).
