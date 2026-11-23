@@ -50,7 +50,15 @@ Example *conceptual mapping*:
 
 These tokens alone are **not** a complete shadcn/ui theme: required component tokens and contrast combinations must be defined and tested in the actual project before use.
 
-## 4. Project initialization policy
+## 4. Project-scoped Look selection (v3.2 extension; approved defaults unchanged)
+
+A customer may explicitly select or approve a visual Look. For **that project only**, record the selected [Look Contract](../design/LOOK_CONTRACT.md): exact tokens actually approved, rationale, rights and scope. Precedence: established project theme or explicit user selection > v1.0 defaults. **Without that authorization, this file's default remains binding.**
+
+A Look is broader than a palette: it defines relationships among type, imagery, spatial rhythm, section composition and controls. It does not authorize copying a third-party's source/template or inventing client logos. An Agent may recommend visual options within a future Builder, but cannot treat a recommendation as consent.
+
+A selected Look's font and type scale may differ from Wanted Sans/v1.0 **only when explicitly included in authorized project customization**. This is no global token revision.
+
+## 5. Project initialization policy
 
 1. Check whether the existing project has an established design system. If yes, preserve it; never silently replace colors.
 2. When starting a **new project** and no preference has already been stated, present two choices once: **“기본 템플릿(흰색 + Neutral) / 사용자 정의 컬러 팔레트 중 무엇을 사용할까요?”**. Do not ask again when the user has already made the choice.
@@ -59,10 +67,10 @@ These tokens alone are **not** a complete shadcn/ui theme: required component to
 5. Generate semantic tokens and verify readable foreground/background, border, hover, focus, disabled, and feedback states.
 6. Do not ask for each hex value individually when one representative brand color suffices to prepare a **proposal**; proposed derivative colors still require validation.
 
-## 5. Exceptions and release
+## 6. Exceptions and release
 
 An explicitly requested alternate theme changes concrete color values, **not** Governance prohibitions on decorative copy, effects, or fabricated content. Document the selection. No UI is release-ready until the repository Governance checklist is executed.
 
-## 6. Research provenance
+## 7. Research provenance
 
 Based on our prior comparisons of the *officially published* systems of GitHub Primer, IBM Carbon, and Vercel Geist, plus user decisions. The values listed as proposed are **our chosen defaults**, not measured averages of award-winning websites. Computed styles of awarded sites remain unmeasured.

@@ -75,6 +75,14 @@ Continue applying the Scorecard's total >=85, each category >=70%, and G01–G07
 
 A user may reject an otherwise numerically passing site. Record that as **user acceptance FAIL** for that requested deliverable; do not rewrite the frozen scores to fit the outcome. Treat it as a calibration datum.
 
+## v3.2 project Look and visual-target evidence (no W gate change)
+
+A customer-approved [Look Contract](../design/LOOK_CONTRACT.md) is the governing **project identity**; unchanged Design System v1.0 is the default if no alternate Look was authorized. A selected Look **does not** waive W01–W06, rights/accuracy, or accessibility.
+
+For **W05**, inspect the actually rendered [Visual-first](../design/VISUAL_FIRST.md) target and final Home + representative interior page. The target-to-implementation comparison is **diagnostic**: it catches loss of intended visual character, but similarity alone does not establish good design.
+
+For aesthetic craftsmanship not reducible to route/content validity, record [independent Visual Acceptance](VISUAL_ACCEPTANCE.md). Preserve historic W01–W06 meanings and numeric 100-point criteria; record a user's design rejection separately rather than silently rewriting legacy self-scores.
+
 ## 5. Website deployment / operations boundary
 
 Previews and locally implemented sites may complete the **implementation candidate** gate without claiming production deployment. If the user requested public launch, verify actual hosting URLs, 404 HTTP response, HTTPS, links, form/API delivery, content sign-off, robots/canonical/sitemap and rollback/operator ownership as applicable. Mark release readiness **PENDING** otherwise. Do not deploy by default.

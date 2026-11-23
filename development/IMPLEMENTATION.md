@@ -1,12 +1,12 @@
 # Website Implementation Method — Route Coverage and Real User Journeys
 
-**Website-first v3.0 proposal.** Apply [WORKFLOW](WORKFLOW.md), [Site Architecture](../design/SITE_ARCHITECTURE.md), [Site System](../design-system/SITE_SYSTEM.md), [Website Quality Gate](../validation/WEBSITE_QUALITY_GATE.md) and locked v1.0 tokens.
+**Website-first v3.0 proposal.** Apply [WORKFLOW](WORKFLOW.md), [Site Architecture](../design/SITE_ARCHITECTURE.md), [Site System](../design-system/SITE_SYSTEM.md), [Website Quality Gate](../validation/WEBSITE_QUALITY_GATE.md) and the approved project [Look Contract](../design/LOOK_CONTRACT.md) or unchanged v1.0 default tokens.
 
 ## 1. Before touching UI
 
 - Inspect actual project, global/local AGENTS instructions, existing stack, lockfile, routes, source files and deployment needs. Explicitly load external sibling ai_design instructions; record the pinned revision.
 - Classify static informational site, CMS site, service-connected site or web app **from real requirements**. Do not invent a backend, login, dynamic search or publishing system.
-- Freeze the Site Blueprint and project acceptance **before coding**: Sitemap, required routes, distinct Page Specs, authentic content/source status, key journeys, desktop/mobile wireframes and locked Design System.
+- Freeze the Site Blueprint and acceptance **before full UI implementation**: Sitemap, required routes, Page Specs, truthful content/source status, journeys, **approved Look/default**, rendered [Visual-first](../design/VISUAL_FIRST.md) opening and inner-page target (or explicit UNVERIFIED), and test expectations.
 - Treat content not supplied as **TBD in project notes**, not invented public facts. Explicit fictional samples are allowed only within stated brief; assets require user-authorized rights.
 - Choose one coherent routing/deployment strategy. The React + shadcn/ui + Tailwind direction remains where appropriate, but existing stack and justified native semantics are allowed. Framework boilerplate does not override approved tokens.
 
@@ -28,7 +28,7 @@ Implementation must not turn **page layout and route coverage into proxy measure
 
 1. Implement the **frozen route structure**, including a truthful not-found behavior. Use independent URLs, not fake hash routes or one Home with section anchors standing in for real pages.
 2. Build accessible global Header/Footer, route navigation, mobile menu, focus/skip, and breadcrumbs only for actual hierarchy.
-3. Build one representative page per **required page family** (Home, index/listing, detail, process/guide, task/contact, article when content exists). Reuse navigation and design tokens without cloning one Hero/three-cards composition.
+3. **Using the already-rendered visual target** and frozen Look/default, build one representative page per required family (Home, index, detail, guide, task/contact, article where justified). Reuse navigation and identity roles without cloning one Hero/three-cards composition.
 4. Populate route-specific content and truthful CTA destinations, accessible states, page titles and metadata. Separate verified sources from example data and pending production copy.
 5. Implement required cross-page workflows, including form validation/recovery and real API/CMS integration **only** if explicitly required.
 6. Confirm every required route is directly reachable, the browser refreshes into the same page, and unknown URLs do not silently look like Home.
@@ -52,7 +52,7 @@ For **every mandatory route**:
 - Applicable states, accurate content, navigation and no dead primary control.
 
 For **each distinct page family**:
-- Actual full-page 390/768/1440px screenshots, plus relevant breakpoint edges. Check semantic headings, typography, locked tokens, images, responsive layout, focus/keyboard, contrast and purposeful composition.
+- Actual full-page 390/768/1440px screenshots, plus relevant breakpoint edges. Compare to the **pre-built visual target**; check semantics, approved project Look/default tokens, imagery, responsive layout, focus/keyboard, contrast and purposeful composition.
 - One Home screenshot cannot stand in for the entire website.
 
 For **each mandatory end-to-end user journey**:
@@ -65,6 +65,6 @@ Use an **isolated local server/port** for browser checks to avoid testing a diff
 
 ## 5. Final delivery
 
-Output route coverage, requirement coverage, executed journeys, per-family screenshot references, correct build/functional/accessibility outcomes, the existing frozen Scorecard and website hard-gate results. Unverified evidence is PENDING. Human/brand/content approval is separate.
+Output route coverage, requirement coverage, executed journeys, per-family screenshot references, correct build/functional/accessibility outcomes, the existing frozen Scorecard and website hard-gate results, **visual-target match and independent human visual acceptance status**. Unverified evidence is PENDING. Human/brand/content approval is separate.
 
 **Do not commit, push or deploy unless the user asked for those actions.** Local implementation and demonstration are not an authorized production release.

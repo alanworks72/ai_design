@@ -3,7 +3,7 @@
 **Extension, not a re-theme.** The binding baseline remains **approved Design System v1.0**:
 [Tokens](TOKENS.md) · [Colors](COLORS.md) · [Typography](TYPOGRAPHY.md) · [Layout](LAYOUT.md) · [Components](COMPONENTS.md) · [Assets](ASSETS.md).
 
-No change to white `#FFFFFF` + Neutral defaults, Wanted Sans, type/spacing scales, card/radius policy or asset licensing. Existing user brand specifications still take priority as authorized. This document defines **how a multi-route website applies those decisions consistently**.
+No change to the white `#FFFFFF` + Neutral **defaults**, Wanted Sans **default**, type/spacing defaults, card/radius policy or asset licensing. Existing user branding takes priority. An **explicitly user-approved project Look** may supply scoped token overrides through [Look Contract](../design/LOOK_CONTRACT.md); this does not change v1.0 itself. This document defines **how a multi-route website applies those decisions consistently**.
 
 ## 1. Shared site elements (when justified)
 
@@ -36,7 +36,7 @@ These are patterns to consider, **not templates that must all exist**. Avoid mak
 
 ## 3. Site-wide typography/color/spacing consistency
 
-- Use the same semantic token roles across all routes. Inspect actual computed font/color on a representative page **and at least one page of each distinct family**.
+- Use the same **project-approved Look or v1.0 default** semantic roles across all routes. Inspect actual computed font/color on a representative page **and at least one page of each distinct family**.
 - Larger display headings may not silently invent a new global type scale; mobile reductions/content-driven exceptions must be recorded as exceptions, not rebranded defaults.
 - Functional panels/borders are allowed only when they communicate real boundaries/state/reading structure; apply deletion test to conspicuous extra wrappers per [Website-wide Anti-Slop](../governance/WEBSITE_ANTI_SLOP.md).
 - Design references, stock assets and source files must be properly licensed and not represented as real facilities, clients or inventory.

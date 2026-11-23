@@ -65,6 +65,22 @@ Before editing a normative document: identify its owner, compare against this ch
 
 Archive experiment-specific prompts and evidence under `validation/`; historical runs keep their original pinned governance versions. Neither a high build-test pass count nor zero decorative elements proves a finished design.
 
+## Owner direction recorded 2026-11-23 — ai_design remains a rulebook
+
+The owner ultimately intends to develop an **easy-to-use website-building product** in the workflow category of Ostra. **ai_design itself remains the separate Code Agent design/development/QA rulebook.** Do **not** add product architecture, a Builder UI, data persistence, backend, hosting, chat editing or publishing flows to this repository merely because a future product may consume its rules.
+
+The owner rates DesignPrompts' offered Looks as a **90+ visual benchmark** and supplied a Developer Tool × Draft Room Builder prompt. The intended improvement is concrete design decisions, rendered visual targets and whole-site consistency, not more Anti-Slop bans or a fixed third-party clone.
+
+**Approved precedence clarification (not a global theme change):**
+- For an uncustomized project, retain Design System v1.0: white/Neutral + Wanted Sans, existing type/spacing.
+- For a customer project with a **specifically selected/approved Look**, record a [project-scoped Look Contract](../design/LOOK_CONTRACT.md) and the approved overrides. This does **not** change v1.0 defaults for other projects.
+- An existing site retains its established brand unless the owner authorizes redesign.
+- The agent cannot infer approval for token changes from a screenshot or its taste.
+
+The historic 100-point Scorecard/85 threshold remains unchanged until a separately validated rubric revision. Historic Agent self-scores did not match user visual preference; record human acceptance independently per [Visual Acceptance](../validation/VISUAL_ACCEPTANCE.md). The 90+ visual aspiration is not a silent numerical Gate change.
+
+The visual-first rules preserve the existing one-prompt Code Agent experience; a staged design checkpoint is only for explicitly requested review. Actual publication is not part of this rulebook's implementation work.
+
 This charter is a decision record designed to prevent silent regression of the project's agreed goals.
 
 ## Website-first scope — proposed v3.0 extension

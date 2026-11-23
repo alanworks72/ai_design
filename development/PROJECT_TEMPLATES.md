@@ -17,9 +17,15 @@ These are **internal Code Agent artifacts**, not customer-facing pages. One user
 - Required facts and source status: VERIFIED / FICTIONAL_SAMPLE / TBD
 - Content adequacy: what business information is available; what is missing; what cannot be claimed:
 - Corporate prototype disclaimer: development notes, not invented enterprise proof in public UI
-- Locked Design System: existing theme or approved white/Neutral, Wanted Sans, spacing
+- Locked Design System: existing theme / **explicitly approved project Look Contract** / approved v1.0 white-Neutral + Wanted Sans default (record which applies)
 - Technology and actual installed versions (when known):
 - Image policy and rights decision (user choice or pending):
+- Look source/status: existing brand / approved Look / unchanged v1.0 DEFAULT / PROPOSED / PENDING:
+- Approved project token overrides, if any (background, type, rhythm, media, controls):
+- Visual premise and real content-derived focal point:
+- Brand Kit, opening and representative inner-page visual target references (actual 1440/390 captures):
+- Visual target status: AGENT_PROPOSED / APPROVED_BY_USER / VISUAL_TARGET_UNVERIFIED:
+- Visual target's alignment, typography/media hierarchy, density and mobile recomposition:
 
 ## Reference findings (pre-IA, brief and grounded)
 - Reference 1: official URL, inspected date, observed Home/Company/offering content roles:
@@ -58,8 +64,8 @@ These are **internal Code Agent artifacts**, not customer-facing pages. One user
 
 ## Shared UX / Art Direction
 - Header/nav/footer, active state, breadcrumb rules:
-- Page family composition matrix: content purpose, information density, meaningful media, Home/Company/Index/Detail/Process/Task differentiation as required
-- Approved token/visual assets usage, factual constraints:
+- Page family composition matrix: content purpose, information density, meaningful media, Home/Company/Index/Detail/Process/Task differentiation as required; maintain selected Look without repeating identical sections
+- Approved project Look/default token and assets usage, factual constraints and target revision:
 - Responsive 390/768/1440 design approach:
 - Preserve / Change / Avoid if revising an existing site:
 
@@ -103,6 +109,8 @@ Final score **PASS** requires clear W gates **and** the original 85/100, 70%-per
 - Real 390/768/1440 screenshots **per distinct page family** + breakpoint checks
 - 404/unknown route behavior and actual HTTP semantics where relevant
 - Cross-page style/typography, imagery rights and content provenance
+- **Visual target-to-final inspection**: screenshots vs frozen opening and representative inner page (alignment, typography, meaningful media, rhythm, mobile); TARGET_MATCHED / PARTIAL / UNVERIFIED; preserve strengths when revising
+- **User visual acceptance**: human score range or UNRATED, YES / NO / AFTER_CHANGES / NOT_ASKED; independent of historic self-score
 - **Content-versus-Page Spec inspection**: Home actually describes enterprise offer; Company explains actual business/service model; each Detail adds decision-useful information; Process alone owns buyer prep
 - Reference-grounded review: cite which industry reference patterns were applied, not how closely the UI was copied; note observed content gaps
 - Accessibility (axe plus manual), SEO/metadata, performance/security by project scope

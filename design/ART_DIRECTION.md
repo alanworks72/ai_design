@@ -4,7 +4,7 @@ Status: **Active** under Governance v2.1 and [Project Charter](../governance/PRO
 
 ## Responsibility
 
-Art Direction chooses **what to emphasize and how to arrange it**, not the project's approved color palette, font family, type scale or spacing tokens. The job is to generate an informative, professionally finished layout while respecting existing customer branding or the v1.0 Design System.
+Art Direction chooses **what to emphasize and how to arrange it**. It cannot independently replace the project's approved palette, font, type scale or spacing; a **user-selected, project-scoped Look** may explicitly authorize different values and becomes the approved identity for that one project. The job is to generate an informative, professionally finished layout while respecting existing customer branding or the v1.0 Design System.
 
 ### Quick design plan (normal workflow)
 
@@ -14,7 +14,7 @@ Art Direction chooses **what to emphasize and how to arrange it**, not the proje
 4. Choose a coherent **composition**: text/image balance, content width, hero proportion, section rhythm and visual hierarchy using approved tokens.
 5. If imagery materially helps and user preference is missing, ask the [one image question](../design-system/ASSETS.md), then use the chosen sourcing policy.
 
-**One well-supported direction is sufficient** for normal requests. Compare two directions only if there is a material ambiguity, the user asks for alternatives, or visual QA reveals a substantive concept problem. Do not substitute two written paragraphs for actually good design.
+**One well-supported direction is sufficient** for normal requests. Compare two directions only if there is a material ambiguity, the user asks for alternatives, or visual QA reveals a substantive concept problem. Do not substitute two written paragraphs for actually good design. **Either way, render a concrete opening and representative internal-page target before building every route**, per [Visual-first](VISUAL_FIRST.md).
 
 ## Pre-implementation design plan (required)
 
@@ -24,7 +24,7 @@ Before UI implementation, write the compact project-side [DESIGN_PLAN template](
 - Locked user-selected colors, fonts and layout tokens; known image rights/choices.
 - Project risks: misleading imagery, repeated copy, purposeless Hero accents, weak functional feedback or visually empty sections.
 
-**The plan does not invent palette/font exceptions.** Its corresponding checklist must be frozen **before** creating UI source. A new user-approved requirement may be recorded as a new plan revision; an agent may not silently rewrite prior expectations after viewing its output.
+**The plan does not invent palette/font exceptions.** An explicitly approved project Look may supply recorded different tokens; never silently alter v1.0 default for unrelated sites. Its corresponding checklist must be frozen **before** creating UI source. A new user-approved requirement may be recorded as a new plan revision; an agent may not silently rewrite prior expectations after viewing its output.
 
 ## Corporate website composition — business meaning before decoration
 
@@ -60,7 +60,7 @@ The first screenshot review must inspect **representative page families**, not o
 - Responsive image crops/proportions, content-specific use of whitespace, relative visual emphasis and credible layout variation.
 - Informative imagery, functional panels/dividers, real workflow numbers, meaningful hierarchy.
 
-Do not conflate a creative **visual composition** with unfamiliar **navigation or form behavior**. Do not alter approved Neutral/white colors or Wanted Sans merely to make the output appear distinctive; a site can be visually excellent within them.
+Do not conflate a creative **visual composition** with unfamiliar **navigation or form behavior**. Use [Project Look Contract](LOOK_CONTRACT.md) for approved style variation. The goal is visually distinctive composition, not a clone of any reference site or the mere absence of Slop. Do not alter approved Neutral/white colors or Wanted Sans merely to make the output appear distinctive; a site can be visually excellent within them.
 
 ## Anti-pattern checks
 
@@ -71,6 +71,12 @@ Do not conflate a creative **visual composition** with unfamiliar **navigation o
 - Disproportionately empty or uniform sections when the task requires visual recognition.
 
 These are **review prompts**, not categorical bans. Decide from actual content and screen evidence.
+
+## Visual target and icon/art-direction discipline (v3.2 extension)
+
+Before full UI implementation, produce a compact Brand Kit and actually render (not just describe) a high-fidelity opening and one representative internal page. Define first-screen subject, shared alignment edges, text/media proportions, whitespace purpose and mobile rearrangement. Compare final screenshots to those targets. The target is AGENT_PROPOSED in one-shot CLI mode unless a person actually approves it.
+
+Treat icons, arrows, metadata labels and decorative borders in context. An icon can communicate product semantics or a coherent visual vocabulary; a generic arrow following every link because of an AI UI recipe is suspect. Removing all icons/imagery is not a design improvement if it erases meaningful character. See [Visual-first](VISUAL_FIRST.md) and [Visual Acceptance](../validation/VISUAL_ACCEPTANCE.md).
 
 ## Revision contract
 

@@ -2,6 +2,14 @@
 
 Applies with [Anti-Slop Governance v2.1](../governance/ANTI_SLOP.md), [Art Direction](../design/ART_DIRECTION.md), [Development Workflow](../development/WORKFLOW.md) and the **frozen 100-point [SCORECARD](SCORECARD.md)**.
 
+## Visual-first target comparison (v3.2 extension)
+
+Use the project's [Look Contract](../design/LOOK_CONTRACT.md) and [Visual-first Method](../design/VISUAL_FIRST.md). Before final UI implementation, retain an **actually rendered** opening and representative inner-page target at 1440 and 390 where tools allow. Compare final screens and report TARGET_MATCHED, PARTIAL or UNVERIFIED. Similarity to a flawed reference is **not** proof of design quality.
+
+For high-salience icons, arrows, eyebrow labels and framing: ask if they communicate navigation, state, hierarchy, subject or a coherent approved visual language. Repeated arrows on unrelated internal links and mixed-weight decorative symbols are suspect. Do not forbid all icons/borders or remove useful media to increase Anti-Slop score.
+
+Record [independent human visual acceptance](VISUAL_ACCEPTANCE.md) apart from the fixed Scorecard; the owner's A/B ratings (70–75 vs 82–84) demonstrate why a self-reported 95 is not design approval.
+
 ## Why this review is necessary
 
 A Code Agent may receive the right rules, implement a grey Hero callout with an unnecessary black accent line, view the screenshot and still claim “Anti-Slop PASS: no fake metrics and no repeated cards.” That **does not** verify whether the callout border itself has a purpose.
